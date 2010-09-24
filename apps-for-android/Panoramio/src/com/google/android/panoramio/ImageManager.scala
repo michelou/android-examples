@@ -31,10 +31,7 @@ import android.util.Log
 import scala.collection.mutable.ListBuffer
 import scala.ref.WeakReference
 
-import java.io.BufferedReader
-import java.io.IOException
-import java.io.InputStream
-import java.io.InputStreamReader
+import java.io.{BufferedReader, IOException, InputStream, InputStreamReader}
 import java.net.URI
 
 /**
@@ -259,7 +256,7 @@ object ImageManager {
    * Key for an Intent extra. The value is an item to display
    */
   final val PANORAMIO_ITEM_EXTRA = "item"
-    
+
   final def getInstance(c: Context): ImageManager = {
     if (sInstance == null) {
       sInstance = new ImageManager(c.getApplicationContext)

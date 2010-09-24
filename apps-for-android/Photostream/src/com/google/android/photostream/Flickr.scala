@@ -520,7 +520,7 @@ object Flickr {
    * page index and the page count both depend on the number of photos per page.
    */
   class PhotoList {
-    private[photostream] var mPhotos: ListBuffer[Photo] = _
+    private[photostream] val mPhotos = new ListBuffer[Photo]()
     private[photostream] var mPage: Int = _
     private[photostream] var mPageCount: Int = _
 
@@ -981,7 +981,7 @@ class Flickr {
           photos.mPage = java.lang.Integer.parseInt(parser.getAttributeValue(null, RESPONSE_ATTR_PAGE))
           photos.mPageCount = java.lang.Integer.parseInt(parser.getAttributeValue(null,
                         RESPONSE_ATTR_PAGES));
-          photos.mPhotos = new ListBuffer[Photo]()
+          photos.mPhotos.clear()
         } else if (RESPONSE_TAG_PHOTO equals name) {
           val photo = new Photo()
           photo.mId = parser.getAttributeValue(null, RESPONSE_ATTR_ID)

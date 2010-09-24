@@ -52,7 +52,6 @@ extends SQLiteOpenHelper(mContext, UserDatabase.DATABASE_NAME, null,
 
   private def addUser(db: SQLiteDatabase, userName: String, realName: String,
                       nsid: String, icon: Int) {
-
     val values = new ContentValues()
     values.put(COLUMN_USERNAME, userName)
     values.put(COLUMN_REALNAME, realName)

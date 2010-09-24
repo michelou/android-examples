@@ -125,10 +125,10 @@ class ViewMap extends MapActivity {
                 Gravity.BOTTOM + Gravity.CENTER_HORIZONTAL)
     frame.addView(zoomControls, p)
   }*/
-    
+
   override protected def isRouteDisplayed: Boolean =
     false
-    
+
   /**
    * Custom overlay to display the Panoramio pushpin
    */

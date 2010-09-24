@@ -92,7 +92,7 @@ class ViewImage extends Activity {
         .setAlphabeticShortcut('V')
     true
   }
-    
+
   override def onOptionsItemSelected(item: MenuItem): Boolean = {
     item.getItemId match {
       case MENU_RADAR =>

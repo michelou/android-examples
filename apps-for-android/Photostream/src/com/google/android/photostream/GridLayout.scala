@@ -47,15 +47,14 @@ extends ViewGroup(context, attrs, defStyle) {
   private var mColumnWidth: Int = _
   private var mRowHeight: Int = _
 
+  // do not remove in favour of default parameters in primary constructor
   def this(context: Context, attrs: AttributeSet) =
     this(context, attrs, 0)
 
   def this(context: Context) =
     this(context, null, 0)
 
-  init()
-
-  private def init() {
+  { // init
     val a = context.obtainStyledAttributes(attrs, R.styleable.GridLayout, defStyle, 0)
 
     mNumColumns = a.getInt(R.styleable.GridLayout_numColumns, 1)

@@ -20,7 +20,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
     <!--  TranslateActivity -->
-    <string name="translate_activity">Translate</string>
+    <string name="translate_activity">Translate\n(Scala)</string>
     <string name="button_translate">Translate</string>
     <string name="button_swap">Swap languages</string>
     <string name="error">Unable to translate</string>

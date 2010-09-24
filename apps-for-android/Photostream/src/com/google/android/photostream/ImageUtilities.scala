@@ -82,7 +82,7 @@ object ImageUtilities {
     canvas.drawRect(x, y, x + bitmapWidth, y + bitmapHeight, sStrokePaint)
 
     decored
-   }
+  }
 
   /**
    * Scales the specified Bitmap to fit within the specified dimensions. After

@@ -9,7 +9,7 @@ examples licensed under the Apache License, Version 2.0 and provided by the
 following sources:
 
 
-   * Android SDK (http://developer.android.com/sdk/).
+   * Google's Android SDK (http://developer.android.com/sdk/).
 
      Please read the file README.txt in the "android-sdk" subdirectory for
      detailed instructions.
@@ -23,10 +23,16 @@ following sources:
      That book is authored by Frank Ableson, Charlie Collins and Robi Sen,
      and is published at Manning Publications Co. (ISBN 978-1-933988-67-2).
 
+
    * "apps-for-android" project (http://code.google.com/p/apps-for-android/)
 
      Please read the file README.txt in the "apps-for-android" subdirectory
      for detailed instructions.
+
+
+   * Hello, Android! book (http://www.pragprog.com/titles/eband/hello-android)
+
+     That book is published by The Pragmatic Bookshelf.
 
 
 For information about Scala as a language, you can visit the web site

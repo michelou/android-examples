@@ -33,10 +33,8 @@ object Languages {
    */
   object Language extends Enumeration {
 
-    case class Lang(shortName: String, longName: String, flag: Int)
+    case class Lang(shortName: String, longName: String, flag: Int = -1)
     extends Val(shortName) {
-      def this(shortName: String, longName: String) =
-        this(shortName, longName, -1)
       override def toString: String = longName
       def name: String = longName
       def configureButton(activity: Activity, button: Button) {
@@ -48,10 +46,6 @@ object Languages {
           button setCompoundDrawablePadding 5
         }
       }
-    }
-    object Lang {
-      def apply(shortName: String, longName: String) =
-        new Lang(shortName, longName)
     }
 
 //  val AFRIKAANS = Lang("af", "Afrikaans", R.drawable.af)

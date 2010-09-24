@@ -38,22 +38,22 @@ class Panoramio extends MapActivity with OnClickListener {
 
   override def onCreate(savedInstanceState: Bundle) {
     super.onCreate(savedInstanceState)
-        
+
     setContentView(R.layout.main)
-        
+
     mImageManager = ImageManager.getInstance(this)
-        
+
     val frame = findViewById(R.id.frame).asInstanceOf[FrameLayout]
     val goButton = findViewById(R.id.go).asInstanceOf[Button]
     goButton setOnClickListener this
-       
+
     // Add the map view to the frame
     mMapView = new MapView(this, "Panoramio_DummyAPIKey")
     frame.addView(mMapView, 
                 new FrameLayout.LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT))
 
     // Create an overlay to show current location
-    mMyLocationOverlay = new MyLocationOverlay(this, mMapView);
+    mMyLocationOverlay = new MyLocationOverlay(this, mMapView)
     mMyLocationOverlay runOnFirstFix new Runnable() {
       def run() {
         mMapView.getController animateTo mMyLocationOverlay.getMyLocation

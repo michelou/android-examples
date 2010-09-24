@@ -27,10 +27,10 @@ import android.widget.ListView
  * Activity which displays the list of images.
  */
 class ImageList extends ListActivity {
-    
-  var mImageManager: ImageManager = _
 
-  private var mObserver = new MyDataSetObserver()
+  private val mImageManager = ImageManager.getInstance(this)
+
+  private val mObserver = new MyDataSetObserver()
 
   /**
    * The zoom level the user chose when picking the search area
@@ -62,11 +62,11 @@ class ImageList extends ListActivity {
     override def onInvalidated() {
     }
   }
-    
+
   override def onCreate(savedInstanceState: Bundle) {
     requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS)
     super.onCreate(savedInstanceState)
-    mImageManager = ImageManager.getInstance(this)
+    //mImageManager = ImageManager.getInstance(this) // ==> private val
     val listView = getListView
     val inflater =
       getSystemService(Context.LAYOUT_INFLATER_SERVICE).asInstanceOf[LayoutInflater]
@@ -81,7 +81,7 @@ class ImageList extends ListActivity {
                               Window.PROGRESS_VISIBILITY_ON)
       mImageManager addObserver mObserver
     }
-        
+
     // Read the user's search area from the intent
     val i = getIntent
     mZoom = i.getIntExtra(ImageManager.ZOOM_EXTRA, Int.MinValue)
