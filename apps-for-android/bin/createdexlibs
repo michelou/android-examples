@@ -92,7 +92,7 @@ CONFIGS_DIR=$ROOT/configs
 
 TMP_DIR=$CONFIGS_DIR/.`basename "$0"`_tmp
 JVM_LIBS_DIR=$TMP_DIR/jvm-libs
-DEX_LIBS_DIR=$CONFIGS_DIR/emulator/framework
+DEX_LIBS_DIR=$CONFIGS_DIR/framework
 
 ##############################################################################
 ## Split the Scala library into five smaller pieces (original library is too

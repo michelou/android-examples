@@ -11,7 +11,7 @@ rem ##########################################################################
 if "%OS%"=="Windows_NT" @setlocal
 
 if "%ANDROID_SDK_HOME%"=="" (
-  ANDROID_SDK_HOME=%USERPROFILE%
+  set ANDROID_SDK_HOME=%USERPROFILE%
 )
 
 if not "%ANDROID_SDK_ROOT%"=="" goto emulator

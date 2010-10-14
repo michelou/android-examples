@@ -16,7 +16,7 @@ Directory structure
 
 The installation directory is organized as follows :
 
-    unlocking-android/
+    hello-android/
         bin/
             createramdisks
             createdexlibs
@@ -93,7 +93,7 @@ Ant build scripts
 Ant build scripts are present in two locations: at the root of the installation
 directory or in each project directory.
 
-The build script "unlocking-android/build.xml" features the following targets :
+The build script "android-sdk/build.xml" features the following targets :
 
 help:
      [echo] Android Ant Build. Available targets:
