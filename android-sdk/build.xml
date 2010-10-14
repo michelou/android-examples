@@ -9,6 +9,7 @@ Builds the Scala applications targeted to the Android platform.
 
     <property name="configs.ant.dir" value="${basedir}/configs/ant" />
     <property name="configs.proguard.dir" value="${basedir}/configs/proguard" />
+    <property name="configs.framework.dir" value="${basedir}/configs/framework" />
 
     <!-- Setting-up Ant contrib tasks -->
     <taskdef
@@ -116,13 +117,14 @@ Builds the Scala applications targeted to the Android platform.
         <echo message="Available advanced targets:"/>
         <echo message="   setenv:        Updates build files in project directories with"/>
         <echo message="                  Scala-specific data stored in the configs directory."/>
+        <echo message="   push-jars:     Installs Scala dex files onto emulator or device."/>
         <echo message="   check-maps:    Checks configuration settings of projects"/>
         <echo message="                  depending on the Google APIs."/>
         <echo message="   gentask:       Generates Ant library for external task 'invoked'." />
         <echo message="   genkey:        Generates keys for signing release apk files" />
     </target>
 
-    <target name="setenv">
+    <target name="init">
         <condition property="prop.file" value="${configs.ant.dir}/ant-windows.properties">
             <and>
                 <os family="windows" />
@@ -156,6 +158,9 @@ Builds the Scala applications targeted to the Android platform.
         <property name="os.key.alias" value="" />
         <property name="os.key.store.password" value="" />
         <property name="os.key.alias.password" value="" />
+    </target>
+
+    <target name="setenv" depends="init">
         <echo message="prop.file=${prop.file}" level="debug" />
         <if><isset property="prop.file" />
         <then>
@@ -204,6 +209,51 @@ Builds the Scala applications targeted to the Android platform.
         </else>
         </if>
     </target>
+
+    <target name="push-jars" depends="init">
+        <condition property="exe" value=".exe" else=""><os family="windows" /></condition>
+        <property name="android.tools.dir" location="${os.sdk.dir}/tools" />
+        <property name="adb" location="${android.tools.dir}/adb${exe}" />
+        <property name="adb.device.arg" value="" />
+        <adb.mkdir dir="/data/framework/" />
+        <push-jar-helper jar="scala-library.jar"/>
+        <push-jar-helper jar="scala-collection.jar"/>
+        <push-jar-helper jar="scala-immutable.jar"/>
+        <push-jar-helper jar="scala-mutable.jar"/>
+        <push-jar-helper jar="scala-actors.jar"/>
+    </target>
+
+    <macrodef name="push-jar-helper">
+        <attribute name="jar"/>
+        <sequential>
+            <echo>Installing @{jar} onto default emulator or device...</echo>
+            <adb.push
+                local="${configs.framework.dir}/@{jar}"
+                remote="/data/framework/" />
+        </sequential>
+    </macrodef>
+
+    <macrodef name="adb.push">
+        <attribute name="local" />
+        <attribute name="remote" />
+        <sequential>
+            <exec executable="${adb}" failonerror="true" outputproperty="adb.push.out">
+                <arg line="${adb.device.arg}" />
+                <arg line="push @{local} @{remote}" />
+            </exec>
+        </sequential>
+    </macrodef>
+
+    <macrodef name="adb.mkdir">
+        <attribute name="dir" />
+        <sequential>
+            <exec executable="${adb}" failonerror="true" outputproperty="adb.mkdir.out">
+                <arg line="${adb.device.arg}" />
+                <arg value="shell" />
+                <arg line="mkdir @{dir}" />
+            </exec>
+        </sequential>
+    </macrodef>
 
     <macrodef name="check.maps">
         <attribute name="dir" />

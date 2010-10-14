@@ -1,5 +1,5 @@
 /***
- * Excerpted from "Hello, Android! 2e",
+ * Excerpted from "Hello, Android! 3rd",
  * published by The Pragmatic Bookshelf.
  * Copyrights apply to this code. It may not be used to create training material, 
  * courses, books, articles, and the like. Contact us if you are in doubt.
@@ -9,7 +9,7 @@
 package org.example.audio
 
 import android.app.Activity
-import android.media.MediaPlayer
+import android.media.{AudioManager, MediaPlayer}
 import android.os.Bundle
 import android.view.KeyEvent
 
@@ -19,6 +19,7 @@ class Audio extends Activity {
   override def onCreate(savedInstanceState: Bundle) {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.main)
+    setVolumeControlStream(AudioManager.STREAM_MUSIC)
   }
 
   override def onKeyDown(keyCode: Int, event: KeyEvent): Boolean = {

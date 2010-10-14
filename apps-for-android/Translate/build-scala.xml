@@ -63,12 +63,12 @@
             message="Checking if Scala libraries are installed on emulator or device..." />
         <exec executable="${adb}" failonerror="false" outputproperty="adb.out">
             <arg line="${adb.device.arg}" />
-            <arg line="shell /bin/ls -s /data/framework/scala-*.jar" />
+            <arg line="shell echo '$BOOTCLASSPATH'" />
         </exec>
         <condition property="framework.isavailable">
             <contains string="${adb.out}" substring="/data/framework/scala-" />
         </condition>
-        <echo message="${adb.out}" taskname="adb" />
+        <echo message="BOOTCLASSPATH=${adb.out}" taskname="adb" />
     </target>
 
     <target name="-shrink-config"
