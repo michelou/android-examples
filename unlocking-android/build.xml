@@ -211,6 +211,16 @@ Builds the Scala applications targeted to the Android platform.
     </target>
 
     <target name="push-jars" depends="init">
+        <fail message=".
+            ${line.separator}No Scala .dex files were found in directory configs/framework/
+            ${line.separator}   You can either generate them using the bin/createdexlibs shell script or
+            ${line.separator}   copy them from the separately available scala-framework.zip archive.">
+            <condition><not>
+                <available file="${configs.framework.dir}/scala-library.jar"/>
+            </not></condition>
+        </fail>
+        <property file="${configs.framework.dir}/library.properties" />
+        <echo message="Using Scala version ${version.number}" />
         <condition property="exe" value=".exe" else=""><os family="windows" /></condition>
         <property name="android.tools.dir" location="${os.sdk.dir}/tools" />
         <property name="adb" location="${android.tools.dir}/adb${exe}" />

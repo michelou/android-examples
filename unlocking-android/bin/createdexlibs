@@ -93,6 +93,7 @@ CONFIGS_DIR=$ROOT/configs
 TMP_DIR=$CONFIGS_DIR/.`basename "$0"`_tmp
 JVM_LIBS_DIR=$TMP_DIR/jvm-libs
 DEX_LIBS_DIR=$CONFIGS_DIR/framework
+DEX_LIBS_DIR2=configs/framework
 
 ##############################################################################
 ## Split the Scala library into five smaller pieces (original library is too
@@ -136,5 +137,5 @@ cp $JVM_LIBS_DIR/scala-library/library.properties $DEX_LIBS_DIR/
 
 rm -rf $TMP_DIR > /dev/null
 
-echo "Dex files were successfully generated ($DEX_LIBS_DIR)"
+echo "Dex files were successfully generated ($DEX_LIBS_DIR2)"
 

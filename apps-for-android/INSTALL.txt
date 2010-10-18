@@ -1,14 +1,14 @@
-================================================================================
+===============================================================================
                                 ANDROID EXAMPLES
                   How to build and run the Scala applications
                        targeted at the Android platform
-================================================================================
+===============================================================================
 
 
-This document presents the structure of the installation directory and describes
-the usage of the installed shell and Ant build scripts (ant.apache.org/) to
-build and execute the featured Scala applications on the Android emulator or
-device.
+This document presents the structure of the installation directory and
+shortly describes the usage of the installed shell and Ant build scripts
+(ant.apache.org/) to build and execute the featured Scala applications on
+the Android emulator or device.
 
 
 Directory structure
@@ -102,10 +102,10 @@ help:
      [echo]    compile:       Compiles project's .java files into .class files.
      [echo]    scala-compile: Compiles project's .scala files into .class files.
      [echo]    debug:         Builds the application and signs it with a debug key.
-     [echo]    release:       Builds the application. The generated apk file must be
-     [echo]                   signed before it is published.
-     [echo]    uninstall:     Uninstalls the application from a running emulator or
-     [echo]                   device.
+     [echo]    release:       Builds the application. The generated apk file
+     [echo]                   must be signed before it is published.
+     [echo]    uninstall:     Uninstalls the application from a running
+     [echo]                   emulator or device.
      [echo] Available advanced targets:
      [echo]    setenv:        Updates build files in project directories with
      [echo]                   Scala-specific data stored in the configs directory.
@@ -137,7 +137,7 @@ and focus our attention on the "scala-compile" target and the advanced targets
       environment settings of the Android emulator (or device).
 
 
-================================================================================
+===============================================================================
 
 
 Note about BusyBox

@@ -1,8 +1,8 @@
-================================================================================
+===============================================================================
                                 ANDROID EXAMPLES
                          Code examples written in Scala
                   and adapted from the "Unlocking Android" book
-================================================================================
+===============================================================================
 
 This document describes code examples written in Scala and adapted from the
 Java examples available together with the "Unlocking Android" book published
@@ -36,8 +36,8 @@ In order to build/run our Android examples we need to install the following
 free software distributions (tested versions and download sites are given in
 parenthesis) :
 
-1) Sun Java SDK 1.6 or newer (1.6.0_21   , www.sun.com/java/jdk/)
-2) Scala SDK 2.7.5 or newer  (2.8.1.RC2  , www.scala-lang.org/downloads/)
+1) Sun Java SDK 1.6 or newer (1.6.0_22   , www.sun.com/java/jdk/)
+2) Scala SDK 2.7.5 or newer  (2.8.1.RC3  , www.scala-lang.org/downloads/)
 3) Android SDK 1.5 or newer  (2.2        , developer.android.com/sdk/)
 4) Apache Ant 1.7.0 or newer (1.8.1      , ant.apache.org/)
 5) ProGuard 4.4 or newer     (4.5.1      , www.proguard.com/)
@@ -106,15 +106,15 @@ Then we move for instance to the "Snake" project directory and execute one of
 the following Ant targets :
 
    unlocking-android> cd BounceyBall
-   Snake> ant clean
-   Snake> ant scala-compile
-   Snake> ant debug
-   Snake> ant install
+   BounceyBall> ant clean
+   BounceyBall> ant scala-compile
+   BounceyBall> ant debug
+   BounceyBall> ant install
    (now let us play with our application on the emulator !)
-   Snake> ant uninstall
+   BounceyBall> ant uninstall
 
 
-================================================================================
+===============================================================================
 
 
 Note about ProGuard

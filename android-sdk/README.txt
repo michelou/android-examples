@@ -1,8 +1,8 @@
-================================================================================
+===============================================================================
                                 ANDROID EXAMPLES
                          Code examples written in Scala
                         and adapted from the Android SDK
-================================================================================
+===============================================================================
 
 This document describes code examples written in Scala and adapted from the
 Java examples available together with the Android SDK from Google Inc.
@@ -35,8 +35,8 @@ In order to build/run our Android examples we need to install the following
 free software distributions (tested versions and download sites are given in
 parenthesis) :
 
-1) Sun Java SDK 1.6 or newer (1.6.0_21   , www.sun.com/java/jdk/)
-2) Scala SDK 2.7.5 or newer  (2.8.0.final, www.scala-lang.org/downloads/)
+1) Sun Java SDK 1.6 or newer (1.6.0_22   , www.sun.com/java/jdk/)
+2) Scala SDK 2.7.5 or newer  (2.8.1.RC3  , www.scala-lang.org/downloads/)
 3) Android SDK 1.5 or newer  (2.2        , developer.android.com/sdk/)
 4) Apache Ant 1.7.0 or newer (1.8.1      , ant.apache.org/)
 5) ProGuard 4.4 or newer     (4.5.1      , www.proguard.com/)
@@ -113,15 +113,15 @@ the following Ant targets :
    Snake> ant uninstall
 
 
-================================================================================
+===============================================================================
 
 
 Note about ProGuard
 -------------------
 
-The main issue when building an Android application written in Scala is related
-to the code integration of the Scala standard library into the generated Android
-bytecode. Concretely, we have two choices :
+The main issue when building an Android application written in Scala is
+related to the code integration of the Scala standard library into the
+generated Android bytecode. Concretely, we have two choices :
 
 1) We bundle (or better to say -- see the note below --, we try to bundle)
    the full Scala library code (an external library) together with our Android

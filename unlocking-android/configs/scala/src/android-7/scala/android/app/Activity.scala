@@ -121,6 +121,9 @@ object Activity {
   /** @since API level 1 */
   final val BIND_DEBUG_UNBIND = Activity$.BIND_DEBUG_UNBIND
 
+  /** @since API level 8 */ /*
+  final val BIND_NOT_FOREGROUND = Activity$.BIND_NOT_FOREGROUND
+*/
   /** @since API level 1 */
   final val CLIPBOARD_SERVICE = Activity$.CLIPBOARD_SERVICE
 
@@ -133,17 +136,56 @@ object Activity {
   /** @since API level 1 */
   final val CONTEXT_INCLUDE_CODE = Activity$.CONTEXT_INCLUDE_CODE
 
+  /** @since API level 4 */
+  final val CONTEXT_RESTRICTED = Activity$.CONTEXT_RESTRICTED
+
+  /** @since API level 1 */
+  final val DEFAULT_KEYS_DIALER = Activity$.DEFAULT_KEYS_DIALER
+
+  /** @since API level 1 */
+  final val DEFAULT_KEYS_DISABLE = Activity$.DEFAULT_KEYS_DISABLE
+
+  /** @since API level 1 */
+  final val DEFAULT_KEYS_SEARCH_GLOBAL = Activity$.DEFAULT_KEYS_SEARCH_GLOBAL
+
+  /** @since API level 1 */
+  final val DEFAULT_KEYS_SEARCH_LOCAL = Activity$.DEFAULT_KEYS_SEARCH_LOCAL
+
   /** @since API level 1 */
   final val DEFAULT_KEYS_SHORTCUT = Activity$.DEFAULT_KEYS_SHORTCUT
 
   /** @since API level 1 */
   protected final val FOCUSED_STATE_SET = Activity$.FOCUSED_STATE_SET
 
+  /** @since API level 3 */
+  final val INPUT_METHOD_SERVICE = Activity$.INPUT_METHOD_SERVICE
+
+  /** @since API level 1 */
+  final val KEYGUARD_SERVICE = Activity$.KEYGUARD_SERVICE
+
+  /** @since API level 1 */
+  final val LAYOUT_INFLATER_SERVICE = Activity$.LAYOUT_INFLATER_SERVICE
+
+  /** @since API level 1 */
+  final val LOCATION_SERVICE = Activity$.LOCATION_SERVICE
+
   /** @since API level 1 */
   final val MODE_APPEND = Activity$.MODE_APPEND
 
   /** @since API level 1 */
   final val MODE_PRIVATE = Activity$.MODE_PRIVATE
+
+  /** @since API level 1 */
+  final val MODE_WORLD_READABLE = Activity$.MODE_WORLD_READABLE
+
+  /** @since API level 1 */
+  final val MODE_WORLD_WRITEABLE = Activity$.MODE_WORLD_WRITEABLE
+
+  /** @since API level 1 */
+  final val NOTIFICATION_SERVICE = Activity$.NOTIFICATION_SERVICE
+
+  /** @since API level 1 */
+  final val POWER_SERVICE = Activity$.POWER_SERVICE
 
   /** @since API level 1 */
   final val RESULT_CANCELED = Activity$.RESULT_CANCELED
@@ -153,5 +195,26 @@ object Activity {
 
   /** @since API level 1 */
   final val RESULT_OK = Activity$.RESULT_OK
+
+  /** @since API level 1 */
+  final val SEARCH_SERVICE = Activity$.SEARCH_SERVICE
+
+  /** @since API level 1 */
+  final val SENSOR_SERVICE = Activity$.SENSOR_SERVICE
+
+  /** @since API level 1 */
+  final val TELEPHONY_SERVICE = Activity$.TELEPHONY_SERVICE
+
+  /** @since API level 1 */
+  final val VIBRATOR_SERVICE = Activity$.VIBRATOR_SERVICE
+
+  /** @since API level 1 */
+  final val WALLPAPER_SERVICE = Activity$.WALLPAPER_SERVICE
+
+  /** @since API level 1 */
+  final val WIFI_SERVICE = Activity$.WIFI_SERVICE
+
+  /** @since API level 1 */
+  final val WINDOW_SERVICE = Activity$.WINDOW_SERVICE
 
 }

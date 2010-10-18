@@ -4,7 +4,7 @@
                       and targeted to the Android platform
 ================================================================================
 
-This document describes code examples written in Scala and adapted from Java
+This directory contains code examples written in Scala and adapted from Java
 examples licensed under the Apache License, Version 2.0 and provided by the
 following sources:
 
@@ -21,7 +21,7 @@ following sources:
      for detailed instructions.
 
      That book is authored by Frank Ableson, Charlie Collins and Robi Sen,
-     and is published at Manning Publications Co. (ISBN 978-1-933988-67-2).
+     and is published by Manning Publications Co. (ISBN 978-1-933988-67-2).
 
 
    * "apps-for-android" project (http://code.google.com/p/apps-for-android/)
@@ -32,7 +32,8 @@ following sources:
 
    * Hello, Android! book (http://www.pragprog.com/titles/eband/hello-android)
 
-     That book is published by The Pragmatic Bookshelf.
+     That book is authored by Ed Burnette and is published by The Pragmatic
+     Bookshelf.
 
 
 For information about Scala as a language, you can visit the web site
