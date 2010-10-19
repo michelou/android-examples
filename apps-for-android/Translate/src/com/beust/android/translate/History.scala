@@ -55,7 +55,7 @@ object History {
     val result = new ListBuffer[HistoryRecord]()
     var done = false
     var i = 0
-    val allKeys = asScalaMap(prefs.getAll)
+    val allKeys = mapAsScalaMap(prefs.getAll)
     for (key <- allKeys.keySet) {
       if (key startsWith HISTORY) {
         val value = allKeys(key).toString

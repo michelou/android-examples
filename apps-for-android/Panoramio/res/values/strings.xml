@@ -18,7 +18,7 @@
 -->
 <resources>
     <string name="go">Search Panoramio</string>
-    <string name="app_name">Panoramio</string>
+    <string name="app_name">Panoramio\n(Scala)</string>
 
     <string name="menu_radar">Radar</string>
     <string name="menu_map">Map</string>

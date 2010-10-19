@@ -17,7 +17,7 @@
 -->
 
 <resources>
-    <string name="application_name">Photostream</string>
+    <string name="application_name">Photostrea\n(Scala)</string>
     <string name="activity_create_shortcut">Flickr photos</string>
     <string name="activity_set_wallpaper">Flickr</string>
     <string name="activity_preferences">Settings</string>

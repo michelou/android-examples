@@ -63,7 +63,7 @@ class HistoryActivity extends ListActivity with OnItemClickListener {
     }
 
     import scala.collection.JavaConversions._
-    mAdapter = new SimpleAdapter(this, mListData map (data => asJavaMap(data)),
+    mAdapter = new SimpleAdapter(this, mListData map mapAsJavaMap,
                                  R.layout.history_record,
                                  COLUMN_NAMES, VIEW_IDS)
     getListView setAdapter mAdapter

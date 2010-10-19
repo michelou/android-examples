@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ ! Excerpted from "Hello, Android! 2e",
+ ! published by The Pragmatic Bookshelf.
+ ! Copyrights apply to this code. It may not be used to create training material, 
+ ! courses, books, articles, and the like. Contact us if you are in doubt.
+ ! We make no guarantees that this code is fit for any purpose. 
+ ! Visit http://www.pragmaticprogrammer.com/titles/eband3 for more book information.
+-->
+<RelativeLayout
+   xmlns:android="http://schemas.android.com/apk/res/android"
+   android:layout_width="fill_parent"
+   android:layout_height="fill_parent"
+   android:orientation="horizontal"
+   android:padding="10sp">
+   <TextView
+      android:id="@+id/rowid"
+      android:layout_width="wrap_content" 
+      android:layout_height="wrap_content" /> 
+   <TextView
+      android:id="@+id/rowidcolon"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text=": "
+      android:layout_toRightOf="@id/rowid" />
+   <TextView
+      android:id="@+id/time"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_toRightOf="@id/rowidcolon" />
+   <TextView
+      android:id="@+id/timecolon"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text=": "
+      android:layout_toRightOf="@id/time" />
+   <TextView
+      android:id="@+id/title"
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:ellipsize="end"
+      android:singleLine="true"
+      android:textStyle="italic"
+      android:layout_toRightOf="@id/timecolon" />
+</RelativeLayout>
