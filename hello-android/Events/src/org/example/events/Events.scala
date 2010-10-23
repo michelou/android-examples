@@ -8,13 +8,13 @@
 ***/
 package org.example.events
 
-import android.provider.BaseColumns._ID;
-import org.example.events.Constants._
 import android.app.ListActivity
 import android.content.ContentValues
 import android.database.Cursor
 import android.os.Bundle
 import android.widget.SimpleCursorAdapter
+
+import Constants._
 
 class Events extends ListActivity {
   import Events._  // companion object

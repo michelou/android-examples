@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ ! Excerpted from "Hello, Android! 2e",
+ ! published by The Pragmatic Bookshelf.
+ ! Copyrights apply to this code. It may not be used to create training material, 
+ ! courses, books, articles, and the like. Contact us if you are in doubt.
+ ! We make no guarantees that this code is fit for any purpose. 
+ ! Visit http://www.pragmaticprogrammer.com/titles/eband3 for more book information.
+-->
+<appwidget-provider
+        xmlns:android="http://schemas.android.com/apk/res/android"
+    android:minWidth="146dip"
+    android:minHeight="72dip"
+    android:updatePeriodMillis="1800000"
+    android:initialLayout="@layout/main"
+    />

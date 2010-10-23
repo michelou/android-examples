@@ -12,7 +12,9 @@ package org.example.events
 import android.net.Uri
 import android.provider.BaseColumns
 
-object Constants extends BaseColumns {
+object Constants {
+  final val _ID = BaseColumns._ID
+
   final val TABLE_NAME = "events"
 
   final val AUTHORITY = "org.example.events";

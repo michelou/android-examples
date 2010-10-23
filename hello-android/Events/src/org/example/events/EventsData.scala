@@ -8,11 +8,10 @@
 ***/
 package org.example.events
 
-import android.provider.BaseColumns._ID;
-import org.example.events.Constants._
 import android.content.Context
 import android.database.sqlite.{SQLiteDatabase, SQLiteOpenHelper}
 
+import Constants._
 import EventsData._  // companion object
 
 class EventsData(ctx: Context)

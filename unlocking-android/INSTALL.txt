@@ -41,10 +41,6 @@ The installation directory is organized as follows :
             proguard/
                 default-debug.pro
                 default-release.pro
-            scala/
-                build.properties
-                build.xml
-                src
         build.properties
         build.xml
         README.txt

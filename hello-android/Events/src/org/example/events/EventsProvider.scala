@@ -9,13 +9,13 @@
 
 package org.example.events
 
-import android.provider.BaseColumns._ID
-import org.example.events.Constants._
 import android.content.{ContentProvider, ContentUris, ContentValues, UriMatcher}
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.net.Uri
 import android.text.TextUtils
+
+import Constants._
 
 class EventsProvider extends ContentProvider {
   import EventsProvider._  // companion object
@@ -35,7 +35,7 @@ class EventsProvider extends ContentProvider {
                      selection0: String, selectionArgs: Array[String],
                      orderBy: String): Cursor = {
     val selection = if (uriMatcher.`match`(uri) == EVENTS_ID) {
-      val id = /*Long.parseLong(*/uri.getPathSegments.get(1).toLong
+      val id = uri.getPathSegments.get(1).toLong
       appendRowId(selection0, id)
     } else
       selection0
@@ -121,6 +121,7 @@ class EventsProvider extends ContentProvider {
      else "")
 
 }
+
 object EventsProvider {
   private final val EVENTS = 1
   private final val EVENTS_ID = 2
