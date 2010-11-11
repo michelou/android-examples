@@ -36,7 +36,7 @@ free software distributions (tested versions and download sites are given in
 parenthesis) :
 
 1) Sun Java SDK 1.6 or newer (1.6.0_22   , www.sun.com/java/jdk/)
-2) Scala SDK 2.7.5 or newer  (2.8.1.RC3  , www.scala-lang.org/downloads/)
+2) Scala SDK 2.7.5 or newer  (2.8.1.final, www.scala-lang.org/downloads/)
 3) Android SDK 1.5 or newer  (2.2        , developer.android.com/sdk/)
 4) Apache Ant 1.7.0 or newer (1.8.1      , ant.apache.org/)
 5) ProGuard 4.4 or newer     (4.5.1      , www.proguard.com/)
@@ -65,7 +65,7 @@ In particular:
 
   Unix:                                Windows:
      sdk.dir=/opt/android-sdk-linux_86    sdk.dir=c:/Progra~1/android-sdk-windows
-     scala.dir=/opt/scala                 scala.dir=c:/Progra~1/Scala
+     scala.dir=/opt/scala                 scala.dir=c:/Progra~1/scala
      proguard.dir=/opt/proguard           proguard.dir=c:/Progra~1/ProGuard
 
 * The "default.properties" file defines the default API level of an Android
