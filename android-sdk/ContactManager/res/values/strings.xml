@@ -19,7 +19,7 @@
     <string name="addContactButtonLabel">Add Contact</string>
     <string name="addContactTitle">Add Contact</string>
     <string name="allAccounts">All Accounts</string>
-    <string name="app_name">Contact Manager (Scala)</string>
+    <string name="app_name">Contact Manager\n(Scala)</string>
     <string name="contactCreationFailure">Contact creation failed, check logs.</string>
     <string name="contactEmailLabel">Contact Email</string>
     <string name="contactNameLabel">Contact Name</string>

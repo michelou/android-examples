@@ -46,6 +46,7 @@ Builds the Scala applications targeted to the Android platform.
     </target>
 
     <target name="clean" description="Removes output files created by other targets.">
+        <ant dir="TicTacToeLib" target="clean" inheritAll="false" />
         <ant.dirs target="clean" />
     </target>
 

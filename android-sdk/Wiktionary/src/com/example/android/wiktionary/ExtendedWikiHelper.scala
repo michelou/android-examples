@@ -147,8 +147,8 @@ object ExtendedWikiHelper { //extends SimpleWikiHelper {
      * resulting new string.
      */
     def apply(input: String): String = {
-      val m = mPattern.matcher(input)
-      m.replaceAll(replaceWith)
+      val m = mPattern matcher input
+      m replaceAll replaceWith
     }
 
   }

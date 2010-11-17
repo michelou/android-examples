@@ -190,6 +190,7 @@
                 <extra-parameters />
                 <arg line="${verbose.option}" />
                 <arg path="${dex.input}" />
+                <fileset dir="${external.libs.absolute.dir}" includes="*.jar" />
                 <path refid="android.libraries.jars" />
                 <external-libs />
             </apply>

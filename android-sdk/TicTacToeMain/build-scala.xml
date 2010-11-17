@@ -32,7 +32,7 @@
         <srcfiles dir="${resource.dir}" />
     </uptodate>
 
-    <target name="scala-compile" depends="compile"
+    <target name="scala-compile"
         description="Compiles project's .scala files into .class files"
         if="myapp.containsScala" unless="do.not.compile">
         <condition property="logging" value="verbose" else="none">
@@ -45,15 +45,14 @@
             message="Scala version ${scala.version.number} - http://scala-lang.org"
             level="info" taskname="scalac" />
         <scalac
-            includes="**/*.scala"
-            destdir="${out.classes.absolute.dir}"
+            srcdir="${source.dir}" includes="**/*.scala"
+            destdir="${out.classes.dir}"
             bootclasspathref="android.target.classpath"
             logging="${logging}" addparams="${scalac.addparams}">
-            <src path="${source.absolute.dir}" />
-            <src refid="android.libraries.src" />
             <classpath>
                 <pathelement location="${scala-library.jar}" />
-                <pathelement location="${out.classes.absolute.dir}" />
+                <pathelement location="${out.classes.dir}" />
+                <pathelement location="${lib.out.classes.dir}" />
                 <fileset dir="${external.libs.absolute.dir}" includes="*.jar" />
             </classpath>
         </scalac>
@@ -192,6 +191,7 @@
                 <extra-parameters />
                 <arg line="${verbose.option}" />
                 <arg path="${dex.input}" />
+                <fileset dir="${external.libs.absolute.dir}" includes="*.jar" />
                 <path refid="android.libraries.jars" />
                 <external-libs />
             </apply>

@@ -16,7 +16,8 @@
 
 package com.example.android.multires
 
-import android.app.Activity
+import scala.android.app.Activity
+
 import android.os.Bundle
 import android.view.View
 import android.widget.{Button, ImageView, TextView}
@@ -25,6 +26,10 @@ final class MultiRes extends Activity {
   import MultiRes._  // companion object
 
   private var mCurrentPhotoIndex = 0
+  private def incrAndGetIndex(): Int = {
+    mCurrentPhotoIndex = (mCurrentPhotoIndex + 1) % mPhotoCount
+    mCurrentPhotoIndex
+  }
 
   /** Called when the activity is first created. */
   override def onCreate(savedInstanceState: Bundle) {
@@ -34,12 +39,10 @@ final class MultiRes extends Activity {
     showPhoto(mCurrentPhotoIndex)
 
     // Handle clicks on the 'Next' button.
-    val nextButton = findViewById(R.id.next_button).asInstanceOf[Button]
-    nextButton setOnClickListener new View.OnClickListener() {
-      def onClick(v: View) {
-        mCurrentPhotoIndex = (mCurrentPhotoIndex + 1) % mPhotoCount
-        showPhoto(mCurrentPhotoIndex)
-      }
+    val nextButton: Button = findView(R.id.next_button)
+    nextButton setOnClickListener {
+      //mCurrentPhotoIndex = (mCurrentPhotoIndex + 1) % mPhotoCount
+      showPhoto(incrAndGetIndex()) //mCurrentPhotoIndex)
     }
   }
 
@@ -55,10 +58,10 @@ final class MultiRes extends Activity {
   }
 
   private def showPhoto(photoIndex: Int) {
-    val imageView = findViewById(R.id.image_view).asInstanceOf[ImageView]
+    val imageView: ImageView = findView(R.id.image_view)
     imageView setImageResource mPhotoIds(photoIndex)
 
-    val statusText = findViewById(R.id.status_text).asInstanceOf[TextView]
+    val statusText: TextView = findView(R.id.status_text)
     statusText setText
       String.format("%d/%d", (photoIndex + 1).asInstanceOf[AnyRef],
       mPhotoCount.asInstanceOf[AnyRef])

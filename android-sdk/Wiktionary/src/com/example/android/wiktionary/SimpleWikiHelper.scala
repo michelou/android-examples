@@ -23,8 +23,7 @@ import org.apache.http.impl.client.DefaultHttpClient
 import org.json.{JSONArray, JSONException, JSONObject}
 
 import android.content.Context
-import android.content.pm.PackageInfo
-import android.content.pm.PackageManager
+import android.content.pm.{PackageInfo, PackageManager}
 import android.content.pm.PackageManager.NameNotFoundException
 import android.net.Uri
 import android.util.Log
@@ -103,7 +102,6 @@ object SimpleWikiHelper {
       sUserAgent =
         String.format(context getString R.string.template_user_agent,
                       info.packageName, info.versionName)
-
     } catch {
       case e: NameNotFoundException =>
         Log.e(TAG, "Couldn't find package information in PackageManager", e)
@@ -168,7 +166,7 @@ object SimpleWikiHelper {
     request.setHeader("User-Agent", sUserAgent)
 
     try {
-      val response: HttpResponse = client.execute(request)
+      val response: HttpResponse = client execute request
 
       // Check if server response is valid
       val status = response.getStatusLine

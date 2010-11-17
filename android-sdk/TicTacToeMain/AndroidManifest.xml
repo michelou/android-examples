@@ -32,7 +32,6 @@
              copy it here. Eventually it should get merged automatically. -->
         <activity android:name="com.example.android.tictactoe.library.GameActivity" />
 
-
     </application>
     <uses-sdk android:minSdkVersion="8" />
 
