@@ -183,6 +183,9 @@
                  <available file="${myapp.jar}" />
                  <not><isset property="framework.isavailable" /></not>
             </and></condition>
+            <condition property="included-jars" value="*.jar" else="_"><and>
+                 <isset property="framework.isavailable" />
+            </and></condition>
             <echo>Converting compiled files and external libraries into ${intermediate.dex.file}...</echo>
             <apply executable="${dx}" failonerror="true" parallel="true">
                 <arg value="--dex" />
@@ -190,7 +193,7 @@
                 <extra-parameters />
                 <arg line="${verbose.option}" />
                 <arg path="${dex.input}" />
-                <fileset dir="${external.libs.absolute.dir}" includes="*.jar" />
+                <fileset dir="${external.libs.absolute.dir}" includes="${included-jars}" />
                 <path refid="android.libraries.jars" />
                 <external-libs />
             </apply>
