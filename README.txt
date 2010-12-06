@@ -21,7 +21,7 @@ following sources:
      for detailed instructions.
 
      That book is authored by Frank Ableson, Charlie Collins and Robi Sen,
-     and is published by Manning Publications Co. (ISBN 978-1-933988-67-2).
+     and is published by Manning Publications Co. (ISBN: 978-1-933988-67-2).
 
 
    * "apps-for-android" project (http://code.google.com/p/apps-for-android/)
@@ -32,8 +32,31 @@ following sources:
 
    * Hello, Android! book (http://www.pragprog.com/titles/eband/hello-android)
 
+     Please read the file README.txt in the "hello-android" subdirectory
+     for detailed instructions.
+
      That book is authored by Ed Burnette and is published by The Pragmatic
      Bookshelf.
+
+
+   * Teach Yourself Android Application Development in 24 Hours
+     (http://www.informit.com/title/9780321673350)
+
+     Please read the file README.txt in the "android-app-dev" subdirectory
+     for detailed instructions.
+
+     That book is authored by Lauren Darcey and Shane Conder and is published
+     by Sams (ISBN-13: 978-0-321-67335-0).
+
+
+   * The Busy Coder's Guide to Android Development
+     (http://www.commmonsware.com/Android/)
+
+     Please read the file README.txt in the "cw-android" subdirectory
+     for detailed instructions.
+
+     That book is authored by Mark L. Murphy and is published by
+     CommonsWare, LLC (ISBN: 978-0-9816780-0-9, 436 p.).
 
 
 For information about Scala as a language, you can visit the web site

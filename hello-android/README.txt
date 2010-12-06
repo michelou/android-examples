@@ -102,7 +102,7 @@ virtual device) :
 
    hello-android> emulator -no-boot-anim -no-jni -avd 2.2_128M_HVGA &
 
-Then we move for instance to the "Snake" project directory and execute one of
+Then we move for instance to the "Audio" project directory and execute one of
 the following Ant targets :
 
    hello-android> cd Audio

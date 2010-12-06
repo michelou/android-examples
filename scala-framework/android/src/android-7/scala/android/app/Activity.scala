@@ -1,6 +1,6 @@
 /*                     __                                               *\
 **     ________ ___   / /  ___     Scala Android                        **
-**    / __/ __// _ | / /  / _ |    (c) 2009-2010, LAMP/EPFL             **
+**    / __/ __// _ | / /  / _ |    (c) 2009-2011, LAMP/EPFL             **
 **  __\ \/ /__/ __ |/ /__/ __ |    http://scala-lang.org/               **
 ** /____/\___/_/ |_/____/_/ | |                                         **
 **                          |/                                          **
@@ -9,21 +9,21 @@
 
 package scala.android.app
 
-import android.view.View
-import android.widget.AdapterView
+import android.view.{View, ViewGroup}
+import android.widget.{AdapterView, Button, EditText, Spinner, TextView}
 import android.widget.AdapterView.OnItemSelectedListener
 import android.widget.CompoundButton
 import android.widget.CompoundButton.OnCheckedChangeListener
 
-/**
- * @author Stephane Micheloud
- * @version 1.0
- */
-class Activity extends android.app.Activity { // android.view.ContextThemeWrapper
+import scala.android.FindView
 
-  @inline
-  def findView[V <: android.view.View](id: Int): V =
-    super.findViewById(id).asInstanceOf[V]
+/**
+ * @author  Stephane Micheloud
+ * @version 1.1
+ */
+//class Activity extends android.view.ContextThemeWrapper {
+class Activity extends android.app.Activity with FindView[Activity] {
+  protected val source = this
 
   implicit def onClick$Action(action: (View) => Any) =
     new View.OnClickListener() {

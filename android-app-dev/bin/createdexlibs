@@ -1,0 +1,141 @@
+#!/bin/sh
+
+##############################################################################
+# Copyright 2009-2010, LAMP/EPFL
+#
+# This is free software; see the distribution for copying conditions.
+# There is NO warranty; not even for MERCHANTABILITY or FITNESS FOR A
+# PARTICULAR PURPOSE.
+##############################################################################
+
+if [ -z "$ANDROID_SDK_HOME" ] ; then
+    ANDROID_SDK_HOME=$HOME
+fi
+
+if [ -z "$ANDROID_SDK_ROOT" ] ; then
+    # guess the location of the Android SDK installation directory
+    if [ -x "/opt/android-sdk-mac_86/tools/emulator" ] ; then
+        ANDROID_SDK_ROOT="/opt/android-sdk-mac_86"
+    elif [ -x "/opt/android-sdk-linux_86/tools/emulator" ] ; then
+        ANDROID_SDK_ROOT="/opt/android-sdk-linux_86"
+    fi
+    if [ ! -d "$ANDROID_SDK_ROOT" ] ; then
+        echo "Error: environment variable ANDROID_SDK_ROOT is undefined. It should point to your installation directory."
+        exit 1
+    fi
+else
+    # resolve possible symbolic links
+    while [ -h "$ANDROID_SDK_ROOT" ] ; do
+        LOOKUP=`ls -ld "$ANDROID_SDK_ROOT"`
+        TARGET=`expr "$LOOKUP" : '.*-> \(.*\)$'`
+        if expr "${TARGET:-.}/" : '/.*/$' > /dev/null ; then
+            ANDROID_SDK_ROOT=${TARGET:-.}
+        else
+            ANDROID_SDK_ROOT=`dirname "$ANDROID_SDK_ROOT"`/${TARGET:-.}
+        fi
+    done
+fi
+
+# pick up the more recent version of the dx tool
+DX=""
+DX_LIST=`find $ANDROID_SDK_ROOT/platforms/ -name dx | sort -r`
+for i in $DX_LIST "" ; do
+    [ -z "$DX_LIST" ] && continue
+    if [ -x "$i" ] ; then
+        DX=$i; break
+    fi
+done
+if [ -z "$DX" ] ; then
+    echo "Error: dx tool $DX is unknown."
+    exit 1
+fi
+
+if [ -z "$SCALA_HOME" ] ; then
+    # guess the location of the Scala installation directory
+    if [ -f "/opt/scala/lib/scala-library.jar" ] ; then
+        SCALA_HOME="/opt/scala"
+    fi
+    if [ ! -d "$SCALA_HOME" ] ; then
+        echo "Error: environment variable SCALA_HOME is undefined. It should point to your installation directory."
+        exit 1
+    fi
+else
+    # resolve possible symbolic links
+    while [ -h "$SCALA_HOME" ] ; do
+        LOOKUP=`ls -ld "$SCALA_HOME"`
+        TARGET=`expr "$LOOKUP" : '.*-> \(.*\)$'`
+        if expr "${TARGET:-.}/" : '/.*/$' > /dev/null ; then
+            SCALA_HOME=${TARGET:-.}
+        else
+            SCALA_HOME=`dirname "$SCALA_HOME"`/${TARGET:-.}
+        fi
+    done
+fi
+SCALA_VERSION=`$SCALA_HOME/bin/scala -version | sed "s/\(.*\)version \(.*\) --.*/\2/"`
+echo "Using Scala $SCALA_VERSION in $SCALA_HOME"
+
+# find the root folder for this distribution
+SOURCE=$0;
+while [ -h "$SOURCE" ]; do
+    LOOKUP=`ls -ld "$SOURCE"`;
+    TARGET=`expr "$LOOKUP" : '.*-> \(.*\)$'`;
+    if expr "${TARGET:-.}/" : '/.*/$' > /dev/null; then
+        SOURCE=${TARGET:-.};
+    else
+        SOURCE=`dirname "$SOURCE"`/${TARGET:-.};
+    fi;
+done;
+ROOT=`dirname "$SOURCE"`/..
+ROOT=`cd "$ROOT" > /dev/null && pwd`
+
+CONFIGS_DIR=$ROOT/configs
+
+TMP_DIR=$CONFIGS_DIR/.`basename "$0"`_tmp
+JVM_LIBS_DIR=$TMP_DIR/jvm-libs
+DEX_LIBS_DIR=$CONFIGS_DIR/framework
+DEX_LIBS_DIR2=configs/framework
+
+##############################################################################
+## Split the Scala library into five smaller pieces (original library is too
+## large for the dx tool) and convert them into dex files.
+
+mkdir -p $JVM_LIBS_DIR/scala-library/scala \
+         $JVM_LIBS_DIR/scala-collection/scala \
+         $JVM_LIBS_DIR/scala-immutable/scala/collection \
+         $JVM_LIBS_DIR/scala-mutable/scala/collection \
+         $JVM_LIBS_DIR/scala-actors/scala
+( \
+  cd $JVM_LIBS_DIR/scala-library/ && \
+  echo "Generating scala-library.jar..." && \
+  ${JAR:=jar} xf $SCALA_HOME/lib/scala-library.jar && \
+  echo "Generating scala-collection.jar..." && \
+  cp library.properties $JVM_LIBS_DIR/scala-collection/ && \
+  cp -r META-INF $JVM_LIBS_DIR/scala-collection/ && \
+  cp -r scala/collection $JVM_LIBS_DIR/scala-collection/scala/ && \
+  echo "Generating scala-immutable.jar..." && \
+  cp library.properties $JVM_LIBS_DIR/scala-immutable/ && \
+  cp -r META-INF $JVM_LIBS_DIR/scala-immutable/ && \
+  cp -r scala/collection/immutable $JVM_LIBS_DIR/scala-immutable/scala/collection/ && \
+  echo "Generating scala-mutable.jar..." && \
+  cp library.properties $JVM_LIBS_DIR/scala-mutable/ && \
+  cp -r META-INF $JVM_LIBS_DIR/scala-immutable/ && \
+  cp -r scala/collection/mutable $JVM_LIBS_DIR/scala-mutable/scala/collection/ && \
+  echo "Generating scala-actors.jar..." && \
+  cp library.properties $JVM_LIBS_DIR/scala-actors/ && \
+  cp -r scala/actors $JVM_LIBS_DIR/scala-actors/scala/ && \
+  rm -rf $JVM_LIBS_DIR/scala-collection/scala/collection/immutable && \
+  rm -rf $JVM_LIBS_DIR/scala-collection/scala/collection/mutable && \
+  rm -rf scala/collection scala/actors \
+)
+
+for dir in "scala-library" "scala-collection" "scala-immutable" "scala-mutable" "scala-actors" ; do
+  echo "Converting $dir.jar into a dex file..."
+  ${JAR:=jar} cf $JVM_LIBS_DIR/${dir}.jar -C $JVM_LIBS_DIR/$dir .
+  $DX --dex --output=$DEX_LIBS_DIR/$dir.jar $JVM_LIBS_DIR/$dir.jar
+done
+cp $JVM_LIBS_DIR/scala-library/library.properties $DEX_LIBS_DIR/
+
+rm -rf $TMP_DIR > /dev/null
+
+echo "Dex files were successfully generated ($DEX_LIBS_DIR2)"
+

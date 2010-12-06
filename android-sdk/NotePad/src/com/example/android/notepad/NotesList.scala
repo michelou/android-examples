@@ -67,7 +67,7 @@ class NotesList extends ListActivity {
         
     // Perform a managed query. The Activity will handle closing and requerying the cursor
     // when needed.
-    val cursor = managedQuery(getIntent().getData(), PROJECTION, null, null,
+    val cursor = managedQuery(getIntent.getData, PROJECTION, null, null,
                               Notes.DEFAULT_SORT_ORDER)
 
     // Used to map notes entries from the database to views
@@ -89,7 +89,7 @@ class NotesList extends ListActivity {
     // overall list.  In a normal install, there are no additional
     // actions found here, but this allows other applications to extend
     // our menu with their own actions.
-    val intent = new Intent(null, getIntent().getData())
+    val intent = new Intent(null, getIntent.getData)
     intent addCategory Intent.CATEGORY_ALTERNATIVE
     menu.addIntentOptions(
       Menu.CATEGORY_ALTERNATIVE, 0, 0,

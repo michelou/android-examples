@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">BackupRestore\n(Scala)</string>
+
+    <string name="filling_text">Filling</string>
+
+    <string name="bacon_label">Bacon</string>
+    <string name="pastrami_label">Pastrami</string>
+    <string name="hummus_label">Hummus</string>
+
+    <string name="extras_text">Extras</string>
+    <string name="mayo_text">Mayo</string>
+    <string name="tomato_text">Tomato</string>
+</resources>

@@ -38,7 +38,7 @@ class EventsProvider extends ContentProvider {
       val id = uri.getPathSegments.get(1).toLong
       appendRowId(selection0, id)
     } else
-      selection0
+      selection0
     // Get the database and run the query
     val db = events.getReadableDatabase()
     val cursor = db.query(TABLE_NAME, projection, selection,

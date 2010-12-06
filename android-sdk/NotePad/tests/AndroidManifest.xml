@@ -15,7 +15,9 @@
 -->
 
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" 
-      package="com.example.android.notepad.tests">
+      package="com.example.android.notepad.tests"
+      android:versionCode="1"
+      android:versionName="1.0">
     
     <!-- We add an application tag here just so that we can indicate that
          this package needs to link against the android.test library,
@@ -24,9 +26,9 @@
         <uses-library android:name="android.test.runner" />
     </application>
 
-  <instrumentation android:name="android.test.InstrumentationTestRunner"
-      android:targetPackage="com.example.android.notepad"
-      android:label="NotePad sample tests">
-  </instrumentation>  
-  
+    <instrumentation android:name="android.test.InstrumentationTestRunner"
+        android:targetPackage="com.example.android.notepad"
+        android:label="NotePad sample tests">
+    </instrumentation>  
+    <uses-sdk android:targetSdkVersion="7" android:minSdkVersion="4" />
 </manifest>

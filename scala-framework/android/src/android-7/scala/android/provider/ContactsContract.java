@@ -1,6 +1,6 @@
 /*                     __                                               *\
 **     ________ ___   / /  ___     Scala Android                        **
-**    / __/ __// _ | / /  / _ |    (c) 2009-2010, LAMP/EPFL             **
+**    / __/ __// _ | / /  / _ |    (c) 2009-2011, LAMP/EPFL             **
 **  __\ \/ /__/ __ |/ /__/ __ |    http://scala-lang.org/               **
 ** /____/\___/_/ |_/____/_/ | |                                         **
 **                          |/                                          **
@@ -442,8 +442,25 @@ public final class ContactsContract {
         // forwarders to methods defined in the public class
         // android.provider.ContactsContract.Contacts
 
+        /* @since API level 5 */
         public static android.net.Uri getLookupUri(long contactId, String lookupKey) {
             return android.provider.ContactsContract.Contacts.getLookupUri(contactId, lookupKey);
+        }
+        /* @since API level 5 */
+        public static android.net.Uri getLookupUri(android.content.ContentResolver resolver, android.net.Uri contactUri) {
+            return android.provider.ContactsContract.Contacts.getLookupUri(resolver, contactUri);
+        }
+        /* @since API level 5 */
+        public static android.net.Uri lookupContact(android.content.ContentResolver resolver, android.net.Uri lookupUri) {
+            return android.provider.ContactsContract.Contacts.lookupContact(resolver, lookupUri);
+        }
+        /* @since API level 5 */
+        public static void markAsContacted(android.content.ContentResolver resolver, long contactId) {
+            android.provider.ContactsContract.Contacts.markAsContacted(resolver, contactId);
+        }
+        /* @since API level 5 */
+        public static java.io.InputStream openContactPhotoInputStream(android.content.ContentResolver cr, android.net.Uri contactUri) {
+            return android.provider.ContactsContract.Contacts.openContactPhotoInputStream(cr, contactUri);
         }
 
         // constants inherited from the public interface

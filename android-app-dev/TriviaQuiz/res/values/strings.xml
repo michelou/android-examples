@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string
+        name="hello">Hello World!</string>
+    <string
+        name="app_name">Been There, Done That!</string>
+    <string
+        name="splash">Splash Screen</string>
+    <string
+        name="scores">Scores Screen</string>
+    <string
+        name="help">Help Screen</string>
+    <string
+        name="app_logo_top">BEEN THERE</string>
+    <string
+        name="app_logo_bottom">DONE THAT!</string>
+    <string
+        name="app_version_info">Version 1.0.0\nCopyright © 2010 Mamlambo, Inc. All Rights Reserved.</string>
+    <string
+        name="menu">MAIN MENU</string>
+    <string
+        name="menu_item_settings">Settings</string>
+    <string
+        name="menu_item_play">Play Game</string>
+    <string
+        name="menu_item_scores">View Scores</string>
+    <string
+        name="menu_item_help">Help</string>
+    <string
+        name="all_scores">"All Scores"</string>
+    <string
+        name="friends_scores">"Scores of Friends"</string>
+    <string
+        name="no_scores">"No scores to show."</string>
+    <string
+        name="username">"Username"</string>
+    <string
+        name="rank">"Ranking"</string>
+    <string
+        name="score">"Score"</string>
+    <string
+        name="wait_msg">"Retrieving Scores..."</string>
+    <string
+        name="wait_title">"Loading..."</string>
+    <string
+        name="settings">Settings</string>
+    <string
+        name="settings_nickname">Nickname:</string>
+    <string
+        name="settings_email">Email:</string>
+    <string
+        name="settings_dob">Birth Date:</string>
+    <string
+        name="settings_dob_not_set">No Date Set</string>
+    <string
+        name="settings_button_dob">Pick Date</string>
+    <string
+        name="settings_button_pwd">Set Password</string>
+    <string
+        name="settings_gender">Gender:</string>
+    <string
+        name="settings_password">Password:</string>
+    <string
+        name="settings_password2">Password (again):</string>
+    <string
+        name="settings_favoriteplace">Favorite Place:</string>
+    <string
+        name="settings_button_favoriteplace">Pick a Place</string>
+    <string
+        name="settings_favoriteplace_not_set">No Favorite Place Set.</string>
+    <string
+        name="settings_favplace_coords">Coordinates:</string>
+    <string
+        name="settings_favplace_currentlocation"> (Current Location)</string>
+    <string
+        name="settings_button_favplace_map">Map It!</string>
+    <string
+        name="settings_pwd_set">Password Set</string>
+    <string
+        name="settings_pwd_not_set">No Password Set</string>
+    <string
+        name="settings_pwd_not_equal">Passwords do not match, please try again. </string>
+    <string
+        name="settings_pwd_equal">Passwords match.</string>
+    <string
+        name="gender_male">Male</string>
+    <string
+        name="gender_female">Female</string>
+    <string
+        name="gender_neutral">Prefer Not To Say</string>
+    <string
+        name="yes">Yes</string>
+    <string
+        name="no">No</string>
+    <string
+        name="no_questions">No more questions available. Try back later.</string>
+    <string
+        name="exit">Exit</string>
+    <string
+        name="settings_friend_email">Enter email address of friend:</string>
+    <string
+        name="settings_friend_email_label">Friends</string>
+    <string
+        name="settings_friend_email_tip">Add a new friend by email</string>
+    <string
+        name="settings_button_friend_email">Add Friend</string>
+</resources>

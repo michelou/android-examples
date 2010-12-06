@@ -167,11 +167,17 @@ Builds the Scala applications targeted to the Android platform.
         <then>
             <for list="${dirs}" param="dir"><sequential>
                 <if>
-                    <not><available file="@{dir}/local.properties"/></not>
+                    <not><available file="@{dir}/AndroidManifest.xml" /></not>
+                <then>
+                    <!-- do nothing (not a project directory) -->
+                </then>
+                <elseif>
+                    <not><available file="@{dir}/local.properties" /></not>
                 <then>
                     <echo message="sdk.dir=${os.sdk.dir}${line.separator}scala.dir=${os.scala.dir}${line.separator}proguard.dir=${os.proguard.dir}${line.separator}${line.separator}key.store=${os.key.store}${line.separator}key.alias=${os.key.alias}${line.separator}${line.separator}key.store.password=${os.key.store.password}${line.separator}key.alias.password=${os.key.alias.password}${line.separator}"
                           file="@{dir}/local.properties" />
                 </then>
+                </elseif>
                 <else>
                     <replaceproperty
                         name="sdk.dir"

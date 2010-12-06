@@ -52,7 +52,9 @@
             <classpath>
                 <pathelement location="${scala-library.jar}" />
                 <pathelement location="${out.classes.dir}" />
+                <pathelement location="${extensible.classpath}" />
                 <fileset dir="${external.libs.absolute.dir}" includes="*.jar" />
+                <fileset dir="${extensible.libs.classpath}" includes="*.jar" />
             </classpath>
         </scalac>
         <touch file="${out.dir}/classes.complete" verbose="no"/>
@@ -79,6 +81,7 @@
         <condition property="infix" value="-debug"><or>
              <equals arg1="${root.target}" arg2="debug" />
              <equals arg1="${root.target}" arg2="install" />
+             <equals arg1="${root.target}" arg2="run-tests" />
         </or></condition>
         <condition property="infix" value="-release"><or>
              <equals arg1="${root.target}" arg2="release" />

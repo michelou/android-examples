@@ -24,9 +24,8 @@
         <uses-library android:name="android.test.runner" />
     </application>
 
-  <instrumentation android:name="android.test.InstrumentationTestRunner"
-      android:targetPackage="com.example.android.lunarlander"
-      android:label="LunarLander sample tests">
-  </instrumentation>  
-  
+    <instrumentation android:name="android.test.InstrumentationTestRunner"
+        android:targetPackage="com.example.android.lunarlander"
+        android:label="LunarLander sample tests" /> 
+      <uses-sdk android:targetSdkVersion="7" android:minSdkVersion="4" />
 </manifest>

@@ -36,8 +36,9 @@ The installation directory is organized as follows :
                 gpl-2.0.txt
                 profile
             framework/
-                library.properties
-                scala-*.jar
+                [library.properties]
+                [scala-*.jar]
+                README.txt
             proguard/
                 default-debug.pro
                 default-release.pro

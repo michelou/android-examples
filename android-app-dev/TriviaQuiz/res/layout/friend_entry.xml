@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bkgrnd">
+    <TextView
+        android:id="@+id/TextView_Friend_Email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/help_text_size"
+        android:textStyle="bold"
+        android:text="@string/settings_friend_email"></TextView>
+    <EditText
+        android:id="@+id/EditText_Friend_Email"
+        android:layout_height="wrap_content"
+        android:maxLength="50"
+        android:layout_width="fill_parent"
+        android:maxLines="1"
+        android:inputType="text"></EditText>
+</LinearLayout>

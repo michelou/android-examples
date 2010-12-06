@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color
+        name="logo_color">#FFFF0F</color>
+    <color
+        name="version_color">#f0f0f0</color>
+    <color
+        name="version_bkgrd">#1a1a48</color>
+    <color
+        name="title_color">#f0f0f0</color>
+    <color
+        name="title_glow">#F00</color>
+    <color
+        name="menu_color">#FFFF0F</color>
+    <color
+        name="menu_glow">#F00</color>
+    <color
+        name="error_color">#F00</color>
+</resources>
