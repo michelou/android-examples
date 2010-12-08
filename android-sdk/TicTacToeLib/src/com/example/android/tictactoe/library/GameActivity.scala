@@ -18,7 +18,6 @@ package com.example.android.tictactoe.library
 
 import scala.util.Random
 
-import android.app.Activity
 import android.os.{Bundle, Handler, Message}
 import android.os.Handler.Callback
 import android.view.View
@@ -27,6 +26,8 @@ import android.widget.{Button, TextView}
 
 import com.example.android.tictactoe.library.GameView.ICellListener
 import com.example.android.tictactoe.library.GameView.State
+
+import scala.android.app.Activity
 
 class GameActivity extends Activity {
   import GameActivity._  // companion object
@@ -59,9 +60,9 @@ class GameActivity extends Activity {
      */
     setContentView(R.layout.lib_game)
 
-    mGameView = findViewById(R.id.game_view).asInstanceOf[GameView]
-    mInfoView = findViewById(R.id.info_turn).asInstanceOf[TextView]
-    mButtonNext = findViewById(R.id.next_turn).asInstanceOf[Button]
+    mGameView = findView(R.id.game_view)
+    mInfoView = findTextView(R.id.info_turn)
+    mButtonNext = findButton(R.id.next_turn)
 
     mGameView setFocusable true
     mGameView setFocusableInTouchMode true

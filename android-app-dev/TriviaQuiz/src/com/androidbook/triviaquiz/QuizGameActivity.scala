@@ -69,18 +69,14 @@ class QuizGameActivity extends Activity {
     // in the meantime, configure UI
     // Handle yes button
     val yesButton = findButton(R.id.Button_Yes)
-    yesButton setOnClickListener new View.OnClickListener() {
-      def onClick(v: View) {
-        handleAnswerAndShowNextQuestion(true)
-      }
+    yesButton setOnClickListener {
+      handleAnswerAndShowNextQuestion(true)
     }
 
     // Handle no button
     val noButton = findButton(R.id.Button_No)
-    noButton setOnClickListener new View.OnClickListener() {
-      def onClick(v: View) {
-        handleAnswerAndShowNextQuestion(false)
-      }
+    noButton setOnClickListener {
+      handleAnswerAndShowNextQuestion(false)
     }
 
     // Set up Text Switcher
@@ -115,16 +111,16 @@ class QuizGameActivity extends Activity {
       mQuestionImage setImageDrawable image
     } else {
       // Tell the user we don't have any new questions at this time
-      handleNoQuestions();
+      handleNoQuestions()
     }
   }
 
   override def onCreateOptionsMenu(menu: Menu): Boolean = {
     super.onCreateOptionsMenu(menu)
 
-    getMenuInflater().inflate(R.menu.gameoptions, menu)
-    menu.findItem(R.id.help_menu_item).setIntent(new Intent(this, classOf[QuizHelpActivity]))
-    menu.findItem(R.id.settings_menu_item).setIntent(new Intent(this, classOf[QuizSettingsActivity]))
+    getMenuInflater.inflate(R.menu.gameoptions, menu)
+    menu.findItem(R.id.help_menu_item) setIntent new Intent(this, classOf[QuizHelpActivity])
+    menu.findItem(R.id.settings_menu_item) setIntent new Intent(this, classOf[QuizSettingsActivity])
     true
   }
 
@@ -207,18 +203,16 @@ class QuizGameActivity extends Activity {
    * no new questions, IO failures, or parser failures.
    */
   private def handleNoQuestions() {
-    val questionTextSwitcher = findViewById(R.id.TextSwitcher_QuestionText).asInstanceOf[TextSwitcher]
+    val questionTextSwitcher = findTextSwitcher(R.id.TextSwitcher_QuestionText)
     questionTextSwitcher setText getResources.getText(R.string.no_questions)
     val questionImageSwitcher = findImageSwitcher(R.id.ImageSwitcher_QuestionImage)
     questionImageSwitcher setImageResource R.drawable.noquestion
 
     // Disable yes button
-    val yesButton = findButton(R.id.Button_Yes)
-    yesButton setEnabled false
+    findButton(R.id.Button_Yes) setEnabled false
 
     // Disable no button
-    val noButton = findButton(R.id.Button_No)
-    noButton setEnabled false
+    findButton(R.id.Button_No) setEnabled false
   }
 
   /**
@@ -339,7 +333,7 @@ class QuizGameActivity extends Activity {
 
       } catch {
         case e: Exception =>
-          Log.e(DEBUG_TAG, "Unexpected failure in XML downloading and parsing", e);
+          Log.e(DEBUG_TAG, "Unexpected failure in XML downloading and parsing", e)
       }
 
       result

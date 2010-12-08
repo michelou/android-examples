@@ -33,7 +33,7 @@ class QuizWidgetProvider extends AppWidgetProvider {
     // instance of this app widget if more than one is running. This widget
     // is not designed to be a multi-instance widget.
     val serviceIntent = new Intent(context, classOf[WidgetUpdateService])
-    context.stopService(serviceIntent);
+    context stopService serviceIntent
 
     super.onDeleted(context, appWidgetIds)
   }
@@ -83,7 +83,7 @@ object QuizWidgetProvider {
                * 
                * in = new BufferedInputStream(image.openStream(), IO_BUFFER_SIZE);
                * final ByteArrayOutputStream dataStream = new ByteArrayOutputStream();
-              * out = new BufferedOutputStream(dataStream, IO_BUFFER_SIZE);
+               * out = new BufferedOutputStream(dataStream, IO_BUFFER_SIZE);
                * copy(in, out); // implementation provided at the bottom of this file; uncomment to use out.flush();
                * 
                * final byte[] data = dataStream.toByteArray();
@@ -203,7 +203,11 @@ object QuizWidgetProvider {
      *             If any error occurs during the copy.
      */
     /*
-     * private static void copy(InputStream in, OutputStream out) throws IOException { byte[] b = new byte[IO_BUFFER_SIZE]; int read; while ((read = in.read(b)) != -1) { out.write(b, 0, read); } }
+     * private static void copy(InputStream in, OutputStream out) throws IOException {
+     *     byte[] b = new byte[IO_BUFFER_SIZE];
+     *     int read;
+     *     while ((read = in.read(b)) != -1) { out.write(b, 0, read); }
+     * }
      */
 
     class WidgetData(var nickname: String, var score: String, var avatarUrl: String)

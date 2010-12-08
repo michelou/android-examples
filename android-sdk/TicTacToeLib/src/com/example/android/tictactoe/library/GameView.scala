@@ -56,9 +56,9 @@ class GameView(context: Context, attrs: AttributeSet) extends View(context, attr
   private var mCurrentPlayer = State.UNKNOWN
   private var mWinner = State.EMPTY
 
-  private var mWinCol = -1;
-  private var mWinRow = -1;
-  private var mWinDiag = -1;
+  private var mWinCol = -1
+  private var mWinRow = -1
+  private var mWinDiag = -1
 
   private var mBlinkDisplayOff: Boolean = _
   private final var mBlinkRect = new Rect()
@@ -79,9 +79,9 @@ class GameView(context: Context, attrs: AttributeSet) extends View(context, attr
   mBmpPaint = new Paint(Paint.ANTI_ALIAS_FLAG)
 
   mLinePaint = new Paint()
-  mLinePaint.setColor(0xFFFFFFFF)
-  mLinePaint.setStrokeWidth(5)
-  mLinePaint.setStyle(Style.STROKE)
+  mLinePaint setColor 0xFFFFFFFF
+  mLinePaint setStrokeWidth 5
+  mLinePaint setStyle Style.STROKE
 
   mWinPaint = new Paint(Paint.ANTI_ALIAS_FLAG)
   mWinPaint setColor 0xFFFF0000
@@ -93,7 +93,7 @@ class GameView(context: Context, attrs: AttributeSet) extends View(context, attr
     // we'll use some random data to display the state.
     val rnd = new Random()
     for (i <- 0 until mData.length) {
-      mData(i) = State.fromInt(rnd.nextInt(3))
+      mData(i) = State.fromInt(rnd nextInt 3)
     }
   } else {
     for (i <- 0 until mData.length) {
@@ -204,8 +204,8 @@ class GameView(context: Context, attrs: AttributeSet) extends View(context, attr
 
   override protected def onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
     // Keep the view squared
-    val w = MeasureSpec.getSize(widthMeasureSpec)
-    val h = MeasureSpec.getSize(heightMeasureSpec)
+    val w = MeasureSpec getSize widthMeasureSpec
+    val h = MeasureSpec getSize heightMeasureSpec
     val d = if (w == 0) h else if (h == 0) w else if (w < h) w else h
     setMeasuredDimension(d, d)
   }
@@ -226,42 +226,41 @@ class GameView(context: Context, attrs: AttributeSet) extends View(context, attr
   }
 
   override def onTouchEvent(event: MotionEvent): Boolean = {
-    val action = event.getAction
+    event.getAction match {
+      case MotionEvent.ACTION_DOWN =>
+        true
+      case MotionEvent.ACTION_UP =>
+        val sxy = mSxy
+        val x = (event.getX.toInt - MARGIN) / sxy
+        val y = (event.getY.toInt - MARGIN) / sxy
 
-    if (action == MotionEvent.ACTION_DOWN) {
-      return true
+        if (isEnabled() && x >= 0 && x < 3 && y >= 0 & y < 3) {
+          val cell = x + 3 * y
 
-    } else if (action == MotionEvent.ACTION_UP) {
-      val sxy = mSxy
-      val x = (event.getX.toInt - MARGIN) / sxy
-      val y = (event.getY.toInt - MARGIN) / sxy
+          var state = if (cell == mSelectedCell) mSelectedValue else mData(cell)
+          state = if (state == State.EMPTY) mCurrentPlayer else State.EMPTY
 
-      if (isEnabled() && x >= 0 && x < 3 && y >= 0 & y < 3) {
-        val cell = x + 3 * y
+          stopBlink()
 
-        var state = if (cell == mSelectedCell) mSelectedValue else mData(cell)
-        state = if (state == State.EMPTY) mCurrentPlayer else State.EMPTY
+          mSelectedCell = cell
+          mSelectedValue = state
+          mBlinkDisplayOff = false
+          mBlinkRect.set(MARGIN + x * sxy, MARGIN + y * sxy,
+                         MARGIN + (x + 1) * sxy, MARGIN + (y + 1) * sxy)
 
-        stopBlink()
+          if (state != State.EMPTY) {
+            // Start the blinker
+            mHandler.sendEmptyMessageDelayed(MSG_BLINK, FPS_MS)
+          }
 
-        mSelectedCell = cell
-        mSelectedValue = state
-        mBlinkDisplayOff = false
-        mBlinkRect.set(MARGIN + x * sxy, MARGIN + y * sxy,
-                       MARGIN + (x + 1) * sxy, MARGIN + (y + 1) * sxy)
-
-        if (state != State.EMPTY) {
-          // Start the blinker
-          mHandler.sendEmptyMessageDelayed(MSG_BLINK, FPS_MS)
+          if (mCellListener != null) {
+            mCellListener.onCellSelected()
+          }
         }
-
-        if (mCellListener != null) {
-          mCellListener.onCellSelected()
-        }
-      }
-      true
-    } else
-      false
+        true
+      case _ =>
+        false
+    }
   }
 
   def stopBlink() {
@@ -287,11 +286,7 @@ class GameView(context: Context, attrs: AttributeSet) extends View(context, attr
 
     b.putBoolean("gv_en", isEnabled)
 
-    val data = new Array[Int](mData.length)
-    for (i <- 0 until data.length) {
-      data(i) = mData(i).id
-    }
-    b.putIntArray("gv_data", data)
+    b.putIntArray("gv_data", mData map (_.id))
 
     b.putInt("gv_sel_cell", mSelectedCell)
     b.putInt("gv_sel_val",  mSelectedValue.id)
@@ -316,14 +311,14 @@ class GameView(context: Context, attrs: AttributeSet) extends View(context, attr
     }
 
     val b = state.asInstanceOf[Bundle]
-    val superState = b.getParcelable("gv_super_state")
+    val superState = b getParcelable "gv_super_state"
 
     setEnabled(b.getBoolean("gv_en", true))
 
     val data = b.getIntArray("gv_data")
     if (data != null && data.length == mData.length) {
       for (i <- 0 until data.length) {
-        mData(i) = State.fromInt(data(i))
+        mData(i) = State fromInt data(i)
       }
     }
 
@@ -375,8 +370,8 @@ class GameView(context: Context, attrs: AttributeSet) extends View(context, attr
     var bmp = BitmapFactory.decodeResource(res, bmpResId, opts)
 
     if (bmp == null && isInEditMode) {
-      // BitmapFactory.decodeResource doesn't work from the rendering
-      // library in Eclipse's Graphical Layout Editor. Use this workaround instead.
+      // BitmapFactory.decodeResource doesn't work from the rendering library
+      // in Eclipse's Graphical Layout Editor. Use this workaround instead.
 
       val d = res getDrawable bmpResId
       val w = d.getIntrinsicWidth

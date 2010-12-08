@@ -48,11 +48,13 @@
             srcdir="${source.dir}" includes="**/*.scala"
             destdir="${out.classes.dir}"
             bootclasspathref="android.target.classpath"
-            logging="${logging}" addparams="${scalac.addparams}">
+            logging="${logging}" addparams="${scalac.addparams}"
+            classpath="${extensible.classpath}"
+            classpathref="android.libraries.jars">
+            <src path="${gen.absolute.dir}" />
+            <src refid="android.libraries.src" />
             <classpath>
                 <pathelement location="${scala-library.jar}" />
-                <pathelement location="${out.classes.dir}" />
-                <pathelement location="${extensible.classpath}" />
                 <fileset dir="${external.libs.absolute.dir}" includes="*.jar" />
                 <fileset dir="${extensible.libs.classpath}" includes="*.jar" />
             </classpath>
