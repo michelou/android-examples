@@ -158,6 +158,13 @@ Builds the Scala applications targeted to the Android platform.
         <property name="os.key.alias" value="" />
         <property name="os.key.store.password" value="" />
         <property name="os.key.alias.password" value="" />
+
+        <!-- location of platform tools has changed starting with version 2.3 -->
+        <property name="android.platform.tools.dir" location="${os.sdk.dir}/platform-tools" />
+        <property name="android.tools.dir" location="${os.sdk.dir}/tools" />
+        <condition property="pre2.3">
+            <not><available file="${android.platform.tools.dir}" type="dir" /></not>
+        </condition>
     </target>
 
     <target name="setenv" depends="init">
@@ -222,14 +229,18 @@ Builds the Scala applications targeted to the Android platform.
             ${line.separator}   You can either generate them using the bin/createdexlibs shell script or
             ${line.separator}   copy them from the separately available scala-framework.zip archive.">
             <condition><not>
-                <available file="${configs.framework.dir}/scala-library.jar"/>
+                <available file="${configs.framework.dir}/scala-library.jar" />
             </not></condition>
         </fail>
         <property file="${configs.framework.dir}/library.properties" />
         <echo message="Using Scala version ${version.number}" />
         <condition property="exe" value=".exe" else=""><os family="windows" /></condition>
-        <property name="android.tools.dir" location="${os.sdk.dir}/tools" />
-        <property name="adb" location="${android.tools.dir}/adb${exe}" />
+        <!-- location of adb tool has changed starting with version 2.3 -->
+        <condition property="platform.tools.dir"
+            value="${android.tools.dir}" else="${android.platform.tools.dir}">
+            <isset property="pre2.3" />
+        </condition>
+        <property name="adb" location="${platform.tools.dir}/adb${exe}" />
         <property name="adb.device.arg" value="" />
         <adb.mkdir dir="/data/framework/" />
         <push-jar-helper jar="scala-library.jar"/>
@@ -360,8 +371,12 @@ Builds the Scala applications targeted to the Android platform.
     <macrodef name="update.configs">
         <attribute name="dir" />
         <sequential>
+            <condition property="build-scala.xml"
+                value="build-scala-pre2.3.xml" else="build-scala.xml">
+                <isset property="pre2.3" />
+            </condition>
             <conditional.copy
-                file="${configs.ant.dir}/build-scala.xml"
+                file="${configs.ant.dir}/${build-scala.xml}"
                 tofile="@{dir}/build-scala.xml" />
             <conditional.copy
                 file="${configs.proguard.dir}/default-debug.pro"

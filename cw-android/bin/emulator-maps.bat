@@ -1,7 +1,7 @@
 @echo off
 
 rem ##########################################################################
-rem # Copyright 2009-2010, LAMP/EPFL
+rem # Copyright 2009-2011, LAMP/EPFL
 rem #
 rem # This is free software; see the distribution for copying conditions.
 rem # There is NO warranty; not even for MERCHANTABILITY or FITNESS FOR A
@@ -17,20 +17,20 @@ if "%ANDROID_SDK_HOME%"=="" (
 if not "%ANDROID_SDK_ROOT%"=="" goto emulator
 
 rem guess1
-if not exist "%SystemDrive%\android-sdk-win32\tools\emulator.exe" goto guess2
-set ANDROID_SDK_ROOT=c:\android-sdk-win32
+if not exist "%SystemDrive%\android-sdk-windows\tools\emulator.exe" goto guess2
+set ANDROID_SDK_ROOT=c:\android-sdk-windows
 goto emulator
 
 :guess2
-if not exist "%ProgramFiles%\android-sdk-win32\tools\emulator.exe" goto error1
-set ANDROID_SDK_ROOT=c:\Progra~1\android-sdk-win32
+if not exist "%ProgramFiles%\android-sdk-windows\tools\emulator.exe" goto error1
+set ANDROID_SDK_ROOT=c:\Progra~1\android-sdk-windows
 
 :emulator
 set _EMULATOR=%ANDROID_SDK_ROOT%\tools\emulator.exe
 if not exist "%_EMULATOR%" goto error2
 
 if "%ANDROID_AVD%"=="" (
-  set _AVD=2.2_128M_HVGA_Google_APIs
+  set _AVD=2.3_128M_HVGA_Google_APIs
 ) else (
   set _AVD=%ANDROID_AVD%
 )

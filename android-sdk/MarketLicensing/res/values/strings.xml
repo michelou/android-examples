@@ -1,4 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">MainActivity</string>
+    <string name="app_name">MainActivity\n(Scala)</string>
+    <string name="application_error">Error: %s</string>
+    <string name="allow">Allow</string>
+    <string name="dont_allow">Don\'t allow</string>
+    <string name="buy_button">Buy</string>
+    <string name="quit_button">Quit</string>
+    <string name="checking_license">Checking license</string>
+    <string name="unlicensed_dialog_title">Unlicensed application</string>
+    <string name="unlicensed_dialog_body">Unlicensed application</string>
 </resources>

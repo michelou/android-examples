@@ -4,10 +4,16 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     >
-<TextView  
+<TextView android:id="@+id/status_text"
     android:layout_width="fill_parent" 
     android:layout_height="wrap_content" 
     android:text="Hello World, MainActivity"
+    />
+<Button
+	android:id="@+id/check_license_button"
+    android:layout_width="wrap_content" 
+    android:layout_height="wrap_content"
+    android:text="Check License"
     />
 </LinearLayout>
 

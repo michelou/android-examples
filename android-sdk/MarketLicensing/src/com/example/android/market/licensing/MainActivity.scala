@@ -27,6 +27,7 @@ import android.widget.{Button, TextView}
 import com.android.vending.licensing.AESObfuscator
 import com.android.vending.licensing.LicenseChecker
 import com.android.vending.licensing.LicenseCheckerCallback
+import com.android.vending.licensing.LicenseCheckerCallback.ApplicationErrorCode
 import com.android.vending.licensing.ServerManagedPolicy
 
 import scala.android.app.Activity
@@ -87,7 +88,7 @@ class MainActivity extends Activity {
     doCheck()
   }
 
-  protected def onCreateDialog(id: Int): Dialog = {
+  override protected def onCreateDialog(id: Int): Dialog = {
     // We have only one dialog.
     new AlertDialog.Builder(this)
       .setTitle(R.string.unlicensed_dialog_title)

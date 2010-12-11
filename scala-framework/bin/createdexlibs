@@ -1,7 +1,7 @@
 #!/bin/sh
 
 ##############################################################################
-# Copyright 2009-2010, LAMP/EPFL
+# Copyright 2009-2011, LAMP/EPFL
 #
 # This is free software; see the distribution for copying conditions.
 # There is NO warranty; not even for MERCHANTABILITY or FITNESS FOR A
@@ -72,7 +72,6 @@ else
     done
 fi
 SCALA_VERSION=`$SCALA_HOME/bin/scala -version | sed "s/\(.*\)version \(.*\) --.*/\2/"`
-SCALA_VERSION=`echo "$SCALA_VERSION" | sed "s/\(.*\)-b.*/\1/"`
 echo "Using Scala $SCALA_VERSION in $SCALA_HOME"
 
 # find the root folder for this distribution
@@ -89,11 +88,12 @@ done;
 ROOT=`dirname "$SOURCE"`/..
 ROOT=`cd "$ROOT" > /dev/null && pwd`
 
-OUTPUT_DIR=$ROOT/framework
+CONFIGS_DIR=$ROOT/configs
 
-JVM_LIBS_DIR=$OUTPUT_DIR/.`basename "$0"`_tmp
-DEX_LIBS_DIR=$OUTPUT_DIR/scala-$SCALA_VERSION
-DEX_LIBS_DIR2=framework/scala-$SCALA_VERSION
+TMP_DIR=$CONFIGS_DIR/.`basename "$0"`_tmp
+JVM_LIBS_DIR=$TMP_DIR/jvm-libs
+DEX_LIBS_DIR=$CONFIGS_DIR/framework
+DEX_LIBS_DIR2=configs/framework
 
 ##############################################################################
 ## Split the Scala library into five smaller pieces (original library is too
@@ -103,8 +103,7 @@ mkdir -p $JVM_LIBS_DIR/scala-library/scala \
          $JVM_LIBS_DIR/scala-collection/scala \
          $JVM_LIBS_DIR/scala-immutable/scala/collection \
          $JVM_LIBS_DIR/scala-mutable/scala/collection \
-         $JVM_LIBS_DIR/scala-actors/scala \
-         $DEX_LIBS_DIR
+         $JVM_LIBS_DIR/scala-actors/scala
 ( \
   cd $JVM_LIBS_DIR/scala-library/ && \
   echo "Generating scala-library.jar..." && \
@@ -119,7 +118,7 @@ mkdir -p $JVM_LIBS_DIR/scala-library/scala \
   cp -r scala/collection/immutable $JVM_LIBS_DIR/scala-immutable/scala/collection/ && \
   echo "Generating scala-mutable.jar..." && \
   cp library.properties $JVM_LIBS_DIR/scala-mutable/ && \
-  cp -r META-INF $JVM_LIBS_DIR/scala-immutable/ && \
+  cp -r META-INF $JVM_LIBS_DIR/scala-mutable/ && \
   cp -r scala/collection/mutable $JVM_LIBS_DIR/scala-mutable/scala/collection/ && \
   echo "Generating scala-actors.jar..." && \
   cp library.properties $JVM_LIBS_DIR/scala-actors/ && \
@@ -136,7 +135,7 @@ for dir in "scala-library" "scala-collection" "scala-immutable" "scala-mutable" 
 done
 cp $JVM_LIBS_DIR/scala-library/library.properties $DEX_LIBS_DIR/
 
-rm -rf $JVM_LIBS_DIR > /dev/null
+rm -rf $TMP_DIR > /dev/null
 
 echo "Dex files were successfully generated ($DEX_LIBS_DIR2)"
 

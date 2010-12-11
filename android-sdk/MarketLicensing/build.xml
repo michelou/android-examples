@@ -79,7 +79,12 @@
                below to <setup import="false" />. 
              - customize to your needs.
     -->
+
     <setup />
+
+    <path id="project.libraries.src">
+        <pathelement location="${sdk.dir}/market_licensing/library/src" />
+    </path>
 
     <import file="build-scala.xml"/>
 
