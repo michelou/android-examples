@@ -20,29 +20,20 @@ package com.example.android.apis.app
 // class is in a sub-package.
 import com.example.android.apis.R
 
-import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
-import android.view.View.OnClickListener
-import android.widget.Button
+
+import scala.android.app.Activity
 
 class RemoteServiceController extends Activity {
 
   override protected def onCreate(savedInstanceState: Bundle) {
     super.onCreate(savedInstanceState)
 
-    setContentView(R.layout.remote_service_controller);
+    setContentView(R.layout.remote_service_controller)
 
     // Watch for button clicks.
-    var button = findViewById(R.id.start).asInstanceOf[Button]
-    button setOnClickListener mStartListener
-    button = findViewById(R.id.stop).asInstanceOf[Button]
-    button setOnClickListener mStopListener
-  }
-
-  private val mStartListener = new OnClickListener() {
-    def onClick(v: View) {
+    findButton(R.id.start) setOnClickListener {
       // Make sure the service is started.  It will continue running
       // until someone calls stopService().
       // We use an action code here, instead of explictly supplying
@@ -50,10 +41,7 @@ class RemoteServiceController extends Activity {
       startService(new Intent(
                     "com.example.android.apis.app.REMOTE_SERVICE"))
     }
-  }
-
-  private val mStopListener = new OnClickListener() {
-    def onClick(v: View) {
+    findViewById(R.id.stop) setOnClickListener {
       // Cancel a previous call to startService().  Note that the
       // service will not actually stop at this point if there are
       // still bound clients.
@@ -61,4 +49,5 @@ class RemoteServiceController extends Activity {
                     "com.example.android.apis.app.REMOTE_SERVICE"))
     }
   }
+
 }
