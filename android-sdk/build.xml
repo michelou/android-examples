@@ -21,7 +21,7 @@ Builds the Scala applications targeted to the Android platform.
     <pathconvert property="dirs" pathsep=",">
         <path>
             <dirset dir="${basedir}" includes="*"
-                    excludes=".metadata,bin,configs,MarketLicensing,TicTacToeLib" />
+                    excludes=".metadata,bin,configs,TicTacToeLib" />
         </path>
     </pathconvert>
 
@@ -242,8 +242,8 @@ Builds the Scala applications targeted to the Android platform.
             <isset property="pre2.3" />
         </condition>
         <property name="adb" location="${platform.tools.dir}/adb${exe}" />
-        <property name="adb.device.arg" value="-d" />
-        <adb.mkdir dir="/data/framework/" />
+        <property name="adb.device.arg" value="" />
+        <adb.mkdir dir="/sdcard/framework/" />
         <push-jar-helper jar="scala-library.jar"/>
         <push-jar-helper jar="scala-collection.jar"/>
         <push-jar-helper jar="scala-immutable.jar"/>
@@ -257,7 +257,7 @@ Builds the Scala applications targeted to the Android platform.
             <echo>Installing @{jar} onto default emulator or device...</echo>
             <adb.push
                 local="${configs.framework.dir}/@{jar}"
-                remote="/data/framework/" />
+                remote="/sdcard/framework/" />
         </sequential>
     </macrodef>
 
@@ -380,11 +380,11 @@ Builds the Scala applications targeted to the Android platform.
                 file="${configs.ant.dir}/${build-scala.xml}"
                 tofile="@{dir}/build-scala.xml" />
             <conditional.copy
-                file="${configs.proguard.dir}/default-debug.pro"
-                tofile="@{dir}/configs/default-debug.pro" />
+                file="${configs.proguard.dir}/default-debug.cfg"
+                tofile="@{dir}/configs/default-debug.cfg" />
             <conditional.copy
-                file="${configs.proguard.dir}/default-release.pro"
-                tofile="@{dir}/configs/default-release.pro" />
+                file="${configs.proguard.dir}/default-release.cfg"
+                tofile="@{dir}/configs/default-release.cfg" />
             <copy
                 file="${configs.ant.dir}/ant-invoked.jar"
                 tofile="@{dir}/configs/ant-invoked.jar" />

@@ -22,7 +22,7 @@ class Video extends Activity {
     val video = findViewById(R.id.video).asInstanceOf[VideoView]
 
     // Load and start the movie
-    video setVideoPath "/data/samplevideo.3gp"
+    video setVideoPath "/sdcard/samplevideo.3gp"
     video.start()
   }
 }

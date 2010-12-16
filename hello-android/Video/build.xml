@@ -69,7 +69,7 @@
     <!-- Converts this project's .class files into .dex files -->
     <target name="-dex" depends="compile, scala-compile, scala-shrink">
         <scala-dex-helper />
-        <adb.push local="configs/samplevideo.3gp" remote="/data/" />
+        <adb.push local="configs/samplevideo.3gp" remote="/sdcard/" />
     </target>
 
     <macrodef name="adb.push">

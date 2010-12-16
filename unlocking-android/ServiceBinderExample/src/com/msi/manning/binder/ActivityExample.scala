@@ -28,14 +28,14 @@ class ActivityExample extends Activity {
 
   private var service: ISimpleMathService = _
   private var isBound: Boolean = _
-    
+
   private var inputa: EditText = _
   private var inputb: EditText = _
   private var output: TextView = _
   private var addButton: Button = _
   private var subtractButton: Button = _
   private var echoButton: Button = _
-    
+
   private val connection = new ServiceConnection() {
     def onServiceConnected(className: ComponentName, iservice: IBinder) {
       service = ISimpleMathService.Stub.asInterface(iservice)

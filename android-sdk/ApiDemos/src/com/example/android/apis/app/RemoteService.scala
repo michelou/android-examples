@@ -50,13 +50,13 @@ class RemoteService extends Service {
 
   private var mValue = 0
   private var mNM: NotificationManager = _
-    
+
   override def onCreate() {
     mNM = getSystemService(NOTIFICATION_SERVICE).asInstanceOf[NotificationManager]
 
     // Display a notification about us starting.
     showNotification()
-        
+
     // While this service is running, it will continually increment a
     // number.  Send the first message that is used to perform the
     // increment.
@@ -69,10 +69,10 @@ class RemoteService extends Service {
 
     // Tell the user we stopped.
     Toast.makeText(this, R.string.remote_service_stopped, Toast.LENGTH_SHORT).show()
-        
+
     // Unregister all callbacks.
     mCallbacks.kill()
-        
+
     // Remove the next pending message to increment the counter, stopping
     // the increment loop.
     mHandler removeMessages REPORT_MSG
@@ -95,10 +95,10 @@ class RemoteService extends Service {
    */
   private val mBinder = new IRemoteService.Stub {
     def registerCallback(cb: IRemoteServiceCallback) {
-      if (cb != null) mCallbacks.register(cb)
+      if (cb != null) mCallbacks register cb
     }
     def unregisterCallback(cb: IRemoteServiceCallback) {
-      if (cb != null) mCallbacks.unregister(cb)
+      if (cb != null) mCallbacks unregister cb
     }
   }
 
@@ -121,13 +121,13 @@ class RemoteService extends Service {
   private final val mHandler = new Handler {
     override def handleMessage(msg: Message) {
       msg.what match {
-                
+
         // It is time to bump the value!
         case REPORT_MSG =>
           // Up it goes.
           mValue += 1
           val value = mValue
-                    
+
           // Broadcast to all clients the new value.
           val N = mCallbacks.beginBroadcast()
           for (i <- 0 until N) {
@@ -140,7 +140,7 @@ class RemoteService extends Service {
             }
           }
           mCallbacks.finishBroadcast()
-                    
+
           // Repeat every 1 second.
           sendMessageDelayed(obtainMessage(REPORT_MSG), 1*1000)
 

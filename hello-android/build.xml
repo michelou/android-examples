@@ -379,11 +379,11 @@ Builds the Scala applications targeted to the Android platform.
                 file="${configs.ant.dir}/${build-scala.xml}"
                 tofile="@{dir}/build-scala.xml" />
             <conditional.copy
-                file="${configs.proguard.dir}/default-debug.pro"
-                tofile="@{dir}/configs/default-debug.pro" />
+                file="${configs.proguard.dir}/default-debug.cfg"
+                tofile="@{dir}/configs/default-debug.cfg" />
             <conditional.copy
-                file="${configs.proguard.dir}/default-release.pro"
-                tofile="@{dir}/configs/default-release.pro" />
+                file="${configs.proguard.dir}/default-release.cfg"
+                tofile="@{dir}/configs/default-release.cfg" />
             <copy
                 file="${configs.ant.dir}/ant-invoked.jar"
                 tofile="@{dir}/configs/ant-invoked.jar" />
