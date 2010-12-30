@@ -14,14 +14,12 @@
      limitations under the License.
 -->
 
-<!-- Declare the contents of this Android application.  The namespace
-     attribute brings in the Android platform namespace, and the package
-     supplies a unique name for the application.  When writing your
-     own application, the package name must be changed from "com.example.*"
-     to come from a domain that you own or have control over. -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.android.lunarlander">
-    <application android:icon="@drawable/app_lunar_lander" android:label="@string/app_name">
+      package="com.example.android.lunarlander"
+      android:versionCode="1"
+      android:versionName="1.0">
+    <application android:icon="@drawable/app_lunar_lander"
+                 android:label="@string/app_name">
         <activity android:name="LunarLander">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -29,7 +27,5 @@
             </intent-filter>
 		</activity>
     </application>
-    <!-- our application is compatible only with devices -->
-    <!-- using the Android 1.6 (or greater) system image -->
     <uses-sdk android:targetSdkVersion="7" android:minSdkVersion="4" />
 </manifest>

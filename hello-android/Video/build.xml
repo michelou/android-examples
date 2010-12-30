@@ -76,7 +76,7 @@
         <attribute name="local" />
         <attribute name="remote" />
         <sequential>
-            <exec executable="${adb}" failonerror="true" outputproperty="adb.push.out">
+            <exec executable="${adb}" failonerror="false" outputproperty="adb.push.out">
                 <arg line="${adb.device.arg}" />
                 <arg line="push @{local} @{remote}" />
             </exec>

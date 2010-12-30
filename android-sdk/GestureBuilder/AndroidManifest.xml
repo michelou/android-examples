@@ -16,31 +16,25 @@
  -->
 
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.android.gesture.builder">
+      package="com.example.android.gesture.builder"
+      android:versionCode="1"
+      android:versionName="1.0">
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application>
-
         <activity
             android:name="GestureBuilderActivity"
             android:label="@string/application_name"
             android:icon="@drawable/ic_gesturebuilder">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
-                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
-
         </activity>
-
         <activity
             android:name="CreateGestureActivity"
             android:label="@string/label_create_gesture" />
-
     </application>
-    <!-- our application is compatible only with devices -->
-    <!-- using the Android 2.1 (or greater) system image -->
     <uses-sdk android:targetSdkVersion="7" android:minSdkVersion="7" />
 </manifest>

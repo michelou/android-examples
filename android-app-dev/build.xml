@@ -30,7 +30,9 @@ Builds the Scala applications targeted to the Android platform.
     </target>
 
     <target name="debug" description="build applications in debug mode">
+        <stopwatch name="debug.timer" />
         <ant.dirs target="debug" />
+        <stopwatch name="debug.timer" action="total" />
     </target>
 
     <target name="release" description="build applications in release mode">
