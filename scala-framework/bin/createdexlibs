@@ -71,7 +71,7 @@ else
         fi
     done
 fi
-SCALA_VERSION=`$SCALA_HOME/bin/scala -version | sed "s/\(.*\)version \(.*\) --.*/\2/"`
+SCALA_VERSION=`$SCALA_HOME/bin/scala -version | sed "s#\(.*\)version \(.*\) --.*#\2#"`
 echo "Using Scala $SCALA_VERSION in $SCALA_HOME"
 
 # find the root folder for this distribution
@@ -88,12 +88,13 @@ done;
 ROOT=`dirname "$SOURCE"`/..
 ROOT=`cd "$ROOT" > /dev/null && pwd`
 
-CONFIGS_DIR=$ROOT/configs
+FRAMEWORK_DIR=$ROOT/framework
 
-TMP_DIR=$CONFIGS_DIR/.`basename "$0"`_tmp
+SCALA_VERSION2=`echo "$SCALA_VERSION" | sed "s#\(.*\)-b.*#\1#"`
+TMP_DIR=$FRAMEWORK_DIR/.`basename "$0"`_tmp
 JVM_LIBS_DIR=$TMP_DIR/jvm-libs
-DEX_LIBS_DIR=$CONFIGS_DIR/framework
-DEX_LIBS_DIR2=configs/framework
+DEX_LIBS_DIR=$FRAMEWORK_DIR/scala-$SCALA_VERSION2
+DEX_LIBS_DIR2=framework/scala-$SCALA_VERSION2
 
 ##############################################################################
 ## Split the Scala library into five smaller pieces (original library is too
@@ -103,7 +104,8 @@ mkdir -p $JVM_LIBS_DIR/scala-library/scala \
          $JVM_LIBS_DIR/scala-collection/scala \
          $JVM_LIBS_DIR/scala-immutable/scala/collection \
          $JVM_LIBS_DIR/scala-mutable/scala/collection \
-         $JVM_LIBS_DIR/scala-actors/scala
+         $JVM_LIBS_DIR/scala-actors/scala \
+         $DEX_LIBS_DIR
 ( \
   cd $JVM_LIBS_DIR/scala-library/ && \
   echo "Generating scala-library.jar..." && \

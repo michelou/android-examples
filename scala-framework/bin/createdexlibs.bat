@@ -45,12 +45,12 @@ rem SCALA_VERSION=`$SCALA_HOME/bin/scala -version | sed "s/\(.*\)version \(.*\) 
 set SCALA_VERSION=2.x
 echo Using Scala %SCALA_VERSION% in %SCALA_HOME%
 
-set _CONFIGS_DIR=%_ROOT%\configs
+set _FRAMEWORK_DIR=%_ROOT%\framework
 
-set TMP_DIR=%_CONFIGS_DIR%\.createdexlibs_tmp
+set TMP_DIR=%_FRAMEWORK_DIR%\.createdexlibs_tmp
 set JVM_LIBS_DIR=%TMP_DIR%\jvm-libs
-set DEX_LIBS_DIR=%_CONFIGS_DIR%\framework
-set DEX_LIBS_DIR2=configs\framework
+set DEX_LIBS_DIR=%_FRAMEWORK_DIR%\scala-%SCALA_VERSION%
+set DEX_LIBS_DIR2=framework\scala-%SCALA_VERSION%
 
 set _JARCMD=%JAVA_HOME%\bin\jar.exe
 if not exist "%_JARCMD%" goto error5
@@ -67,6 +67,7 @@ mkdir %JVM_LIBS_DIR%\scala-collection\scala 2>nul
 mkdir %JVM_LIBS_DIR%\scala-immutable\scala\collection 2>nul
 mkdir %JVM_LIBS_DIR%\scala-mutable\scala\collection 2>nul
 mkdir %JVM_LIBS_DIR%\scala-actors\scala 2>nul
+mkdir %DEX_LIBS_DIR% 2>nul
 
 set _WORKING_DIR=%cd%
 cd %JVM_LIBS_DIR%\scala-library\
