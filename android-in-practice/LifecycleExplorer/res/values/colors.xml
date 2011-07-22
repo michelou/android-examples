@@ -1,0 +1,11 @@
+<resources>
+	<color name="red">#CD0000</color>
+	<color name="green">#228B22</color>
+	<color name="dark_green">#003300</color>
+	<color name="bright_green">#33FF00</color>
+	<color name="yellow">#EEEE00</color>
+	<color name="blue">#0000FF</color>
+	<color name="grey">#999999</color>
+	<color name="white">#ffffff</color>
+	<color name="black">#000000</color>	
+</resources>

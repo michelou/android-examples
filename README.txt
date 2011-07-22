@@ -15,6 +15,15 @@ following sources:
      detailed instructions.
 
 
+   * Android in Practice book (http://code.google.com/p/android-in-practice/)
+
+     Please read the file README.txt in the "android-in-practice" subdirectory
+     for detailed instructions.
+
+     That book is authored by Charlie Collins, Michael D. Galpin and Matthias Kaeppler,
+     and is published by Manning Publications Co. (ISBN: 978-1-9355182-92-4).
+
+
    * Unlocking Android book (http://code.google.com/p/unlocking-android/)
 
      Please read the file README.txt in the "unlocking-android" subdirectory

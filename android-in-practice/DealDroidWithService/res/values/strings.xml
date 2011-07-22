@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="app_name">DealDroidWithService</string>
+
+	<string name="deal_list_missing_data">No data to display, please try again later.</string>
+	<string name="deal_list_retrieving_data">Getting deal data . . .</string>
+	<string name="deal_list_network_unavailable">No network connection, cannot retrieve data.</string>
+
+	<string name="deal_details">Deal Details</string>
+	<string name="deal_details_price_prefix">$</string>
+	<string name="deal_details_mail_menu">Mail</string>
+	<string name="deal_details_browser_menu">Browser</string>
+	<string name="deal_details_share_menu">Share</string>
+	<string name="deal_details_msrp_label">MSRP:</string>
+	<string name="deal_details_quantity_label">Quantity:</string>
+	<string name="deal_details_quantity_sold_label">Quantity Sold:</string>
+	<string name="deal_details_location_label">Location:</string>
+
+	<string name="deal_service_title">DealDroid</string>
+	<string name="deal_service_ticker">New Deals: </string>
+</resources>

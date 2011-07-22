@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent" android:layout_height="fill_parent"
+	android:layout_margin="3dp" android:background="#000044">
+
+	<LinearLayout android:id="@+id/details_header"
+		android:layout_width="fill_parent" android:layout_height="wrap_content"
+		android:layout_margin="5dp" android:orientation="horizontal"
+		android:gravity="center_horizontal">
+		<ProgressBar android:id="@+id/progress" android:layout_width="125dp"
+			android:layout_height="125dp" />
+		<ImageView android:id="@+id/details_icon"
+			android:layout_width="125dp" android:layout_height="125dp"
+			android:scaleType="fitStart" android:visibility="gone"/>
+		<TextView android:id="@+id/details_price"
+			android:layout_width="wrap_content" android:layout_height="wrap_content"
+			android:layout_marginLeft="10dp" android:layout_marginTop="15dp"
+			android:textSize="25sp" />
+	</LinearLayout>
+
+	<TextView android:id="@+id/details_title"
+		android:layout_width="fill_parent" android:layout_height="wrap_content"
+		android:layout_below="@id/details_header" android:textSize="20sp"
+		android:textStyle="bold" android:gravity="center_horizontal" />
+
+	<TextView android:id="@+id/details_msrp_label"
+		android:layout_width="wrap_content" android:layout_height="wrap_content"
+		android:layout_below="@id/details_title" android:layout_marginRight="5dp"
+		android:text="@string/deal_details_msrp_label" />
+	<TextView android:id="@+id/details_msrp" android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:layout_below="@id/details_title"
+		android:layout_toRightOf="@id/details_msrp_label" />
+
+	<TextView android:id="@+id/details_quantity_label"
+		android:layout_width="wrap_content" android:layout_height="wrap_content"
+		android:layout_below="@id/details_msrp" android:layout_marginRight="5dp"
+		android:text="@string/deal_details_quantity_label" />
+	<TextView android:id="@+id/details_quantity"
+		android:layout_width="wrap_content" android:layout_height="wrap_content"
+		android:layout_below="@id/details_msrp" android:layout_toRightOf="@id/details_quantity_label" />
+
+	<TextView android:id="@+id/details_quantity_sold_label"
+		android:layout_width="wrap_content" android:layout_height="wrap_content"
+		android:layout_below="@id/details_quantity"
+		android:layout_marginRight="5dp" android:text="@string/deal_details_quantity_sold_label" />
+	<TextView android:id="@+id/details_quantity_sold"
+		android:layout_width="wrap_content" android:layout_height="wrap_content"
+		android:layout_below="@id/details_quantity" android:layout_toRightOf="@id/details_quantity_sold_label" />
+
+	<TextView android:id="@+id/details_location_label"
+		android:layout_width="wrap_content" android:layout_height="wrap_content"
+		android:layout_below="@id/details_quantity_sold"
+		android:layout_marginRight="5dp" android:text="@string/deal_details_location_label" />
+	<TextView android:id="@+id/details_location"
+		android:layout_width="wrap_content" android:layout_height="wrap_content"
+		android:layout_below="@id/details_quantity_sold"
+		android:layout_toRightOf="@id/details_location_label" />
+
+</RelativeLayout>
