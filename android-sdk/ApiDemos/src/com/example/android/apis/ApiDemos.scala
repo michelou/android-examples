@@ -32,10 +32,10 @@ class ApiDemos extends ListActivity {
 
   override def onCreate(savedInstanceState: Bundle) {
     super.onCreate(savedInstanceState)
-        
+
     val intent = getIntent
     var path = intent getStringExtra "com.example.android.apis.Path"
-        
+
     if (path == null) {
       path = ""
     }
@@ -64,9 +64,9 @@ class ApiDemos extends ListActivity {
     var prefixPath: Array[String] =
       if (prefix equals "") null
       else prefix split "/"
-        
+
     val len = list.size()
-        
+ 
     val entries = new JHashMap[String, Boolean]
 
     for (i <- 0 until len) {
@@ -75,7 +75,7 @@ class ApiDemos extends ListActivity {
       val label =
         if (labelSeq != null) labelSeq.toString
         else info.activityInfo.name
-            
+ 
       if (prefix.length() == 0 || label.startsWith(prefix)) {
         val labelPath = label split "/"
 
@@ -99,7 +99,7 @@ class ApiDemos extends ListActivity {
     }
 
     Collections.sort(myData, sDisplayNameComparator)
-        
+
     myData
   }
 
@@ -108,7 +108,7 @@ class ApiDemos extends ListActivity {
     result.setClassName(pkg, componentName)
     result
   }
-    
+
   protected def browseIntent(path: String): Intent = {
     val result = new Intent
     result.setClass(this, classOf[ApiDemos])

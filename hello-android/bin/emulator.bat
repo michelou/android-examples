@@ -30,7 +30,7 @@ set _EMULATOR=%ANDROID_SDK_ROOT%\tools\emulator.exe
 if not exist "%_EMULATOR%" goto error2
 
 if "%ANDROID_AVD%"=="" (
-  set _AVD=2.3_128M_HVGA
+  set _AVD=API_8
 ) else (
   set _AVD=%ANDROID_AVD%
 )
@@ -44,7 +44,7 @@ if "%ANDROID_EMULATOR_OPTS%"=="" (
     set _RAMDISK=%_AVD_HOME%\%_AVD%.avd-custom\ramdisk.img
   )
 )
-if not "%_RAMDISK"=="" (
+if not "%_RAMDISK%"=="" (
   set _EMULATOR_OPTS=%_EMULATOR_OPTS% -ramdisk "%_RAMDISK%"
 )
 

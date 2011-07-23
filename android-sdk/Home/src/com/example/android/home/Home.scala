@@ -194,7 +194,7 @@ class Home extends Activity {
     super.onResume()
     bindRecents()
   }
-    
+
   override protected def onRestoreInstanceState(state: Bundle) {
     super.onRestoreInstanceState(state)
     val opened = state.getBoolean(KEY_SAVE_GRID_OPENED, false)
@@ -284,7 +284,7 @@ class Home extends Activity {
          mFavorites.clear()
       }
       mApplicationsStack setFavorites mFavorites.toList
-            
+
       val intent = new Intent(Intent.ACTION_MAIN, null)
       intent addCategory Intent.CATEGORY_LAUNCHER
 
@@ -378,6 +378,8 @@ class Home extends Activity {
           case KeyEvent.KEYCODE_HOME =>
             mHomeDown = true
             true
+          case _ => // e.g. KeyEvent.KEYCODE_DPAD_CENTER (mics)
+            true
         }
       case KeyEvent.ACTION_UP =>
         event.getKeyCode match {
@@ -392,6 +394,8 @@ class Home extends Activity {
               // Do HOME behavior.
             }
             mHomeDown = true
+            true
+          case _ => // e.g. KeyEvent.KEYCODE_DPAD_CENTER (mics)
             true
         }
       case _ =>
@@ -459,7 +463,7 @@ class Home extends Activity {
         val application = new ApplicationInfo
         val info = apps.get(i)
 
-        application.title = info.loadLabel(manager)
+        application.title = info loadLabel manager
         application.setActivity(new ComponentName(
             info.activityInfo.applicationInfo.packageName,
             info.activityInfo.name),

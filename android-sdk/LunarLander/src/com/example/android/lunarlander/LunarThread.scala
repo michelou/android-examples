@@ -572,15 +572,15 @@ private[lunarlander] class LunarThread(mSurfaceHolder: SurfaceHolder,
     if (mMode == State.LOSE) {
        mCrashedImage.setBounds(xLeft, yTop, xLeft + mLanderWidth, yTop
                     + mLanderHeight)
-       mCrashedImage.draw(canvas)
+       mCrashedImage draw canvas
     } else if (mEngineFiring) {
        mFiringImage.setBounds(xLeft, yTop, xLeft + mLanderWidth, yTop
                       + mLanderHeight)
-       mFiringImage.draw(canvas)
+       mFiringImage draw canvas
     } else {
        mLanderImage.setBounds(xLeft, yTop, xLeft + mLanderWidth, yTop
                       + mLanderHeight)
-       mLanderImage.draw(canvas)
+       mLanderImage draw canvas
     }
     canvas.restore()
   }

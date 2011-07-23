@@ -52,26 +52,27 @@
                 <fileset dir="${extensible.libs.classpath}" includes="*.jar" />
             </classpath>
         </scalac>
+    </target>
+
+    <target name="-pre-shrink-scala">
         <if condition="${build.mode.release}"><then>
             <!-- needed for obfuscate task -->
             <path id="project.libraries.jars">
                 <pathelement location="${scala-library.jar}" />
             </path>
         </then><else>
+            <condition property="shrink.required"><not>
+                <uptodate targetfile="${shrinked.jar}">
+                    <srcfiles dir="${source.absolute.dir}" includes="**/*.scala" />
+                </uptodate>
+            </not></condition>
             <!-- input for dex will be proguard's output -->
             <property name="out.dex.input.absolute.dir" value="${shrinked.jar}" />        
         </else></if>
     </target>
 
-    <condition property="shrink.required"><not><and>
-        <not><isset property="build.mode.release" /></not>
-        <available file="${shrinked.jar}" />
-        <uptodate targetfile="${shrinked.jar}">
-            <srcfiles dir="${source.absolute.dir}" includes="**/*.scala" />
-        </uptodate>
-    </and></not></condition>
-
-	<target name="-shrink-scala" if="shrink.required" unless="do.not.compile"
+	<target name="-shrink-scala" depends="-pre-shrink-scala"
+	        if="shrink.required" unless="do.not.compile"
 	        description="Shrink project class files and Scala library into one .jar file">
         <!-- add Proguard tasks (proguard.sourceforge.net) -->
         <property name="proguard.jar" location="${proguard.dir}/lib/proguard.jar" />

@@ -18,7 +18,7 @@ Note that the build instructions below apply to both the Unix and Windows
 environments.
 
 All Android examples have been run successfully on the virtual Android device
-"2.2_128M_HVGA" configured as follows: 2.2 target, 128M SD card and HVGA skin
+"API_8" configured as follows: 2.2 target, 256M SD card and HVGA skin
 (for more details see the documentation page
 $ANDROID_SDK_ROOT/docs/guide/developing/tools/avd.html).
 
@@ -35,9 +35,9 @@ In order to build/run our Android examples we need to install the following
 free software distributions (tested versions and download sites are given in
 parenthesis) :
 
-1) Sun Java SDK 1.6 or newer (1.6.0_22   , www.sun.com/java/jdk/)
-2) Scala SDK 2.7.5 or newer  (2.8.1.final, www.scala-lang.org/downloads/)
-3) Android SDK 1.5 or newer  (2.2        , developer.android.com/sdk/)
+1) Sun Java SDK 1.6 or newer (1.6.0_26   , www.sun.com/java/jdk/)
+2) Scala SDK 2.7.5 or newer  (2.9.0.1    , www.scala-lang.org/downloads/)
+3) Android SDK 1.5 or newer  (2.3        , developer.android.com/sdk/)
 4) Apache Ant 1.7.0 or newer (1.8.1      , ant.apache.org/)
 5) ProGuard 4.4 or newer     (4.5.1      , www.proguard.com/)
 
@@ -75,17 +75,15 @@ In particular:
 * The "build.xml" Ant build script defines targets such as "clean", "install"
   and "uninstall" and has been slightly modified to handle also Scala source
   files. Concretely, we override the default behavior of the "-dex" target and
-  modify its dependency list by adding the imported target "scala-compile" :
+  modify its dependency list by adding the imported target "compile-scala" :
 
     <import file="build-scala.xml"/>
 
     <!-- Converts this project's .class files into .dex files -->
-    <target name="-dex" depends="compile, scala-compile, scala-shrink">
-        <scala-dex-helper />
-    </target>
+    <target name="-dex" depends="compile-scala, -shrink-scala" />
 
-* The "build-scala.xml" Ant build script defines the targets "scala-compile"
-  and "scala-shrink" where respectively the "<scalac>" Ant task generates
+* The "build-scala.xml" Ant build script defines the targets "compile-scala"
+  and "-shrink-scala" where respectively the "<scalac>" Ant task generates
   Java bytecode from the Scala source files and the "<proguard>" task creates a
   shrinked version of the Scala standard library by removing the unreferenced
   code (see next section for more details). Those two tasks are featured by
@@ -96,10 +94,10 @@ Project Build
 -------------
 
 We assume here the Android emulator is up and running; if not we start it
-using the shell command (let us assume the existence of the "2.2_128M_HVGA"
+using the shell command (let us assume the existence of the "API_8"
 virtual device) :
 
-   android-sdk> emulator -no-boot-anim -no-jni -avd 2.2_128M_HVGA &
+   android-sdk> emulator -no-boot-anim -no-jni -avd API_8 &
 
 Then we move for instance to the "Snake" project directory and execute one of
 the following Ant targets :
@@ -114,6 +112,15 @@ the following Ant targets :
 
 
 ===============================================================================
+
+Signing your Applications
+-------------------------
+All Android applications must be signed. The system will not install an
+application that is not signed. You can use self-signed certificates to sign
+your applications. No certificate authority is needed. For example:
+
+$ keytool -genkey -v -keystore <my_debug/release_key>.keystore
+          -alias <my_alias_name> -keyalg RSA -validity 10000
 
 
 Note about ProGuard
@@ -184,7 +191,7 @@ generated Android bytecode. Concretely, we have two choices :
    (2) Elapsed times for Scala builds include ProGuard processing time.
 
    NB. The above results were measured with ProGuard 4.5.1 on a 2.0 GHz
-   Pentium M with 2 GB of memory, using Sun JDK 1.6.0_21 and Scala 2.8.0.final
+   Pentium M with 2 GB of memory, using Sun JDK 1.6.0_26 and Scala 2.9.0.1
    on Ubuntu 8.04 Linux.
 
 

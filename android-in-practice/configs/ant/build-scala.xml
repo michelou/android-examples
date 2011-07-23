@@ -4,7 +4,7 @@
     <!-- This file is imported by the main Ant script. -->
 
     <property name="configs.dir" value="${basedir}/configs" />
-    <property name="complete.flag" value="${out.absolute.dir}/classes.complete" />
+    <property name="shrinked.jar" location="${out.absolute.dir}/shrinked.jar" />
 
     <!-- Rules -->
 
@@ -16,8 +16,8 @@
     </condition>
 
     <target name="compile-scala" depends="compile"
-        description="Compiles project's .scala files into .class files"
-        if="contains.scala.sources" unless="do.not.compile">
+        if="contains.scala.sources" unless="do.not.compile"
+        description="Compiles project's .scala files into .class files">
         <!-- add Scala tasks (www.scala-lang.org) -->
         <property name="scala-compiler.jar" value="${scala.dir}/lib/scala-compiler.jar" />
         <property name="scala-library.jar" value="${scala.dir}/lib/scala-library.jar" />
@@ -37,12 +37,12 @@
             message="Scala version ${scala.version.number} - http://scala-lang.org"
             level="info" taskname="scalac" />
         <scalac
-            srcdir="${source.dir}" includes="**/*.scala"
             destdir="${out.classes.absolute.dir}"
             bootclasspathref="android.target.classpath"
             logging="${logging}" addparams="${scalac.addparams}"
             classpath="${extensible.classpath}"
             classpathref="jar.libs.ref">
+            <src path="${source.absolute.dir}" />
             <src path="${gen.absolute.dir}" />
             <src refid="project.libraries.src" />
             <classpath>
@@ -52,23 +52,32 @@
                 <fileset dir="${extensible.libs.classpath}" includes="*.jar" />
             </classpath>
         </scalac>
-        <touch file="${complete.flag}" verbose="false" />
     </target>
 
-    <condition property="shrink.required"><not><and>
-        <available file="${intermediate.dex.file}" />
-        <available file="${complete.flag}" />
-        <uptodate targetfile="${intermediate.dex.file}" srcfile="${complete.flag}" />
-    </and></not></condition>
+    <target name="-pre-shrink-scala">
+        <if condition="${build.mode.release}"><then>
+            <!-- needed for obfuscate task -->
+            <path id="project.libraries.jars">
+                <pathelement location="${scala-library.jar}" />
+            </path>
+        </then><else>
+            <condition property="shrink.required"><not>
+                <uptodate targetfile="${shrinked.jar}">
+                    <srcfiles dir="${source.absolute.dir}" includes="**/*.scala" />
+                </uptodate>
+            </not></condition>
+            <!-- input for dex will be proguard's output -->
+            <property name="out.dex.input.absolute.dir" value="${shrinked.jar}" />        
+        </else></if>
+    </target>
 
-	<target name="-shrink-scala" if="shrink.required" unless="do.not.compile"
+	<target name="-shrink-scala" depends="-pre-shrink-scala"
+	        if="shrink.required" unless="do.not.compile"
 	        description="Shrink project class files and Scala library into one .jar file">
         <!-- add Proguard tasks (proguard.sourceforge.net) -->
         <property name="proguard.jar" location="${proguard.dir}/lib/proguard.jar" />
         <taskdef name="proguard" classname="proguard.ant.ProGuardTask" classpath="${proguard.jar}" />
 
-        <property name="original.jar" value="${out.absolute.dir}${file.separator}original.jar" />
-        <property name="shrinked.jar" value="${out.absolute.dir}${file.separator}shrinked.jar" />
         <condition property="shrink.mode" value="-release" else="-debug">
            <isset property="build.mode.release" />
         </condition>
@@ -86,7 +95,6 @@
         <echo message="Generating configuration file ${shrink-proguard.cfg}" />
         <generate-header property="header" />
         <generate-prefix property="packagename" />
-        <jar destfile="${original.jar}" basedir="${out.classes.absolute.dir}" />
         <!-- set the compiled project files and Scala library into a single property. -->
         <pathconvert property="project.injars">
             <path location="${out.classes.absolute.dir}" />
@@ -112,8 +120,6 @@
             </filterchain>
         </copy>
         <proguard configuration="${shrink-proguard.cfg}" />
-        <!-- input for dex will be proguard's output -->
-        <property name="out.dex.input.absolute.dir" value="${shrinked.jar}" />
     </target>
 
     <target name="install-release" depends="release"
@@ -127,12 +133,12 @@
 
     <macrodef name="install-release-helper">
         <sequential>
-            <echo>Installing ${out.release.package} onto default emulator or device...</echo>
+            <echo>Installing ${out.release.file} onto default emulator or device...</echo>
             <exec executable="${adb}" failonerror="true">
                 <arg line="${adb.device.arg}" />
                 <arg value="install" />
                 <arg value="-r" />
-                <arg path="${out.release.package}" />
+                <arg path="${out.release.file}" />
             </exec>
         </sequential>
     </macrodef>
