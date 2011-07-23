@@ -60,20 +60,20 @@ object ShapeDrawable1 {
         new MyShapeDrawable(new ArcShape(45, -270))
       )
     }
-    mDrawables(0).getPaint() setColor 0xFFFF0000
-    mDrawables(1).getPaint() setColor 0xFF00FF00
-    mDrawables(2).getPaint() setColor 0xFF0000FF
-    mDrawables(3).getPaint() setShader makeSweep()
-    mDrawables(4).getPaint() setShader makeLinear()
-    mDrawables(5).getPaint() setShader makeTiling()
-    mDrawables(6).getPaint() setColor 0x88FF8844
+    mDrawables(0).getPaint setColor 0xFFFF0000
+    mDrawables(1).getPaint setColor 0xFF00FF00
+    mDrawables(2).getPaint setColor 0xFF0000FF
+    mDrawables(3).getPaint setShader makeSweep()
+    mDrawables(4).getPaint setShader makeLinear()
+    mDrawables(5).getPaint setShader makeTiling()
+    mDrawables(6).getPaint setColor 0x88FF8844
 
     mDrawables(3).getPaint setPathEffect {
       val pe = new DiscretePathEffect(10, 4)
       val pe2 = new CornerPathEffect(4)
       new ComposePathEffect(pe2, pe)
     }
-    val msd = mDrawables(6).asInstanceOf[MyShapeDrawable]
+    private val msd = mDrawables(6).asInstanceOf[MyShapeDrawable]
     msd.getStrokePaint setStrokeWidth 4
 
     override protected def onDraw(canvas: Canvas) {
@@ -110,9 +110,9 @@ object ShapeDrawable1 {
     private class MyShapeDrawable(s: Shape) extends ShapeDrawable(s) {
       private val mStrokePaint = new Paint(Paint.ANTI_ALIAS_FLAG)
       mStrokePaint setStyle Paint.Style.STROKE
-            
+
       def getStrokePaint: Paint = mStrokePaint
-            
+
       override protected def onDraw(s: Shape, c: Canvas, p: Paint) {
         s.draw(c, p)
         s.draw(c, mStrokePaint)
