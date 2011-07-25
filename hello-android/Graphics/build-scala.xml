@@ -50,12 +50,13 @@
             bootclasspathref="android.target.classpath"
             logging="${logging}" addparams="${scalac.addparams}"
             classpath="${extensible.classpath}"
-            classpathref="jar.libs.ref">
+            classpathref="android.libraries.jars">
             <src path="${gen.absolute.dir}" />
-            <src refid="project.libraries.src" />
+            <src refid="android.libraries.src" />
             <classpath>
                 <pathelement location="${scala-library.jar}" />
                 <pathelement location="${out.classes.dir}" />
+                <fileset dir="${external.libs.absolute.dir}" includes="*.jar" />
                 <fileset dir="${extensible.libs.classpath}" includes="*.jar" />
             </classpath>
         </scalac>
@@ -122,7 +123,7 @@
                from="^(.*)\.jar$$"
                to="\1.jar(!META-INF/MANIFEST.MF,!library.properties)"/>
             <path location="${scala-library.jar}" />
-            <fileset dir="${jar.libs.dir}" includes="*.jar" />
+            <fileset dir="${external.libs.absolute.dir}" includes="*.jar" />
         </pathconvert>
         <proguard-helper property="injars" prefix="-injars"
             path="${out.classes.dir}${path.separator}${injars.libs.path}" />
@@ -156,7 +157,7 @@
         <taskdef resource="proguard/ant/task.properties"
                  classpath="${proguard.jar}" />
         <delete><fileset file="${myapp.jar}" /></delete>
-        <proguard configuration="${gen.proguard.cfg}" />
+        <proguard configuration="${gen.proguard.cfg}"/>
         <move file="${gen.proguard.cfg}" tofile="${proguard.cfg}" />
     </target>
 
@@ -183,35 +184,13 @@
         <element name="external-libs" optional="yes" />
         <element name="extra-parameters" optional="yes" />
         <sequential>
-            <!-- sets the primary input for dex. If a pre-dex task sets it to
-                 something else this has no effect -->
-            <property name="out.dex.input.absolute.dir" value="${out.classes.absolute.dir}" />
-
-            <!-- set the secondary dx input: the project (and library) jar files
-                 If a pre-dex task sets it to something else this has no effect -->
-            <if>
-                <condition>
-                    <isreference refid="out.dex.jar.input.ref" />
-                </condition>
-                <else><if>
-                    <condition><and>
-                        <available file="${myapp.jar}" />
-                        <not><isset property="framework.isavailable" /></not>
-                    </and></condition>
-                    <then>
-                        <path id="out.dex.jar.input.ref" />
-                    </then>
-                    <else>
-                        <path id="out.dex.jar.input.ref">
-                            <path refid="jar.libs.ref" />
-                        </path>
-                    </else>
-                </if></else>
-            </if>
             <condition property="dex.input" value="${myapp.jar}"
-                       else="${out.dex.input.absolute.dir}"><and>
+                       else="${out.classes.absolute.dir}"><and>
                  <available file="${myapp.jar}" />
                  <not><isset property="framework.isavailable" /></not>
+            </and></condition>
+            <condition property="included-jars" value="*.jar" else="_"><and>
+                 <isset property="framework.isavailable" />
             </and></condition>
             <echo>Converting compiled files and external libraries into ${intermediate.dex.file}...</echo>
             <apply executable="${dx}" failonerror="true" parallel="true">
@@ -220,7 +199,8 @@
                 <extra-parameters />
                 <arg line="${verbose.option}" />
                 <arg path="${dex.input}" />
-                <path refid="out.dex.jar.input.ref" />
+                <fileset dir="${external.libs.absolute.dir}" includes="${included-jars}" />
+                <path refid="android.libraries.jars" />
                 <external-libs />
             </apply>
         </sequential>

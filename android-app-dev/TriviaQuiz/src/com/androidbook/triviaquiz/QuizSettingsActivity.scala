@@ -927,7 +927,7 @@ class QuizSettingsActivity extends Activity {
          // TODO Auto-generated catch block
           e.printStackTrace()
       }
-      null
+      true
     }
 
   }

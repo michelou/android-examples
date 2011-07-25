@@ -65,7 +65,7 @@ In particular:
   properties (please adapt the respective values to your own environment):
 
   Unix:                                Windows:
-     sdk.dir=/opt/android-sdk-linux_86    sdk.dir=c:/Progra~1/android-sdk-windows
+     sdk.dir=/opt/android-sdk-linux_x86   sdk.dir=c:/Progra~1/android-sdk-windows
      scala.dir=/opt/scala                 scala.dir=c:/Progra~1/scala
      proguard.dir=/opt/proguard           proguard.dir=c:/Progra~1/ProGuard
 

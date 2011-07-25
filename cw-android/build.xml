@@ -75,7 +75,7 @@ Builds the Scala applications targeted to the Android platform.
             </sequential>
         </for>
     </target>
-
+<!--
     <target name="gentask">
         <mkdir dir="${configs.ant.dir}/classes" />
         <javac srcdir="${configs.ant.dir}" includes="InvokedTask.java"
@@ -88,7 +88,7 @@ Builds the Scala applications targeted to the Android platform.
         </jar>
         <delete dir="${configs.ant.dir}/classes" />
     </target>
-
+-->
     <target name="-genkey-if-test">
         <property
             name="release.keystore"
@@ -138,7 +138,9 @@ Builds the Scala applications targeted to the Android platform.
         <echo message="   push-jars:     Installs Scala dex files onto emulator or device."/>
         <echo message="   check-maps:    Checks configuration settings of projects"/>
         <echo message="                  depending on the Google APIs."/>
+<!--
         <echo message="   gentask:       Generates Ant library for external task 'invoked'." />
+-->
         <echo message="   genkey:        Generates keys for signing release apk files" />
     </target>
 
@@ -402,9 +404,11 @@ Builds the Scala applications targeted to the Android platform.
             <conditional.copy
                 file="${configs.proguard.dir}/default-release.cfg"
                 tofile="@{dir}/configs/default-release.cfg" />
+<!--
             <copy
                 file="${configs.ant.dir}/ant-invoked.jar"
                 tofile="@{dir}/configs/ant-invoked.jar" />
+-->
         </sequential>
     </macrodef>
 

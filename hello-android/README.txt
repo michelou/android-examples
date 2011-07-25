@@ -65,7 +65,7 @@ In particular:
   properties (please adapt the respective values to your own environment):
 
   Unix:                                Windows:
-     sdk.dir=/opt/android-sdk-linux_86    sdk.dir=c:/Progra~1/android-sdk-windows
+     sdk.dir=/opt/android-sdk-linux_x86   sdk.dir=c:/Progra~1/android-sdk-windows
      scala.dir=/opt/scala                 scala.dir=c:/Progra~1/scala
      proguard.dir=/opt/proguard           proguard.dir=c:/Progra~1/ProGuard
 
@@ -113,6 +113,16 @@ the following Ant targets :
 
 
 ===============================================================================
+
+
+Signing your Applications
+-------------------------
+All Android applications must be signed. The system will not install an
+application that is not signed. You can use self-signed certificates to sign
+your applications. No certificate authority is needed. For example:
+
+$ keytool -genkey -v -keystore <my_debug/release_key>.keystore
+          -alias <my_alias_name> -keyalg RSA -validity 10000
 
 
 Note about ProGuard

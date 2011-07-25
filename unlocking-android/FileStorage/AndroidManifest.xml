@@ -37,5 +37,7 @@
 
     </application>
 
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <uses-sdk android:targetSdkVersion="7" android:minSdkVersion="4" />
 </manifest> 
