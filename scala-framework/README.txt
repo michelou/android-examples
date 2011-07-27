@@ -42,11 +42,11 @@ The framework directory is organized as follows:
                 scala-immutable.jar
                 scala-library.jar
                 scala-mutable.jar
-            scala-2.8.1.RC3/
+            scala-2.8.1.final/
                 ... (as for 2.7.5.final)
-            scala-2.9.0.r23260/
+            scala-2.9.0.1/
                 ... (as for 2.7.5.final)
-            scala-2.9.0.r23310/
+            scala-2.9.1.RC1/
                 ... (as for 2.7.5.final)
 
 
@@ -75,9 +75,9 @@ Scala frameworks
 The "bin/createdexlibs" shell script can be used to generate .dex files for
 a particular version of the Scala library, e.g. the command
 
-    >env SCALA_HOME=/opt/scala-2.7.5.final bin/createdexlibs
+    >env SCALA_HOME=/opt/scala-2.9.0.1 bin/createdexlibs
 
-creates a subdirectory "scala-2.7.5.final/" in the directory "framework/"
+creates a subdirectory "scala-2.9.0.1/" in the directory "framework/"
 which contains the converted .dex files to be installed on the Android
 emulator or device (those usage is described in each of the text files
 android-sdk/INSTALL.txt and apps-for-android/INSTALL.txt).

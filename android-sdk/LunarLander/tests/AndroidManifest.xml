@@ -27,5 +27,5 @@
     <instrumentation android:name="android.test.InstrumentationTestRunner"
         android:targetPackage="com.example.android.lunarlander"
         android:label="LunarLander sample tests" /> 
-      <uses-sdk android:targetSdkVersion="7" android:minSdkVersion="4" />
+    <uses-sdk android:targetSdkVersion="7" android:minSdkVersion="4" />
 </manifest>

@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>uad-SMSNotifyExample2</name>
-	<comment></comment>
+	<name>uad-ch09-SMSNotifyExample2</name>
+	<comment>
+        Unlocking Android book (http://code.google.com/p/unlocking-android/)
+        </comment>
 	<projects>
 	</projects>
 	<buildSpec>

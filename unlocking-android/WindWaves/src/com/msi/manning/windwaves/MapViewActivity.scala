@@ -134,10 +134,11 @@ class MapViewActivity extends MapActivity {
 
     mapView = findViewById(R.id.map_view).asInstanceOf[MapView]
     mapView setBuiltInZoomControls true
+
     zoom = findViewById(R.id.zoom).asInstanceOf[ViewGroup]
     zoom addView mapView
 
-    defaultMarker = getResources.getDrawable(R.drawable.buoy)
+    defaultMarker = getResources getDrawable R.drawable.buoy
     defaultMarker.setBounds(0, 0, defaultMarker.getIntrinsicWidth,
                                   defaultMarker.getIntrinsicHeight)
   }

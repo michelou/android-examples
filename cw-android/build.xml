@@ -126,7 +126,7 @@ Builds the Scala applications targeted to the Android platform.
         <echo message="   help:          Displays this help."/>
         <echo message="   clean:         Removes output files created by other targets."/>
         <echo message="   compile:       Compiles project's .java files into .class files."/>
-        <echo message="   scala-compile: Compiles project's .scala files into .class files."/>
+        <echo message="   compile-scala: Compiles project's .scala files into .class files."/>
         <echo message="   debug:         Builds the application and signs it with a debug key."/>
         <echo message="   release:       Builds the application. The generated apk file must be"/>
         <echo message="                  signed before it is published."/>

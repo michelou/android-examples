@@ -81,14 +81,6 @@ class SoundRecordingDemo extends Activity  {
   object MediaRecorder extends MediaRecorder
 
   protected def startRecording() {
-    mRecorder = new MediaRecorder()
-    mRecorder setAudioSource MediaRecorder.AudioSource.MIC
-    mRecorder setOutputFormat MediaRecorder.OutputFormat.THREE_GPP
-    mRecorder setAudioEncoder MediaRecorder.AudioEncoder.AMR_NB
-    mRecorder setOutputFile mSampleFile.getAbsolutePath
-    mRecorder.prepare()
-    mRecorder.start()
-
     if (mSampleFile == null) {
       val sampleDir = Environment.getExternalStorageDirectory
 	        
@@ -99,6 +91,13 @@ class SoundRecordingDemo extends Activity  {
 	  Log.e(TAG,"sdcard access error")
       }
     }
+    mRecorder = new MediaRecorder()
+    mRecorder setAudioSource MediaRecorder.AudioSource.MIC
+    mRecorder setOutputFormat MediaRecorder.OutputFormat.THREE_GPP
+    mRecorder setAudioEncoder MediaRecorder.AudioEncoder.AMR_NB
+    mRecorder setOutputFile mSampleFile.getAbsolutePath
+    mRecorder.prepare()
+    mRecorder.start()
   }
 
   protected def stopRecording() {

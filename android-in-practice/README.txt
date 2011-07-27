@@ -105,7 +105,7 @@ one of the following Ant targets :
 
    unlocking-android> cd BounceyBall
    BounceyBall> ant clean
-   BounceyBall> ant scala-compile
+   BounceyBall> ant compile-scala
    BounceyBall> ant debug
    BounceyBall> ant install
    (now let us play with our application on the emulator !)

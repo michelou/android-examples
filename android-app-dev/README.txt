@@ -63,7 +63,7 @@ In particular:
   properties (please adapt the respective values to your own environment):
 
   Unix:                                Windows:
-     sdk.dir=/opt/android-sdk-linux_86    sdk.dir=c:/Progra~1/android-sdk-windows
+     sdk.dir=/opt/android-sdk-linux_x86   sdk.dir=c:/Progra~1/android-sdk-windows
      scala.dir=/opt/scala                 scala.dir=c:/Progra~1/scala
      proguard.dir=/opt/proguard           proguard.dir=c:/Progra~1/ProGuard
 
@@ -103,7 +103,7 @@ one of the following Ant targets :
 
    android-app-dev> cd TriviaQuiz
    TriviaQuiz> ant clean
-   TriviaQuiz> ant scala-compile
+   TriviaQuiz> ant compile-scala
    TriviaQuiz> ant debug
    TriviaQuiz> ant install
    (now let us play with our application on the emulator !)
@@ -113,34 +113,16 @@ one of the following Ant targets :
 ===============================================================================
 
 
-Note about ProGuard
--------------------
+Signing your Applications
+-------------------------
+All Android applications must be signed. The system will not install an
+application that is not signed. You can use self-signed certificates to sign
+your applications. No certificate authority is needed. For example:
 
-The main issue when building an Android application written in Scala is related
-to the code integration of the Scala standard library into the generated Android
-bytecode. Concretely, we have two choices :
+$ keytool -genkey -v -keystore <my_debug/release_key>.keystore
+          -alias <my_alias_name> -keyalg RSA -validity 10000
 
-1) We bundle (or better to say -- see the note below --, we try to bundle)
-   the full Scala library code (an external library) together with our Android
-   application as prescribed by the Android system (only system libraries can
-   exist outside an application package).
-   In Scala 2.8 the "scala-library.jar" library file has a size of about 5659K;
-   it means that even the simplest Android application written in Scala would
-   have a respectable foot print of at least 6M in size !
-
-   NB. At this date (May 2010) we could not generate Android bytecode for the
-   Scala standard library using the dx tool of the Android SDK. Thus, the
-   execution of the following shell command fails with the error message
-   "trouble writing output: format == null" :
-
-   /tmp> dx -JXmx1024M -JXms1024M -JXss4M --no-optimize --debug --dex
-         --output=/tmp/scala-library.jar /opt/scala/lib/scala-library.jar
-
-2) We find a (possibly efficient) way to shrink the size of the Scala standard
-   library by removing the library code not referenced by our Android
-   application. Our solution relies on ProGuard, a free Ant-aware obfuscator
-   tool written by Eric Lafortune; the ProGuard shrinker is fast and generates
-   much smaller Java bytecode archives.
+See also http://developer.android.com/guide/publishing/app-signing.html
 
 
 Have fun!

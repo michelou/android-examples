@@ -84,8 +84,6 @@
     <import file="build-scala.xml"/>
 
     <!-- Converts this project's .class files into .dex files -->
-    <target name="-dex" depends="compile, scala-compile, scala-shrink">
-        <scala-dex-helper />
-    </target>
+    <target name="-post-compile" depends="compile-scala, -shrink-scala" />
 
 </project>

@@ -80,7 +80,7 @@ In particular:
     <import file="build-scala.xml"/>
 
     <!-- Converts this project's .class files into .dex files -->
-    <target name="-dex" depends="compile-scala, -shrink-scala" />
+    <target name="-post-compile" depends="compile-scala, -shrink-scala" />
 
 * The "build-scala.xml" Ant build script defines the targets "compile-scala"
   and "-shrink-scala" where respectively the "<scalac>" Ant task generates
@@ -104,7 +104,7 @@ the following Ant targets :
 
    android-sdk> cd Snake
    Snake> ant clean
-   Snake> ant scala-compile
+   Snake> ant compile-scala
    Snake> ant debug
    Snake> ant install
    (now let us play with our application on the emulator !)

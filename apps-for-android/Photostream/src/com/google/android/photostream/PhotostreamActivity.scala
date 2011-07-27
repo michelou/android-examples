@@ -222,10 +222,8 @@ class PhotostreamActivity extends Activity
     if (data == null) {
       mGetListTask = new GetPhotoListTask().execute(mCurrentPage)
     } else {
-      val photos = data.asInstanceOf[Array[LoadedPhoto]]
-      for (photo <- photos) {
-        addPhoto(photo)
-      }
+      val values = data.asInstanceOf[Array[LoadedPhoto]]
+      values foreach addPhoto
       prepareMenu(mPageCount)
       mSwitcher.showNext()
     }
@@ -269,13 +267,13 @@ class PhotostreamActivity extends Activity
   def onAnimationRepeat(animation: Animation) {
   }
 
-  private def addPhoto(value: LoadedPhoto*) {
+  private def addPhoto(value: LoadedPhoto) {
     val image = mInflater
       .inflate(R.layout.grid_item_photo, mGrid, false)
       .asInstanceOf[ImageView]
-    image setImageBitmap value(0).bitmap
+    image setImageBitmap value.bitmap
     image startAnimation createAnimationForChild(mGrid.getChildCount)
-    image setTag value(0).photo
+    image setTag value.photo
     image setOnClickListener PhotostreamActivity.this
     mGrid addView image
   }    
@@ -285,7 +283,7 @@ class PhotostreamActivity extends Activity
    * photo in order and publishes each loaded Bitmap as a progress unit. The
    * tasks ends by hiding the progress bar and showing the menu.
    */
-  private class LoadPhotosTask extends UserTask[Flickr.PhotoList, LoadedPhoto, Flickr.PhotoList] {
+  private class LoadPhotosTask extends UserTask[Flickr.PhotoList, /*LoadedPhoto*/AnyRef, Flickr.PhotoList] {
     val mRandom = new Random()
 
     def doInBackground(params: Flickr.PhotoList*): Flickr.PhotoList = {
@@ -318,8 +316,8 @@ class PhotostreamActivity extends Activity
      *
      * @param value The photo and its bitmap.
      */
-    override def onProgressUpdate(value: LoadedPhoto*) {
-      addPhoto(value: _*)
+    override def onProgressUpdate(values: LoadedPhoto*) {
+      values foreach addPhoto
     }
 
     override def onPostExecute(result: Flickr.PhotoList) {

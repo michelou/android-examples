@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hintSymbol">Stock Symbol</string>
+    <string name="hintMin">Min. Price</string>
+    <string name="hintMax">Max Price</string>
+    <string name="hintPrice">Price Paid</string>
+    <string name="hintQuant">Quantity</string>    
+    <string name="btnLbl">Add to Portfolio</string>
+    <string name="app_name">StockManager</string>
+    <string name="service_name">Stock Portfolio Service</string>
+</resources>

@@ -40,8 +40,8 @@ The installation directory is organized as follows :
                 [scala-*.jar]
                 README.txt
             proguard/
-                default-debug.pro
-                default-release.pro
+                default-debug.cfg
+                default-release.cfg
         build.properties
         build.xml
         README.txt
@@ -97,7 +97,7 @@ help:
      [echo]    help:          Displays this help.
      [echo]    clean:         Removes output files created by other targets.
      [echo]    compile:       Compiles project's .java files into .class files.
-     [echo]    scala-compile: Compiles project's .scala files into .class files.
+     [echo]    compile-scala: Compiles project's .scala files into .class files.
      [echo]    debug:         Builds the application and signs it with a debug key.
      [echo]    release:       Builds the application. The generated apk file
      [echo]                   must be signed before it is published.
@@ -109,20 +109,19 @@ help:
      [echo]    push-jars:     Installs Scala dex files onto emulator or device.
      [echo]    check-maps:    Checks configuration settings of projects
      [echo]                   depending on the Google APIs.
-     [echo]    gentask:       Generates Ant library for external task 'invoked'.
      [echo]    genkey:        Generates keys for signing release apk files
 
 We ignore here the well-known targets available in standard Android projects
 and focus our attention on the "scala-compile" target and the advanced targets
 "setenv" and "check-maps".
 
-    * The target "scala-compile" depends on the target "compile" (defined in
-      $ANDROID_SDK_ROOT/platforms/android-X/ant/ant_rules_r2.xml); it compiles
+    * The target "compile-scala" depends on the target "compile" (defined in
+      $ANDROID_SDK_ROOT/tools/ant/main_rules.xml); it compiles
       project's .scala files into .class files.
 
     * The target "setenv" uses the configuration settings found in the
       directory "configs/ant/" and, when necessary, updates the files
-      "local.properties", "build-scala.xml" and "configs/default-*.pro"
+      "local.properties", "build-scala.xml" and "configs/default-*.cfg"
       in each project directory.
 
     * The target "push-jars" copie the .dex files found in the local directory

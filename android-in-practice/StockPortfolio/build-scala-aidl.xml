@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<project name="build-scala-aidl">
+
+    <!-- This file is imported by the main Ant script. -->
+
+    <!-- Add Scala tasks (www.scala-lang.org) -->
+    <property name="scala-compiler.jar" value="${scala.dir}/lib/scala-compiler.jar" />
+    <property name="scala-library.jar" value="${scala.dir}/lib/scala-library.jar" />
+    <path id="scala.path">
+        <pathelement path="${scala-compiler.jar}" />
+        <pathelement path="${scala-library.jar}" />
+    </path>
+    <taskdef resource="scala/tools/ant/antlib.xml" classpathref="scala.path" />
+    <property prefix="scala" resource="compiler.properties" classpathref="scala.path" />
+    <property
+        name="scalac.banner"
+        value="Scala compiler version ${scala.version.number} - http://scala-lang.org" />
+
+    <target name="-compile-aidl" depends="-aidl"
+        description="Compiles project's .scala files into .class files">
+        <condition property="logging" value="verbose" else="none">
+            <istrue value="${verbose}" />
+        </condition>
+        <echo message="${scalac.banner}" level="info" taskname="scalac" />
+        <scalac
+            includes="**/Stock.scala"
+            destdir="${out.classes.absolute.dir}"
+            bootclasspathref="android.target.classpath"
+            logging="${logging}" addparams="${scalac.addparams}"
+            classpathref="jar.libs.ref">
+            <src path="${source.absolute.dir}" />
+            <src refid="project.libraries.src" />
+            <classpath>
+                <pathelement location="${scala-library.jar}" />
+            </classpath>
+        </scalac>
+        <pathconvert property="stock.service.file">
+            <path location="${gen.absolute.dir}.${manifest.package}.service.IStockService"/>
+            <unpackagemapper from="*IStockService" to="*IStockService.java" />
+        </pathconvert>
+        <replaceregexp file="${stock.service.file}"
+               match="(com.manning.aip.portfolio.Stock.CREATOR.createFromParcel\()"
+               replace="\(com.manning.aip.portfolio.Stock\)\1"
+               byline="true"
+        />
+        <replaceregexp file="${stock.service.file}"
+               match="(createTypedArrayList\()(.*\))"
+               replace="\1\(android.os.Parcelable.Creator&lt;com.manning.aip.portfolio.Stock&gt;\) \2"
+               byline="true"
+        />
+    </target>
+
+</project>
+

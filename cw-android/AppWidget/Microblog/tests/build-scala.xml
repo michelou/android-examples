@@ -6,6 +6,10 @@
     <property name="configs.dir" value="${basedir}/configs" />
     <property name="shrinked.jar" location="${out.absolute.dir}/shrinked.jar" />
 
+    <!-- Scala (www.scala-lang.org) -->
+    <property name="scala-compiler.jar" value="${scala.dir}/lib/scala-compiler.jar" />
+    <property name="scala-library.jar" value="${scala.dir}/lib/scala-library.jar" />
+
     <!-- Rules -->
 
     <resourcecount property="scala.files.count">
@@ -18,9 +22,6 @@
     <target name="compile-scala" depends="compile"
         if="contains.scala.sources" unless="do.not.compile"
         description="Compiles project's .scala files into .class files">
-        <!-- add Scala tasks (www.scala-lang.org) -->
-        <property name="scala-compiler.jar" value="${scala.dir}/lib/scala-compiler.jar" />
-        <property name="scala-library.jar" value="${scala.dir}/lib/scala-library.jar" />
         <path id="scala.path">
             <pathelement path="${scala-compiler.jar}" />
             <pathelement path="${scala-library.jar}" />
@@ -94,12 +95,10 @@
         <property name="shrink-proguard.cfg" value="${out.absolute.dir}${file.separator}shrink${shrink.mode}.cfg" />
         <echo message="Generating configuration file ${shrink-proguard.cfg}" />
         <generate-header property="header" />
-        <generate-prefix property="packagename" />
         <!-- set the compiled project files and Scala library into a single property. -->
         <pathconvert property="project.injars">
             <path location="${out.classes.absolute.dir}" />
             <path location="${scala-library.jar}(!META-INF/MANIFEST.MF,!library.properties)" />
-            <path refid="project.libraries.jars" />
         </pathconvert>
         <split-path property="injars" prefix="-injars" path="${project.injars}" />
         <split-path property="outjars" prefix="-outjars" path="${shrinked.jar}" />
@@ -116,7 +115,7 @@
                     <token key="INJARS" value="${injars}" />
                     <token key="OUTJARS" value="${outjars}" />
                     <token key="LIBRARYJARS" value="${libraryjars}" />
-                    <token key="PACKAGENAME" value="${packagename}" />
+                    <token key="PACKAGENAME" value="${manifest.package}.**" />
                 </replacetokens>
             </filterchain>
         </copy>
@@ -141,15 +140,6 @@
                 <arg value="-r" />
                 <arg path="${out.release.file}" />
             </exec>
-        </sequential>
-    </macrodef>
-
-    <!-- extract package name from Android manifest file -->
-    <macrodef name="generate-prefix">
-        <attribute name="property" />
-        <sequential>
-            <xmlproperty file="${basedir}/AndroidManifest.xml" />
-            <property name="@{property}" value="${manifest.package}.**" />
         </sequential>
     </macrodef>
 

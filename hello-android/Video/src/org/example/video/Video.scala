@@ -6,7 +6,7 @@
  * We make no guarantees that this code is fit for any purpose. 
  * Visit http://www.pragmaticprogrammer.com/titles/eband3 for more book information.
 ***/
-package org.example.video;
+package org.example.video
 
 import android.app.Activity
 import android.os.Bundle

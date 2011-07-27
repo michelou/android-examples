@@ -81,7 +81,7 @@ In particular:
     <import file="build-scala.xml"/>
 
     <!-- Converts this project's .class files into .dex files -->
-    <target name="-dex" depends="compile, compile-scala, -shrink-scala" />
+    <target name="-post-compile" depends="compile-scala, -shrink-scala" />
 
 * The "build-scala.xml" Ant build script defines the targets "compile-scala"
   and "-shrink-scala" where respectively the "<scalac>" Ant task generates
@@ -105,7 +105,7 @@ the following Ant targets :
 
    hello-android> cd Audio
    Audio> ant clean
-   Audio> ant scala-compile
+   Audio> ant compile-scala
    Audio> ant debug
    Audio> ant install
    (now let us play with our application on the emulator !)
@@ -123,36 +123,6 @@ your applications. No certificate authority is needed. For example:
 
 $ keytool -genkey -v -keystore <my_debug/release_key>.keystore
           -alias <my_alias_name> -keyalg RSA -validity 10000
-
-
-Note about ProGuard
--------------------
-
-The main issue when building an Android application written in Scala is related
-to the code integration of the Scala standard library into the generated Android
-bytecode. Concretely, we have two choices :
-
-1) We bundle (or better to say -- see the note below --, we try to bundle)
-   the full Scala library code (an external library) together with our Android
-   application as prescribed by the Android system (only system libraries can
-   exist outside an application package).
-   In Scala 2.8 the "scala-library.jar" library file has a size of about 5659K;
-   it means that even the simplest Android application written in Scala would
-   have a respectable foot print of at least 6M in size !
-
-   NB. At this date (May 2010) we could not generate Android bytecode for the
-   Scala standard library using the dx tool of the Android SDK. Thus, the
-   execution of the following shell command fails with the error message
-   "trouble writing output: format == null" :
-
-   /tmp> dx -JXmx1024M -JXms1024M -JXss4M --no-optimize --debug --dex
-         --output=/tmp/scala-library.jar /opt/scala/lib/scala-library.jar
-
-2) We find a (possibly efficient) way to shrink the size of the Scala standard
-   library by removing the library code not referenced by our Android
-   application. Our solution relies on ProGuard, a free Ant-aware obfuscator
-   tool written by Eric Lafortune; the ProGuard shrinker is fast and generates
-   much smaller Java bytecode archives.
 
 
 Have fun!
