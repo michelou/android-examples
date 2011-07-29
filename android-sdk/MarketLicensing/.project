@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>Audio</name>
-	<comment></comment>
+	<name>sdk-MarketLicensing</name>
+	<comment>
+		Android SDK (http://developer.android.com/sdk/)
+	</comment>
 	<projects>
 	</projects>
 	<buildSpec>
