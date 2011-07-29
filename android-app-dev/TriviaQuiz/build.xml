@@ -78,6 +78,6 @@
 
     <import file="build-scala.xml" />
 
-	<target name="-post-compile" depends="compile-scala, -shrink-scala" />
+    <target name="-post-compile" depends="compile-scala, -shrink-scala" />
 
 </project>

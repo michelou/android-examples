@@ -3,12 +3,28 @@
 
     <!-- This file is imported by the main Ant script. -->
 
-    <property name="configs.dir" value="${basedir}/configs" />
-    <property name="shrinked.jar" location="${out.absolute.dir}/shrinked.jar" />
+    <!-- Add Proguard tasks (proguard.sourceforge.net) -->
+    <property name="proguard.jar" location="${proguard.dir}/lib/proguard.jar" />
+    <taskdef name="proguard" classname="proguard.ant.ProGuardTask" classpath="${proguard.jar}" />
 
-    <!-- Scala (www.scala-lang.org) -->
+    <!-- Add Scala tasks (www.scala-lang.org) -->
     <property name="scala-compiler.jar" value="${scala.dir}/lib/scala-compiler.jar" />
     <property name="scala-library.jar" value="${scala.dir}/lib/scala-library.jar" />
+    <path id="scala.path">
+        <pathelement path="${scala-compiler.jar}" />
+        <pathelement path="${scala-library.jar}" />
+    </path>
+    <taskdef resource="scala/tools/ant/antlib.xml" classpathref="scala.path" />
+    <property prefix="scala" resource="compiler.properties" classpathref="scala.path" />
+    <property
+        name="scalac.banner"
+        value="Scala compiler version ${scala.version.number} - http://scala-lang.org" />
+
+    <!-- Input directories -->
+    <property name="configs.dir" value="${basedir}/configs" />
+
+    <!-- Intermediate files -->
+    <property name="shrinked.jar" location="${out.absolute.dir}/shrinked.jar" />
 
     <!-- Rules -->
 
@@ -22,21 +38,10 @@
     <target name="compile-scala" depends="compile"
         if="contains.scala.sources" unless="do.not.compile"
         description="Compiles project's .scala files into .class files">
-        <path id="scala.path">
-            <pathelement path="${scala-compiler.jar}" />
-            <pathelement path="${scala-library.jar}" />
-        </path>
-        <taskdef resource="scala/tools/ant/antlib.xml" classpathref="scala.path" />
-
         <condition property="logging" value="verbose" else="none">
             <istrue value="${verbose}" />
         </condition>
-        <property prefix="scala"
-            resource="compiler.properties"
-            classpathref="scala.path" />
-        <echo
-            message="Scala version ${scala.version.number} - http://scala-lang.org"
-            level="info" taskname="scalac" />
+        <echo message="${scalac.banner}" level="info" taskname="scalac" />
         <scalac
             destdir="${out.classes.absolute.dir}"
             bootclasspathref="android.target.classpath"
@@ -75,10 +80,6 @@
 	<target name="-shrink-scala" depends="-pre-shrink-scala"
 	        if="shrink.required" unless="do.not.compile"
 	        description="Shrink project class files and Scala library into one .jar file">
-        <!-- add Proguard tasks (proguard.sourceforge.net) -->
-        <property name="proguard.jar" location="${proguard.dir}/lib/proguard.jar" />
-        <taskdef name="proguard" classname="proguard.ant.ProGuardTask" classpath="${proguard.jar}" />
-
         <condition property="shrink.mode" value="-release" else="-debug">
            <isset property="build.mode.release" />
         </condition>
