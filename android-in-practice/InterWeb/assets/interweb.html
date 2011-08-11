@@ -1,0 +1,50 @@
+<html>
+  <head>
+    <script type="text/javascript">
+      var initCount = 0;
+      function getContact(){
+    	  window.android.selectContact("contactCallback");
+      }
+      function contactCallback(contact){
+    	  document.getElementById("output").innerHTML = contact;
+    	  status();
+      }
+      function status(){
+     	  try{
+    	    var createCount = window.android.getCreateCount();
+    	    var resumeCount = window.android.getResumeCount();
+    	    document.getElementById("resume").innerHTML = resumeCount;
+    	    document.getElementById("create").innerHTML = createCount;
+    	    document.getElementById("init").innerHTML = initCount;
+    	  } catch (e) {
+    		  alert("Exception during status: " + e.description)
+    	  } 
+      }
+      function init(){
+    	  initCount++;
+    	  status();
+      }
+      function getPicture(){
+    	  window.android.selectPicture("pictureCallback");
+      }
+      function pictureCallback(uri){
+    	  console.log("Loading pic with uri=" + uri);
+    	  var img = document.getElementById("pic");
+    	  img.src = uri;
+    	  img.height = "200";
+    	  img.width = "200";
+      }
+    </script>
+  </head>
+  <body onload="init()">
+    <div>
+      <span id="init"></span> onloads<br/>
+      <span id="resume"></span> Resumes<br/>
+      <span id="create"></span> Creates
+    </div>
+    <input type="button" value="Select a Contact" onclick="getContact()"/> <br/>
+    <input type="button" value="Select a Pic" onclick="getPicture()"/>
+    <div id="output">The Uri will go here</div>
+    <img id="pic" />
+  </body>
+</html>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical" android:layout_width="fill_parent"
+	android:layout_height="fill_parent">
+
+	<TextView android:id="@+id/main_label" android:layout_width="fill_parent"
+		android:layout_height="wrap_content" android:layout_marginBottom="10px"
+		android:text="Choose an option to continue:" />
+
+	<Button android:id="@+id/main_internal_storage_button"
+		android:layout_width="wrap_content" android:layout_height="wrap_content"
+		android:text="Use internal storage" />
+
+	<Button android:id="@+id/main_external_storage_button"
+		android:layout_width="wrap_content" android:layout_height="wrap_content"
+		android:text="Use external storage" />
+
+</LinearLayout>

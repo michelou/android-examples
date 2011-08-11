@@ -38,9 +38,9 @@ parenthesis) :
 
 1) Sun Java SDK 1.6 or newer (1.6.0_26   , www.sun.com/java/jdk/)
 2) Scala SDK 2.7.5 or newer  (2.9.0.1    , www.scala-lang.org/downloads/)
-3) Android SDK 1.5 or newer  (2.3        , developer.android.com/sdk/)
-4) Apache Ant 1.7.0 or newer (1.8.1      , ant.apache.org/)
-5) ProGuard 4.4 or newer     (4.5.1      , www.proguard.com/)
+3) Android SDK 9 or newer    (12         , developer.android.com/sdk/)
+4) Apache Ant 1.7.0 or newer (1.8.2      , ant.apache.org/)
+5) ProGuard 4.4 or newer     (4.6        , www.proguard.com/)
 
 NB. In this document we rely on Ant tasks featured by the Scala SDK, the
 Android SDK and the ProGuard shrinker and obfuscator tool (we will say more
@@ -75,16 +75,17 @@ In particular:
 
 * The "build.xml" Ant build script defines targets such as "clean", "install"
   and "uninstall" and has been slightly modified to handle also Scala source
-  files. Concretely, we override the default behavior of the "-dex" target and
-  modify its dependency list by adding the imported target "compile-scala" :
+  files. Concretely, we override the default behavior of the "-post-compile"
+  target and modify its dependency list by adding the imported targets
+  "-post-compile-scala":
 
     <import file="build-scala.xml"/>
 
     <!-- Converts this project's .class files into .dex files -->
-    <target name="-dex" depends="compile, compile-scala, -shrink-scala" />
+    <target name="-post-compile" depends="-post-compile-scala" />
 
 * The "build-scala.xml" Ant build script defines the targets "compile-scala"
-  and "-shrink-scala" where respectively the "<scalac>" Ant task generates
+  and "-post-compile-scala" where respectively the "<scalac>" Ant task generates
   Java bytecode from the Scala source files and the "<proguard>" task creates a
   shrinked version of the Scala standard library by removing the unreferenced
   code (see next section for more details). Those two tasks are featured by
@@ -103,13 +104,13 @@ virtual device) :
 Then we move for instance to the "DealDroid" project directory and execute
 one of the following Ant targets :
 
-   unlocking-android> cd BounceyBall
-   BounceyBall> ant clean
-   BounceyBall> ant compile-scala
-   BounceyBall> ant debug
-   BounceyBall> ant install
+   android-in-practice> cd DealDroid
+   DealDroid> ant clean
+   DealDroid> ant compile-scala
+   DealDroid> ant debug
+   DealDroid> ant install
    (now let us play with our application on the emulator !)
-   BounceyBall> ant uninstall
+   DealDroid> ant uninstall
 
 
 ===============================================================================
