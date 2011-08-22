@@ -52,7 +52,5 @@
         </activity>
 
     </application>
-    <!-- our application is compatible only with devices -->
-    <!-- using the Android 2.1 (or greater) system image -->
     <uses-sdk android:targetSdkVersion="7" android:minSdkVersion="7" />
 </manifest>

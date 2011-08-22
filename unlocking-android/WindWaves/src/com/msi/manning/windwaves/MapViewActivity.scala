@@ -136,7 +136,8 @@ class MapViewActivity extends MapActivity {
     mapView setBuiltInZoomControls true
 
     zoom = findViewById(R.id.zoom).asInstanceOf[ViewGroup]
-    zoom addView mapView
+    //zoom addView mapView.getZoomControls // before API 7
+    mapView setBuiltInZoomControls true    // since API 7
 
     defaultMarker = getResources getDrawable R.drawable.buoy
     defaultMarker.setBounds(0, 0, defaultMarker.getIntrinsicWidth,
@@ -149,9 +150,9 @@ class MapViewActivity extends MapActivity {
     locationManager =
       getSystemService(Context.LOCATION_SERVICE).asInstanceOf[LocationManager]
 
-    // this.locationProvider = this.locationManager.getBestProvider(myCriteria, true);
-    // this.locationProvider = this.locationManager.getProviders(true).get(0);
-    locationProvider = locationManager.getProvider(LocationManager.GPS_PROVIDER)
+    // this.locationProvider = this.locationManager.getBestProvider(myCriteria, true)
+    // this.locationProvider = this.locationManager.getProviders(true).get(0)
+    locationProvider = locationManager getProvider LocationManager.GPS_PROVIDER
 
     Log.v(Constants.LOGTAG, " " + CLASSTAG +
           "   locationProvider from criteria - " + locationProvider)
@@ -269,8 +270,8 @@ class MapViewActivity extends MapActivity {
     val th = new Thread() {
       override def run() {
         // parse lat/lon from GeoPoint back into Strings with direction (37N, 112W - etc)
-        val lats = LocationHelper.parsePoint(point.getLatitudeE6() / LocationHelper.MILLION, true)
-        val lons = LocationHelper.parsePoint(point.getLongitudeE6() / LocationHelper.MILLION, false)
+        val lats = LocationHelper.parsePoint(point.getLatitudeE6 / LocationHelper.MILLION, true)
+        val lons = LocationHelper.parsePoint(point.getLongitudeE6 / LocationHelper.MILLION, false)
 
         // for now we hard code the radius to 100 nautical miles from current
         // point (enhancement, dynamically set radius based on map zoom bounds,

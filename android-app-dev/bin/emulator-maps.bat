@@ -30,7 +30,7 @@ set _EMULATOR=%ANDROID_SDK_ROOT%\tools\emulator.exe
 if not exist "%_EMULATOR%" goto error2
 
 if "%ANDROID_AVD%"=="" (
-  set _AVD=API_8_Google
+  set _AVD=API_9_Google
 ) else (
   set _AVD=%ANDROID_AVD%
 )

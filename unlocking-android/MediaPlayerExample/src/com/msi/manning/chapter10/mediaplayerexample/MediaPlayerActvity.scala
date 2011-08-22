@@ -23,7 +23,7 @@ import android.media.MediaPlayer.OnCompletionListener
 import android.view.View
 import android.widget.Button
 
-class MediaPlayerActvity extends Activity {
+class MediaPlayerActivity extends Activity {
 
   override def onCreate(icicle: Bundle) {
     super.onCreate(icicle)
@@ -31,7 +31,7 @@ class MediaPlayerActvity extends Activity {
     val mybutton = findViewById(R.id.playsong).asInstanceOf[Button]
     mybutton setOnClickListener new /*Button*/View.OnClickListener() {
       def onClick(v: View) {
-        val mp = MediaPlayer.create(MediaPlayerActvity.this, R.raw.halotheme)
+        val mp = MediaPlayer.create(MediaPlayerActivity.this, R.raw.halotheme)
         mp.start()
         mp setOnCompletionListener new OnCompletionListener(){
           def onCompletion(arg0: MediaPlayer) {

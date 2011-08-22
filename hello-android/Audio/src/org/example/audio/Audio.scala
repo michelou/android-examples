@@ -37,13 +37,13 @@ class Audio extends Activity {
       case _ =>
         return super.onKeyDown(keyCode, event)
     }
-
+println("**** resId="+resId)
     // Release any resources from previous MediaPlayer
     if (mp != null) mp.release()
 
     // Create a new MediaPlayer to play this sound
     mp = MediaPlayer.create(this, resId)
-    mp.start()
+    if (mp != null) mp.start()
 
     // Indicate this key was handled
     true

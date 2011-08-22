@@ -139,10 +139,10 @@ AlertDialog.show(
           getString(R.string.up_one_level),
           getDrawable(R.drawable.uponelevel))
 
-    val endingImage = getResources.getStringArray(R.array.fileEndingImage)
-    val endingWeb = getResources.getStringArray(R.array.fileEndingWebText)
-    val endingPackage = getResources.getStringArray(R.array.fileEndingPackage)
-    val endingAudio = getResources.getStringArray(R.array.fileEndingAudio)
+    val endingImage = getResources getStringArray R.array.fileEndingImage
+    val endingWeb = getResources getStringArray R.array.fileEndingWebText
+    val endingPackage = getResources getStringArray R.array.fileEndingPackage
+    val endingAudio = getResources getStringArray R.array.fileEndingAudio
 
     var currentIcon: Drawable = null
     for (currentFile <- files) {

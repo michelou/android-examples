@@ -64,6 +64,6 @@
 
     <import file="build-lib-scala.xml"/>
 
-    <target name="-post-compile" depends="compile-scala, -shrink-scala" />
+    <target name="-post-compile" depends="-post-compile-scala" />
 
 </project>

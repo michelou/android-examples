@@ -14,9 +14,9 @@ fi
 
 if [ -z "$ANDROID_SDK_ROOT" ] ; then
     # guess the location of the Android SDK installation directory
-    if [ -x "/opt/android-sdk-mac_86/tools/emulator" ] ; then
+    if [ -x "/opt/android-sdk-mac_x86/tools/emulator" ] ; then
         ANDROID_SDK_ROOT="/opt/android-sdk-mac_x86"
-    elif [ -x "/opt/android-sdk-linux_86/tools/emulator" ] ; then
+    elif [ -x "/opt/android-sdk-linux_x86/tools/emulator" ] ; then
         ANDROID_SDK_ROOT="/opt/android-sdk-linux_x86"
     fi
     if [ ! -d "$ANDROID_SDK_ROOT" ] ; then

@@ -60,7 +60,7 @@ if [ ! -x "$EMULATOR" ] ; then
 fi
 
 if [ -z "$ANDROID_AVD" ] ; then
-    AVD="API_8"
+    AVD="API_9"
 else
     AVD="$ANDROID_AVD"
 fi

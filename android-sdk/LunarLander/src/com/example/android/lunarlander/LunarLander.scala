@@ -23,14 +23,11 @@ import android.util.Log
 import android.view.{Menu, MenuItem, Window}
 import android.widget.TextView
 
-/** <p>
- *    This is a simple LunarLander activity that houses a single LunarView.
- *  </p>
- *  <ul>
- *    <li>animating by calling invalidate() from draw()</li>
- *    <li>loading and drawing resources</li>
- *    <li>handling onPause() in an animation</li>
- *  </ul>
+/** This is a simple LunarLander activity that houses a single LunarView.
+ *  
+ *  - animating by calling `invalidate()` from `draw()`
+ *  - loading and drawing resources
+ *  - handling `onPause()` in an animation
  */
 class LunarLander extends Activity {
   import LunarThread._
@@ -117,7 +114,7 @@ class LunarLander extends Activity {
     mLunarThread = mLunarView.getThread
 
     // give the LunarView a handle to the TextView used for messages
-    mLunarView setTextView findView(R.id.text)
+    mLunarView setTextView findTextView(R.id.text)
 
     if (savedInstanceState == null) {
       // we were just launched: set up a new game

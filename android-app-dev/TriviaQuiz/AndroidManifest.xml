@@ -6,7 +6,6 @@
     android:versionName="@string/app_name">
     <application
         android:label="@string/app_name"
-        android:debuggable="true"
         android:icon="@drawable/quizicon">
         <activity
             android:name=".QuizMenuActivity"

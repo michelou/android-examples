@@ -283,7 +283,7 @@ class PhotostreamActivity extends Activity
    * photo in order and publishes each loaded Bitmap as a progress unit. The
    * tasks ends by hiding the progress bar and showing the menu.
    */
-  private class LoadPhotosTask extends UserTask[Flickr.PhotoList, /*LoadedPhoto*/AnyRef, Flickr.PhotoList] {
+  private class LoadPhotosTask extends UserTask[Flickr.PhotoList, LoadedPhoto, Flickr.PhotoList] {
     val mRandom = new Random()
 
     def doInBackground(params: Flickr.PhotoList*): Flickr.PhotoList = {

@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
 	<name>Chapter2</name>
-	<comment></comment>
+	<comment>
+		Unlocking Android book (http://code.google.com/p/unlocking-android/)
+	</comment>
 	<projects>
 	</projects>
 	<buildSpec>
@@ -16,12 +18,12 @@
 			</arguments>
 		</buildCommand>
 		<buildCommand>
-			<name>ch.epfl.lamp.sdt.core.scalabuilder</name>
+			<name>org.eclipse.jdt.core.javabuilder</name>
 			<arguments>
 			</arguments>
 		</buildCommand>
 		<buildCommand>
-			<name>org.eclipse.jdt.core.javabuilder</name>
+			<name>ch.epfl.lamp.sdt.core.scalabuilder</name>
 			<arguments>
 			</arguments>
 		</buildCommand>
@@ -33,7 +35,7 @@
 	</buildSpec>
 	<natures>
 		<nature>com.android.ide.eclipse.adt.AndroidNature</nature>
-		<nature>ch.epfl.lamp.sdt.core.scalanature</nature>
 		<nature>org.eclipse.jdt.core.javanature</nature>
+		<nature>ch.epfl.lamp.sdt.core.scalanature</nature>
 	</natures>
 </projectDescription>

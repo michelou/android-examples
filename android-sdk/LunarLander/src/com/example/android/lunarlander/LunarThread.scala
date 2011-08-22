@@ -184,8 +184,8 @@ private[lunarlander] class LunarThread(mSurfaceHolder: SurfaceHolder,
     mBackgroundImage = BitmapFactory.decodeResource(res, R.drawable.earthrise)
 
     // Use the regular lander image as the model size for all sprites
-    mLanderWidth = mLanderImage.getIntrinsicWidth()
-    mLanderHeight = mLanderImage.getIntrinsicHeight()
+    mLanderWidth = mLanderImage.getIntrinsicWidth
+    mLanderHeight = mLanderImage.getIntrinsicHeight
 
     // Initialize paints for speedometer
     mLinePaint = new Paint()

@@ -15,15 +15,15 @@ import android.widget.AdapterView.OnItemSelectedListener
 import android.widget.CompoundButton
 import android.widget.CompoundButton.OnCheckedChangeListener
 
-import scala.android.FindView
-
 /**
  * @author  Stephane Micheloud
  * @version 1.1
  */
 //class Activity extends android.view.ContextThemeWrapper {
-class Activity extends android.app.Activity with FindView[Activity] {
-  protected val source = this
+class Activity extends android.app.Activity with scala.android.FindView {
+
+  @inline def _findViewById[V <: View](id: Int): V =
+    findViewById(id).asInstanceOf[V]
 
   implicit def onClick$Action(action: (View) => Any) =
     new View.OnClickListener() {

@@ -97,13 +97,13 @@ final class ContactAdder extends Activity with OnAccountsUpdateListener {
     setContentView(R.layout.contact_adder)
 
     // Obtain handles to UI objects
-    mAccountSpinner = findView(R.id.accountSpinner)
-    mContactNameEditText = findView(R.id.contactNameEditText)
-    mContactPhoneEditText = findView(R.id.contactPhoneEditText)
-    mContactEmailEditText = findView(R.id.contactEmailEditText)
-    mContactPhoneTypeSpinner = findView(R.id.contactPhoneTypeSpinner)
-    mContactEmailTypeSpinner = findView(R.id.contactEmailTypeSpinner)
-    mContactSaveButton = findView(R.id.contactSaveButton)
+    mAccountSpinner = findSpinner(R.id.accountSpinner)
+    mContactNameEditText = findEditText(R.id.contactNameEditText)
+    mContactPhoneEditText = findEditText(R.id.contactPhoneEditText)
+    mContactEmailEditText = findEditText(R.id.contactEmailEditText)
+    mContactPhoneTypeSpinner = findSpinner(R.id.contactPhoneTypeSpinner)
+    mContactEmailTypeSpinner = findSpinner(R.id.contactEmailTypeSpinner)
+    mContactSaveButton = findButton(R.id.contactSaveButton)
 
     // Prepare model for account spinner
     mAccounts = new ArrayList[AccountData]()
@@ -114,10 +114,10 @@ final class ContactAdder extends Activity with OnAccountsUpdateListener {
     var adapter = new ArrayAdapter[String](this, android.R.layout.simple_spinner_item)
     adapter setDropDownViewResource android.R.layout.simple_spinner_dropdown_item
     for (phoneType <- mContactPhoneTypes) {
-      adapter.add(Phone.getTypeLabel(
+      adapter add Phone.getTypeLabel(
             this.getResources,
             phoneType,
-            getString(R.string.undefinedTypeLabel)).toString)
+            getString(R.string.undefinedTypeLabel)).toString
     }
     mContactPhoneTypeSpinner setAdapter adapter
     mContactPhoneTypeSpinner setPrompt getString(R.string.selectLabel)
@@ -126,10 +126,10 @@ final class ContactAdder extends Activity with OnAccountsUpdateListener {
     adapter = new ArrayAdapter[String](this, android.R.layout.simple_spinner_item)
     adapter setDropDownViewResource android.R.layout.simple_spinner_dropdown_item
     for (emailType <- mContactEmailTypes) {
-      adapter.add(Email.getTypeLabel(
+      adapter add Email.getTypeLabel(
             this.getResources(),
             emailType,
-            getString(R.string.undefinedTypeLabel)).toString)
+            getString(R.string.undefinedTypeLabel)).toString
     }
     mContactEmailTypeSpinner setAdapter adapter
     mContactEmailTypeSpinner setPrompt getString(R.string.selectLabel)
@@ -152,7 +152,7 @@ final class ContactAdder extends Activity with OnAccountsUpdateListener {
 
   /**
    * Creates a contact entry from the current UI values in the account named
-   * by mSelectedAccount.
+   * by `mSelectedAccount`.
    */
   protected def createContactEntry() {
     // Get values from UI
@@ -166,33 +166,33 @@ final class ContactAdder extends Activity with OnAccountsUpdateListener {
     //
     // Note: We use RawContacts because this data must be associated with a
     //       particular account. The system will aggregate this with any other
-    //       data for this contact and create a coresponding entry in the 
+    //       data for this contact and create a corresponding entry in the 
     //       ContactsContract.Contacts provider for us.
     val ops = new ArrayList[ContentProviderOperation]()
-    ops.add(ContentProviderOperation.newInsert(ContactsContract.RawContacts.CONTENT_URI)
+    ops add ContentProviderOperation.newInsert(ContactsContract.RawContacts.CONTENT_URI)
                 .withValue(ContactsContract.RawContacts.ACCOUNT_TYPE, mSelectedAccount.getType)
                 .withValue(ContactsContract.RawContacts.ACCOUNT_NAME, mSelectedAccount.getName)
-                .build())
-    ops.add(ContentProviderOperation.newInsert(ContactsContract.Data.CONTENT_URI)
+                .build()
+    ops add ContentProviderOperation.newInsert(ContactsContract.Data.CONTENT_URI)
                 .withValueBackReference(ContactsContract.Data.RAW_CONTACT_ID, 0)
                 .withValue(ContactsContract.Data.MIMETYPE,
                            StructuredName.CONTENT_ITEM_TYPE)
                 .withValue(StructuredName.DISPLAY_NAME, name)
-                .build())
-    ops.add(ContentProviderOperation.newInsert(ContactsContract.Data.CONTENT_URI)
+                .build()
+    ops add ContentProviderOperation.newInsert(ContactsContract.Data.CONTENT_URI)
                 .withValueBackReference(ContactsContract.Data.RAW_CONTACT_ID, 0)
                 .withValue(ContactsContract.Data.MIMETYPE,
                            Phone.CONTENT_ITEM_TYPE)
                 .withValue(Phone.NUMBER, phone)
                 .withValue(Phone.TYPE, phoneType)
-                .build())
-    ops.add(ContentProviderOperation.newInsert(ContactsContract.Data.CONTENT_URI)
+                .build()
+    ops add ContentProviderOperation.newInsert(ContactsContract.Data.CONTENT_URI)
                 .withValueBackReference(ContactsContract.Data.RAW_CONTACT_ID, 0)
                 .withValue(ContactsContract.Data.MIMETYPE,
                            Email.CONTENT_ITEM_TYPE)
                 .withValue(Email.DATA, email)
                 .withValue(Email.TYPE, emailType)
-                .build())
+                .build()
 
     // Ask the Contact provider to create a new contact
     Log.i(TAG,"Selected account: " + mSelectedAccount.getName + " (" +
@@ -219,7 +219,7 @@ final class ContactAdder extends Activity with OnAccountsUpdateListener {
    */
   override def onDestroy() {
     // Remove AccountManager callback
-    AccountManager.get(this).removeOnAccountsUpdatedListener(this)
+    AccountManager.get(this) removeOnAccountsUpdatedListener this
     super.onDestroy()
   }
 
@@ -250,12 +250,13 @@ final class ContactAdder extends Activity with OnAccountsUpdateListener {
   }
 
   /**
-   * Update account selection. If NO_ACCOUNT is selected, then we prohibit
+   * Update account selection. If `NO_ACCOUNT` is selected, then we prohibit
    * inserting new contacts.
    */
   private def updateAccountSelection() {
     // Read current account selection
     mSelectedAccount = mAccountSpinner.getSelectedItem.asInstanceOf[AccountData]
+    println("************************ mSelectedAccount="+mSelectedAccount)
   }
 
   /**
@@ -326,9 +327,10 @@ final class ContactAdder extends Activity with OnAccountsUpdateListener {
         layoutInflater.inflate(R.layout.account_entry, parent, false)
       } else
         convertView
-      val firstAccountLine = convertView.findViewById(R.id.firstAccountLine).asInstanceOf[TextView]
-      val secondAccountLine = convertView.findViewById(R.id.secondAccountLine).asInstanceOf[TextView]
-      val accountIcon = convertView.findViewById(R.id.accountIcon).asInstanceOf[ImageView]
+      import scala.android._ // implicits
+      val firstAccountLine = convertView findTextView R.id.firstAccountLine
+      val secondAccountLine = convertView findTextView R.id.secondAccountLine
+      val accountIcon = convertView findImageView R.id.accountIcon
 
       // Populate template
       val data = getItem(position)

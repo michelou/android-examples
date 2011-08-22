@@ -19,7 +19,6 @@ package com.example.android.livecubes.cube1
 import android.graphics.{Canvas, Paint, Rect}
 import android.os.{Handler, SystemClock}
 import android.service.wallpaper.WallpaperService
-import android.util.Log;
 import android.view.{MotionEvent, SurfaceHolder}
 
 /*
@@ -37,9 +36,7 @@ class CubeWallpaper1 extends WallpaperService {
     super.onDestroy()
   }
 
-  override def onCreateEngine(): Engine = {
-    new CubeEngine()
-  }
+  override def onCreateEngine(): Engine = new CubeEngine()
 
   class CubeEngine extends Engine {
 
@@ -58,9 +55,7 @@ class CubeWallpaper1 extends WallpaperService {
     private var mCenterY: Float = _
 
     private final val mDrawCube = new Runnable() {
-      def run() {
-        drawFrame()
-      }
+      def run() { drawFrame() }
     }
     private var mVisible: Boolean = _
 

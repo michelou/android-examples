@@ -26,8 +26,6 @@ import android.widget.{ListView, TextView}
 import com.msi.manning.restaurant.Constants._
 import com.msi.manning.restaurant.data.{Review, ReviewFetcher}
 
-import scala.collection.JavaConversions._
-
 /**
  * "List" of reviews screen - show reviews that match Criteria user selected.
  * Users ReviewFetcher which makes a Google Base call via Rome.
@@ -41,7 +39,7 @@ class ReviewList extends ListActivity {
   private var progressDialog: ProgressDialog = _
   private var reviewAdapter: ReviewAdapter = _
   private var reviews: List[Review] = _
-    
+
   private final val handler = new Handler() {
     override def handleMessage(msg: Message) {
       Log.v(LOGTAG, " " + CLASSTAG + " worker thread done, setup ReviewAdapter")
@@ -87,7 +85,7 @@ class ReviewList extends ListActivity {
 
     loadReviews(criteriaLocation, criteriaCuisine, startFrom)
   }    
-   
+
   override def onCreateOptionsMenu(menu: Menu): Boolean = {
     super.onCreateOptionsMenu(menu)
     menu.add(0, MENU_GET_NEXT_PAGE, 0, R.string.menu_get_next_page)
@@ -116,7 +114,7 @@ class ReviewList extends ListActivity {
         super.onMenuItemSelected(featureId, item)
     }
   }
-    
+
   override protected def onListItemClick(l: ListView, v: View,
                                          position: Int, id: Long) {
     // set the current review to the Application (global state placed there)
@@ -129,7 +127,7 @@ class ReviewList extends ListActivity {
     intent.putExtra(STARTFROM_EXTRA, getIntent.getIntExtra(STARTFROM_EXTRA, 1))
     startActivity(intent)
   }    
-    
+
   private def loadReviews(location: String, cuisine: String, startFrom: Int) {
     Log.v(LOGTAG, " " + CLASSTAG + " loadReviews")
 
@@ -143,7 +141,7 @@ class ReviewList extends ListActivity {
     // when complete send "empty" message to handler
     val th = new Thread() {
       override def run() {
-        reviews = new JListWrapper(rf.getReviews).toList
+        reviews = rf.getReviews
         handler sendEmptyMessage 0
       }
     }

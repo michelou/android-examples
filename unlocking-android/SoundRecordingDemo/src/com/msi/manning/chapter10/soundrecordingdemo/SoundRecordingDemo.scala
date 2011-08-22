@@ -24,7 +24,7 @@ import android.os.{Bundle, Environment}
 import android.provider.MediaStore
 import android.util.Log
 import android.view.View
-import android.widget.Button
+import android.widget.{Button, TextView}
 
 import java.io.{File, IOException}
 
@@ -32,7 +32,17 @@ class SoundRecordingDemo extends Activity  {
   import SoundRecordingDemo._  // companion object
 
   private var mRecorder: MediaRecorder = _
-  private var mSampleFile: File = _
+  private val mSampleFile: File = {
+    val sampleDir = Environment.getExternalStorageDirectory
+    try {
+      File.createTempFile(SAMPLE_PREFIX, SAMPLE_EXTENSION, sampleDir)
+    } catch {
+      case e: IOException =>
+        Log.e(TAG, "sdcard access error")
+        System.exit(1)
+        null
+    }
+  }
 
   override def onCreate(savedInstanceState: Bundle) {
     super.onCreate(savedInstanceState)
@@ -41,10 +51,13 @@ class SoundRecordingDemo extends Activity  {
 
     val startButton = findViewById(R.id.startrecording).asInstanceOf[Button]
     val stopButton = findViewById(R.id.stoprecording).asInstanceOf[Button]
+    stopButton setEnabled false
 
     startButton setOnClickListener new View.OnClickListener(){
       def onClick(v: View) {
         startRecording()
+        startButton setEnabled false
+        stopButton setEnabled true
       }
     }
 
@@ -52,8 +65,13 @@ class SoundRecordingDemo extends Activity  {
       def onClick(v: View) {
         stopRecording()
         addToDB()
+        startButton setEnabled true
+        stopButton setEnabled false
       }
     }
+
+    val sampleTextView = findViewById(R.id.samplefile).asInstanceOf[TextView]
+    sampleTextView setText mSampleFile.getPath
   }
 
   // Since method put in Java class ContentValues has overloaded definitions:
@@ -81,23 +99,17 @@ class SoundRecordingDemo extends Activity  {
   object MediaRecorder extends MediaRecorder
 
   protected def startRecording() {
-    if (mSampleFile == null) {
-      val sampleDir = Environment.getExternalStorageDirectory
-	        
-      try {
-        mSampleFile = File.createTempFile(SAMPLE_PREFIX, SAMPLE_EXTENSION, sampleDir)
-      } catch {
-        case e: IOException =>
-	  Log.e(TAG,"sdcard access error")
-      }
-    }
     mRecorder = new MediaRecorder()
     mRecorder setAudioSource MediaRecorder.AudioSource.MIC
     mRecorder setOutputFormat MediaRecorder.OutputFormat.THREE_GPP
     mRecorder setAudioEncoder MediaRecorder.AudioEncoder.AMR_NB
     mRecorder setOutputFile mSampleFile.getAbsolutePath
-    mRecorder.prepare()
-    mRecorder.start()
+    try {
+      mRecorder.prepare()
+      mRecorder.start()
+    } catch {
+      case ex: Exception => Log.e(TAG, ex.getMessage)
+    }
   }
 
   protected def stopRecording() {

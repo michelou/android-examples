@@ -87,11 +87,11 @@
     <setup />
 
     <path id="project.libraries.src">
-        <pathelement location="${sdk.dir}/market_licensing/library/src" />
+        <pathelement location="${sdk.dir}/extras/google/market_licensing/library/src" />
     </path>
 
     <import file="build-scala.xml"/>
 
-    <target name="-post-compile" depends="compile-scala, -shrink-scala" />
+    <target name="-post-compile" depends="-post-compile-scala" />
 
 </project>

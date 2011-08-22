@@ -37,8 +37,8 @@ parenthesis) :
 
 1) Sun Java SDK 1.6 or newer (1.6.0_26   , www.sun.com/java/jdk/)
 2) Scala SDK 2.7.5 or newer  (2.9.0.1    , www.scala-lang.org/downloads/)
-3) Android SDK 1.5 or newer  (2.3        , developer.android.com/sdk/)
-4) Apache Ant 1.7.0 or newer (1.8.1      , ant.apache.org/)
+3) Android SDK 9 or newer    (12         , developer.android.com/sdk/)
+4) Apache Ant 1.7.0 or newer (1.8.2      , ant.apache.org/)
 5) ProGuard 4.4 or newer     (4.6        , www.proguard.com/)
 
 NB. In this document we rely on Ant tasks featured by the Scala SDK, the
@@ -74,8 +74,9 @@ In particular:
 
 * The "build.xml" Ant build script defines targets such as "clean", "install"
   and "uninstall" and has been slightly modified to handle also Scala source
-  files. Concretely, we override the default behavior of the "-dex" target and
-  modify its dependency list by adding the imported target "compile-scala" :
+  files. Concretely, we override the default behavior of the "-post-compile"
+  target and modify its dependency list by adding the imported targets
+  "compile-scala" and "-shrink-scala":
 
     <import file="build-scala.xml"/>
 

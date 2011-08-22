@@ -15,5 +15,5 @@
 -->
 
 <resources>
-    <string name="app_name">AccelerometerPlay</string>
+    <string name="app_name">AccelerometerPlay\n(Scala)</string>
 </resources>

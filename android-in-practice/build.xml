@@ -63,20 +63,7 @@ Builds the Scala applications targeted to the Android platform.
             </sequential>
         </for>
     </target>
-<!--
-    <target name="gentask">
-        <mkdir dir="${configs.ant.dir}/classes" />
-        <javac srcdir="${configs.ant.dir}" includes="InvokedTask.java"
-               destdir="${configs.ant.dir}/classes" />
-        <jar destfile="${configs.ant.dir}/ant-invoked.jar">
-            <fileset dir="${configs.ant.dir}/classes" />
-            <zipfileset dir="${configs.ant.dir}"
-                includes="task.properties"
-                prefix="scala/tools/ant" />
-        </jar>
-        <delete dir="${configs.ant.dir}/classes" />
-    </target>
--->
+
     <target name="-genkey-if-test">
         <property
             name="release.keystore"
@@ -126,9 +113,6 @@ Builds the Scala applications targeted to the Android platform.
         <echo message="   push-jars:     Installs Scala dex files onto emulator or device."/>
         <echo message="   check-maps:    Checks configuration settings of projects"/>
         <echo message="                  depending on the Google APIs."/>
-<!--
-        <echo message="   gentask:       Generates Ant library for external task 'invoked'." />
--->
         <echo message="   genkey:        Generates keys for signing release apk files" />
     </target>
 
@@ -302,7 +286,7 @@ Builds the Scala applications targeted to the Android platform.
                 <isset property="@{name}.default.target" />
                 <or>
                     <contains string="${@{name}.default.target}" substring=":Google APIs:" />
-                    <matches string="${@{name}.default.target}" pattern="^(2|4|6|8)" />
+                    <matches string="${@{name}.default.target}" pattern="^(2|4|6|8|10|12)" />
                 </or>
             </and></condition>
             <echo message="    requires.maps=${@{name}.requires.maps} (${@{name}.default.target})"
@@ -387,16 +371,8 @@ Builds the Scala applications targeted to the Android platform.
                 file="${configs.ant.dir}/${build-scala.xml}"
                 tofile="@{dir}/build-scala.xml" />
             <conditional.copy
-                file="${configs.proguard.dir}/default-debug.cfg"
-                tofile="@{dir}/configs/default-debug.cfg" />
-            <conditional.copy
-                file="${configs.proguard.dir}/default-release.cfg"
-                tofile="@{dir}/configs/default-release.cfg" />
-<!--
-            <copy
-                file="${configs.ant.dir}/ant-invoked.jar"
-                tofile="@{dir}/configs/ant-invoked.jar" />
--->
+                file="${configs.proguard.dir}/proguard-template.cfg"
+                tofile="@{dir}/proguard-template.cfg" />
         </sequential>
     </macrodef>
 

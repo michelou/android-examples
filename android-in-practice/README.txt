@@ -76,7 +76,7 @@ In particular:
 * The "build.xml" Ant build script defines targets such as "clean", "install"
   and "uninstall" and has been slightly modified to handle also Scala source
   files. Concretely, we override the default behavior of the "-post-compile"
-  target and modify its dependency list by adding the imported targets
+  target and modify its dependency list by adding the imported target
   "-post-compile-scala":
 
     <import file="build-scala.xml"/>

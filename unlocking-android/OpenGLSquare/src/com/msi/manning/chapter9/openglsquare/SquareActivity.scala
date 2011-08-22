@@ -37,12 +37,17 @@ class SquareActivity extends Activity {
   private class DrawingSurfaceView(context: Context)
   extends SurfaceView(context) with SurfaceHolder.Callback  {
 
-    private val mHolder = getHolder
+    private var mHolder: SurfaceHolder = _
     private var mThread: DrawingThread = _
+    init()
 
-    mHolder addCallback this
-    mHolder setType SurfaceHolder.SURFACE_TYPE_GPU
+    def init() {
+      mHolder = getHolder
+      mHolder addCallback this
+      mHolder setType SurfaceHolder.SURFACE_TYPE_GPU
+    }
 
+    // implements callback methods declared in SurfaceHolder.Callback
     def surfaceCreated(holder: SurfaceHolder) {
       mThread = new DrawingThread()
       mThread.start()
@@ -76,7 +81,7 @@ class SquareActivity extends Activity {
 
       override def run() {    
         val egl = EGLContext.getEGL.asInstanceOf[EGL10]
-        val dpy = egl.eglGetDisplay(EGL10.EGL_DEFAULT_DISPLAY)
+        val dpy = egl eglGetDisplay EGL10.EGL_DEFAULT_DISPLAY
 
         val version = new Array[Int](2)
         egl.eglInitialize(dpy, version)
@@ -96,7 +101,7 @@ class SquareActivity extends Activity {
         while (!stopped) {
           var W, H: Int = 0 // copies of the current width and height
           var updated = false
-          synchronized {
+          this synchronized {
             updated = this.changed
             W = this.w
             H = this.h
@@ -127,9 +132,9 @@ class SquareActivity extends Activity {
             gl.glHint(GL10.GL_PERSPECTIVE_CORRECTION_HINT, GL10.GL_FASTEST)
 
             gl.glClearColor(1, 1, 1, 1)
-            gl.glEnable(GL10.GL_CULL_FACE)
-            gl.glShadeModel(GL10.GL_SMOOTH)
-            gl.glEnable(GL10.GL_DEPTH_TEST)
+            gl glEnable GL10.GL_CULL_FACE
+            gl glShadeModel GL10.GL_SMOOTH
+            gl glEnable GL10.GL_DEPTH_TEST
 
             gl.glViewport(0, 0, W, H)
 
@@ -143,18 +148,17 @@ class SquareActivity extends Activity {
 
           egl.eglSwapBuffers(dpy, surface)
 
-          if (egl.eglGetError == EGL11.EGL_CONTEXT_LOST) {
+          if (egl.eglGetError == EGL11.EGL_CONTEXT_LOST)
             getContext match {
               case a: Activity => a.finish()
               case _ =>
             }
-          }
 
           egl.eglMakeCurrent(dpy, EGL10.EGL_NO_SURFACE, EGL10.EGL_NO_SURFACE,
                         EGL10.EGL_NO_CONTEXT)
           egl.eglDestroySurface(dpy, surface)
           egl.eglDestroyContext(dpy, context)
-          egl.eglTerminate(dpy)
+          egl eglTerminate dpy
         }
       }
 
@@ -166,7 +170,7 @@ class SquareActivity extends Activity {
 
       def waitForExit() {
         stopped = true
-        try { join() }
+        try join()
         catch { case ex: InterruptedException => }
       }
 
@@ -190,7 +194,7 @@ class SquareActivity extends Activity {
         GLU.gluOrtho2D(gl, 0.0f,1.2f,0.0f,1.0f)
 
         gl.glVertexPointer(3, GL10.GL_FLOAT, 0, squareBuff)
-        gl.glEnableClientState(GL10.GL_VERTEX_ARRAY)
+        gl glEnableClientState GL10.GL_VERTEX_ARRAY
 
         gl glClear GL10.GL_COLOR_BUFFER_BIT
         gl.glColor4f(0,1,1,1)

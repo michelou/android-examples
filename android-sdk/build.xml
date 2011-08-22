@@ -283,7 +283,7 @@ Builds the Scala applications targeted to the Android platform.
                 <isset property="@{name}.default.target" />
                 <or>
                     <contains string="${@{name}.default.target}" substring=":Google APIs:" />
-                    <matches string="${@{name}.default.target}" pattern="^(2|4|6|8)" />
+                    <matches string="${@{name}.default.target}" pattern="^(2|4|6|8|10|12)" />
                 </or>
             </and></condition>
             <echo message="    requires.maps=${@{name}.requires.maps} (${@{name}.default.target})"
@@ -368,11 +368,8 @@ Builds the Scala applications targeted to the Android platform.
                 file="${configs.ant.dir}/${build-scala.xml}"
                 tofile="@{dir}/build-scala.xml" />
             <conditional.copy
-                file="${configs.proguard.dir}/default-debug.cfg"
-                tofile="@{dir}/configs/default-debug.cfg" />
-            <conditional.copy
-                file="${configs.proguard.dir}/default-release.cfg"
-                tofile="@{dir}/configs/default-release.cfg" />
+                file="${configs.proguard.dir}/proguard-template.cfg"
+                tofile="@{dir}/proguard-template.cfg" />
         </sequential>
     </macrodef>
 

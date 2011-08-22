@@ -49,18 +49,16 @@ class ChapterTwo extends Activity {
           var answer = ""
 
           // check to see if the meal price includes a "$"
-          if (mealprice.indexOf("$") == -1) {
+          if (mealprice.indexOf("$") == -1)
             mealprice = "$" + mealprice
-          }
 
           var fmp = 0.0F
 
           // get currency formatter
           val nf = NumberFormat.getCurrencyInstance
 
-          if (nf == null) {
+          if (nf == null)
             Log.i(ChapterTwo.tag, "punt - NumberFormat is null")
-          }
 
           // grab the input meal price
           fmp = nf.parse(mealprice).floatValue

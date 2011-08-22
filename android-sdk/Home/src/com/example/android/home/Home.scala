@@ -78,15 +78,13 @@ object Home {
       parser.next()
     }
 
-    if (typ != XmlPullParser.START_TAG) {
+    if (typ != XmlPullParser.START_TAG)
       throw new XmlPullParserException("No start tag found")
-    }
 
-    if (!parser.getName.equals(firstElementName)) {
+    if (!parser.getName.equals(firstElementName))
       throw new XmlPullParserException(
-        "Unexpected start tag: found " + parser.getName() +
+        "Unexpected start tag: found " + parser.getName +
         ", expected " + firstElementName)
-    }
   }
 
   @throws(classOf[XmlPullParserException])
@@ -110,7 +108,7 @@ object Home {
     val info = new ApplicationInfo
     val activityInfo = resolveInfo.activityInfo
     info.icon = activityInfo loadIcon manager
-    if (info.title == null || info.title.length() == 0) {
+    if (info.title == null || info.title.length == 0) {
       info.title = activityInfo loadLabel manager
     }
     if (info.title == null) {
@@ -257,16 +255,14 @@ class Home extends Activity {
   private def setDefaultWallpaper() {
     if (!mWallpaperChecked) {
       val wallpaper: Drawable = peekWallpaper()
-      if (wallpaper == null) {
-        try {
-          clearWallpaper()
-        } catch {
+      if (wallpaper == null)
+        try clearWallpaper()
+        catch {
           case e: IOException =>
             Log.e(LOG_TAG, "Failed to clear wallpaper " + e)
         }
-      } else {
+      else
         getWindow setBackgroundDrawable new ClippedDrawable(wallpaper)
-      }
       mWallpaperChecked = true
     }
   }
@@ -278,11 +274,11 @@ class Home extends Activity {
   private def bindFavorites(isLaunching: Boolean) {
     if (!isLaunching || mFavorites == null) {
 
-      if (mFavorites == null) {
+      if (mFavorites == null)
          mFavorites = new ListBuffer[ApplicationInfo]
-      } else {
+      else
          mFavorites.clear()
-      }
+
       mApplicationsStack setFavorites mFavorites.toList
 
       val intent = new Intent(Intent.ACTION_MAIN, null)
@@ -351,9 +347,8 @@ class Home extends Activity {
         val info = Home.getApplicationInfo(manager, intent)
         if (info != null) {
           info.intent = intent
-          if (!mFavorites.contains(info)) {
+          if (!mFavorites.contains(info))
             recents += info
-          }
         }
       }
     }
@@ -363,9 +358,8 @@ class Home extends Activity {
 
   override def onWindowFocusChanged(hasFocus: Boolean) {
     super.onWindowFocusChanged(hasFocus)
-    if (!hasFocus) {
+    if (!hasFocus)
       mBackDown = mHomeDown == false
-    }
   }
 
   override def dispatchKeyEvent(event: KeyEvent): Boolean =
@@ -439,9 +433,8 @@ class Home extends Activity {
    * Loads the list of installed applications in mApplications.
    */
   private def loadApplications(isLaunching: Boolean) {
-    if (isLaunching && mApplications != null) {
+    if (isLaunching && mApplications != null)
       return
-    }
 
     val manager = getPackageManager
 
@@ -452,11 +445,10 @@ class Home extends Activity {
     Collections.sort(apps, new ResolveInfo.DisplayNameComparator(manager))
 
     if (apps != null) {
-      val count = apps.size()
+      val count = apps.size
 
-      if (mApplications == null) {
+      if (mApplications == null)
         mApplications = new ArrayBuffer[ApplicationInfo](count)
-      }
       mApplications.clear()
 
       for (i <- 0 until count) {
@@ -480,17 +472,16 @@ class Home extends Activity {
    * Shows all of the applications by playing an animation on the grid.
    */
   private def showApplications(animate: Boolean) {
-    if (mBlockAnimation) {
+    if (mBlockAnimation)
       return
-    }
+
     mBlockAnimation = true
 
     mShowApplicationsCheck.toggle()
 
-    if (mShowLayoutAnimation == null) {
+    if (mShowLayoutAnimation == null)
       mShowLayoutAnimation =
         AnimationUtils.loadLayoutAnimation(this, R.anim.show_applications)
-    }
 
     // This enables a layout animation; if you uncomment this code, you need
     // to comment the line mGrid.startAnimation() below
@@ -505,28 +496,26 @@ class Home extends Activity {
 
     mGrid setVisibility View.VISIBLE
 
-    if (!animate) {
+    if (!animate)
       mBlockAnimation = false
-    }
 
-    // ViewDebug.startHierarchyTracing("Home", mGrid);
+    // ViewDebug.startHierarchyTracing("Home", mGrid)
   }
 
   /**
    * Hides all of the applications by playing an animation on the grid.
    */
   private def hideApplications() {
-    if (mBlockAnimation) {
+    if (mBlockAnimation)
       return
-    }
+
     mBlockAnimation = true
 
     mShowApplicationsCheck.toggle()
 
-    if (mHideLayoutAnimation == null) {
+    if (mHideLayoutAnimation == null)
       mHideLayoutAnimation =
         AnimationUtils.loadLayoutAnimation(this, R.anim.hide_applications)
-    }
 
     mGridExit setAnimationListener new HideGrid
     mGrid startAnimation mGridExit
@@ -596,16 +585,16 @@ class Home extends Activity {
 
         if (width > 0 && height > 0 && 
             (width < iconWidth || height < iconHeight)) {
-          val ratio = (iconWidth / iconHeight).toInt
+          val ratio = iconWidth.toFloat / iconHeight
 
-          if (iconWidth > iconHeight) {
+          if (iconWidth > iconHeight)
             height = (width / ratio).toInt
-          } else if (iconHeight > iconWidth) {
+          else if (iconHeight > iconWidth)
             width = (height * ratio).toInt
-          }
 
-          val c = if (icon.getOpacity != PixelFormat.OPAQUE)
-            Bitmap.Config.ARGB_8888 else Bitmap.Config.RGB_565
+          val c =
+            if (icon.getOpacity != PixelFormat.OPAQUE) Bitmap.Config.ARGB_8888
+            else Bitmap.Config.RGB_565
           val thumb = Bitmap.createBitmap(width, height, c)
           val canvas = new Canvas(thumb)
           canvas setDrawFilter new PaintFlagsDrawFilter(Paint.DITHER_FLAG, 0)
@@ -637,11 +626,10 @@ class Home extends Activity {
    */
   private class ShowApplications extends View.OnClickListener {
     def onClick(v: View) {
-      if (mGrid.getVisibility() != View.VISIBLE) {
+      if (mGrid.getVisibility != View.VISIBLE)
         showApplications(true)
-      } else {
+      else
         hideApplications()
-      }
     }
   }
 
@@ -688,11 +676,11 @@ class Home extends Activity {
 
   /**
    * When a drawable is attached to a View, the View gives the Drawable its
-   * dimensions by calling Drawable.setBounds(). In this application, the
+   * dimensions by calling `Drawable.setBounds()`. In this application, the
    * View that draws the wallpaper has the same size as the screen. However,
    * the wallpaper might be larger that the screen which means it will be
    * automatically stretched. Because stretching a bitmap while drawing it is
-   * very expensive, we use a ClippedDrawable instead.
+   * very expensive, we use a `ClippedDrawable` instead.
    * This drawable simply draws another wallpaper but makes sure it is not
    *  stretched by always giving it its intrinsic dimensions. If the wallpaper
    * is larger than the screen, it will simply get clipped but it won't impact

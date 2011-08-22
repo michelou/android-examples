@@ -27,7 +27,7 @@ object Widget extends BaseColumns {
   final val MIME_TYPE_SINGLE = Widget.MIME_ITEM_PREFIX + "/" + Widget.MIME_ITEM
   final val MIME_TYPE_MULTIPLE = Widget.MIME_DIR_PREFIX + "/" + Widget.MIME_ITEM
 
-  final val AUTHORITY = "com.msi.manning.chapter5.Widget"
+  final val AUTHORITY = "com.msi.manning.chapter5.widget"
   final val PATH_SINGLE = "widgets/#"
   final val PATH_MULTIPLE = "widgets"
   final val CONTENT_URI = Uri.parse("content://" + Widget.AUTHORITY + "/" +

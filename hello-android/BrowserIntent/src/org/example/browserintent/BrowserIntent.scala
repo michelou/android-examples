@@ -6,7 +6,7 @@
  * We make no guarantees that this code is fit for any purpose. 
  * Visit http://www.pragmaticprogrammer.com/titles/eband3 for more book information.
 ***/
-package org.example.browserintent;
+package org.example.browserintent
 
 import android.app.Activity
 import android.content.Intent
@@ -14,11 +14,12 @@ import android.net.Uri
 import android.os.Bundle
 import android.view.{KeyEvent, View}
 import android.view.View.{OnClickListener, OnKeyListener}
-import android.widget.{Button, EditText}
+import android.widget.{Button, EditText, TextView}
 
 class BrowserIntent extends Activity {
   private var urlText: EditText = _
   private var goButton: Button = _
+  private var errMsg: TextView = _ //mics
 
   override def onCreate(savedInstanceState: Bundle) {
     super.onCreate(savedInstanceState)
@@ -27,6 +28,7 @@ class BrowserIntent extends Activity {
     // Get a handle to all user interface elements
     urlText = findViewById(R.id.url_field).asInstanceOf[EditText]
     goButton = findViewById(R.id.go_button).asInstanceOf[Button]
+    errMsg = findViewById(R.id.err_msg).asInstanceOf[TextView]
 
     // Setup event handlers
     goButton setOnClickListener new OnClickListener() { 
@@ -37,7 +39,7 @@ class BrowserIntent extends Activity {
     urlText setOnKeyListener new OnKeyListener() { 
       def onKey(view: View, keyCode: Int, event: KeyEvent): Boolean = {
         if (keyCode == KeyEvent.KEYCODE_ENTER) {
-          openBrowser();
+          openBrowser()
           true
         } else
          false
@@ -47,8 +49,9 @@ class BrowserIntent extends Activity {
 
   /** Open a browser on the URL specified in the text box */
   private def openBrowser() {
-    val uri = Uri.parse(urlText.getText().toString)
+    val uri = Uri.parse(urlText.getText.toString)
     val intent = new Intent(Intent.ACTION_VIEW, uri)
-    startActivity(intent)
+    try startActivity(intent)
+    catch { case e: Exception => errMsg setText e.getMessage }
   }
 }

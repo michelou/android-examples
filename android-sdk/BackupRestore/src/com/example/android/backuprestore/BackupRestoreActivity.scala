@@ -16,14 +16,13 @@
 
 package com.example.android.backuprestore
 
+import android.app.Activity
 import android.app.backup.BackupManager
 import android.os.Bundle
 import android.util.Log
 import android.widget.{CheckBox, CompoundButton, RadioGroup}
 
 import java.io.{File, IOException, RandomAccessFile}
-
-import scala.android.app.Activity
 
 /**
  * This example is intended to demonstrate a few approaches that an Android
@@ -107,9 +106,9 @@ class BackupRestoreActivity extends Activity {
     setContentView(R.layout.backup_restore)
 
     /** Once the UI has been inflated, cache the controls for later */
-    mFillingGroup = findView(R.id.filling_group)
-    mAddMayoCheckbox = findView(R.id.mayo)
-    mAddTomatoCheckbox = findView(R.id.tomato)
+    mFillingGroup = findViewById(R.id.filling_group).asInstanceOf[RadioGroup]
+    mAddMayoCheckbox = findViewById(R.id.mayo).asInstanceOf[CheckBox]
+    mAddTomatoCheckbox = findViewById(R.id.tomato).asInstanceOf[CheckBox]
 
     /** Set up our file bookkeeping */
     mDataFile = new File(getFilesDir, BackupRestoreActivity.DATA_FILE_NAME)
@@ -195,10 +194,10 @@ class BackupRestoreActivity extends Activity {
   @throws(classOf[IOException])
   def writeDataToFileLocked(file: RandomAccessFile, addMayo: Boolean,
                             addTomato: Boolean, whichFilling: Int) {
-    file.setLength(0L)
-    file.writeInt(whichFilling)
-    file.writeBoolean(addMayo)
-    file.writeBoolean(addTomato)
+    file setLength 0L
+    file writeInt whichFilling
+    file writeBoolean addMayo
+    file writeBoolean addTomato
     Log.v(TAG, "NEW STATE: mayo=" + addMayo
              + " tomato=" + addTomato
              + " filling=" + whichFilling)
@@ -213,12 +212,12 @@ class BackupRestoreActivity extends Activity {
     val addMayo = mAddMayoCheckbox.isChecked
     val addTomato = mAddTomatoCheckbox.isChecked
     val whichFilling = mFillingGroup.getCheckedRadioButtonId
-    try {
+    try
       BackupRestoreActivity.sDataLock synchronized {
         val file = new RandomAccessFile(mDataFile, "rw")
         writeDataToFileLocked(file, addMayo, addTomato, whichFilling)
       }
-    } catch {
+    catch {
       case e: IOException =>
         Log.e(TAG, "Unable to record new UI state")
     }
