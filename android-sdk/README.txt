@@ -120,8 +120,8 @@ All Android applications must be signed. The system will not install an
 application that is not signed. You can use self-signed certificates to sign
 your applications. No certificate authority is needed. For example:
 
-$ keytool -genkey -v -keystore <my_debug/release_key>.keystore
-          -alias <my_alias_name> -keyalg RSA -validity 10000
+$ keytool -genkey -v -keystore ~/.android/release.keystore
+          -alias android-sdk -keyalg RSA -validity 10000
 
 
 Note about ProGuard

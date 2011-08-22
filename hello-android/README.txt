@@ -76,16 +76,16 @@ In particular:
 * The "build.xml" Ant build script defines targets such as "clean", "install"
   and "uninstall" and has been slightly modified to handle also Scala source
   files. Concretely, we override the default behavior of the "-post-compile"
-  target and modify its dependency list by adding the imported targets
-  "compile-scala" and "-shrink-scala":
+  target and modify its dependency list by adding the imported target
+  "-post-compile-scala":
 
     <import file="build-scala.xml"/>
 
     <!-- Converts this project's .class files into .dex files -->
-    <target name="-post-compile" depends="compile-scala, -shrink-scala" />
+    <target name="-post-compile" depends="-post-compile-scala" />
 
 * The "build-scala.xml" Ant build script defines the targets "compile-scala"
-  and "-shrink-scala" where respectively the "<scalac>" Ant task generates
+  and "-post-compile-scala" where respectively the "<scalac>" Ant task generates
   Java bytecode from the Scala source files and the "<proguard>" task creates a
   shrinked version of the Scala standard library by removing the unreferenced
   code (see next section for more details). Those two tasks are featured by
@@ -122,8 +122,8 @@ All Android applications must be signed. The system will not install an
 application that is not signed. You can use self-signed certificates to sign
 your applications. No certificate authority is needed. For example:
 
-$ keytool -genkey -v -keystore <my_debug/release_key>.keystore
-          -alias <my_alias_name> -keyalg RSA -validity 10000
+$ keytool -genkey -v -keystore ~/.android/release.keystore
+          -alias hello-android -keyalg RSA -validity 10000
 
 
 Have fun!
