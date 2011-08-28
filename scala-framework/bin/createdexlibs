@@ -97,13 +97,14 @@ DEX_LIBS_DIR=$FRAMEWORK_DIR/scala-$SCALA_VERSION2
 DEX_LIBS_DIR2=framework/scala-$SCALA_VERSION2
 
 ##############################################################################
-## Split the Scala library into five smaller pieces (original library is too
+## Split the Scala library into six smaller pieces (original library is too
 ## large for the dx tool) and convert them into dex files.
 
 mkdir -p $JVM_LIBS_DIR/scala-library/scala \
          $JVM_LIBS_DIR/scala-collection/scala \
          $JVM_LIBS_DIR/scala-immutable/scala/collection \
          $JVM_LIBS_DIR/scala-mutable/scala/collection \
+         $JVM_LIBS_DIR/scala-parallel/scala/collection \
          $JVM_LIBS_DIR/scala-actors/scala \
          $DEX_LIBS_DIR
 ( \
@@ -122,15 +123,20 @@ mkdir -p $JVM_LIBS_DIR/scala-library/scala \
   cp library.properties $JVM_LIBS_DIR/scala-mutable/ && \
   cp -r META-INF $JVM_LIBS_DIR/scala-mutable/ && \
   cp -r scala/collection/mutable $JVM_LIBS_DIR/scala-mutable/scala/collection/ && \
+  echo "Generating scala-parallel.jar..." && \
+  cp library.properties $JVM_LIBS_DIR/scala-parallel/ && \
+  cp -r META-INF $JVM_LIBS_DIR/scala-parallel/ && \
+  cp -r scala/collection/parallel $JVM_LIBS_DIR/scala-parallel/scala/collection/ && \
   echo "Generating scala-actors.jar..." && \
   cp library.properties $JVM_LIBS_DIR/scala-actors/ && \
   cp -r scala/actors $JVM_LIBS_DIR/scala-actors/scala/ && \
   rm -rf $JVM_LIBS_DIR/scala-collection/scala/collection/immutable && \
   rm -rf $JVM_LIBS_DIR/scala-collection/scala/collection/mutable && \
+  rm -rf $JVM_LIBS_DIR/scala-collection/scala/collection/parallel && \
   rm -rf scala/collection scala/actors \
 )
 
-for dir in "scala-library" "scala-collection" "scala-immutable" "scala-mutable" "scala-actors" ; do
+for dir in "scala-library" "scala-collection" "scala-immutable" "scala-mutable" "scala-parallel" "scala-actors" ; do
   echo "Converting $dir.jar into a dex file..."
   ${JAR:=jar} cf $JVM_LIBS_DIR/${dir}.jar -C $JVM_LIBS_DIR/$dir .
   $DX --dex --output=$DEX_LIBS_DIR/$dir.jar $JVM_LIBS_DIR/$dir.jar

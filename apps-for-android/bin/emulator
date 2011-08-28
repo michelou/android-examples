@@ -16,8 +16,8 @@ if [ -z "$ANDROID_SDK_ROOT" ] ; then
     # guess the location of the Android SDK installation directory
     if [ -x "/opt/android-sdk-mac_86/tools/emulator" ] ; then
         ANDROID_SDK_ROOT="/opt/android-sdk-mac_86"
-    elif [ -x "/opt/android-sdk-linux_86/tools/emulator" ] ; then
-        ANDROID_SDK_ROOT="/opt/android-sdk-linux_86"
+    elif [ -x "/opt/android-sdk-linux_x86/tools/emulator" ] ; then
+        ANDROID_SDK_ROOT="/opt/android-sdk-linux_x86"
     fi
     if [ -z "$ANDROID_SDK_ROOT" ] ; then
         echo "Error: environment variable ANDROID_SDK_ROOT is undefined. It should point to your installation directory."
@@ -60,7 +60,7 @@ if [ ! -x "$EMULATOR" ] ; then
 fi
 
 if [ -z "$ANDROID_AVD" ] ; then
-    AVD="2.3_128M_HVGA"
+    AVD="API_9"
 else
     AVD="$ANDROID_AVD"
 fi

@@ -14,10 +14,10 @@ fi
 
 if [ -z "$ANDROID_SDK_ROOT" ] ; then
     # guess the location of the Android SDK installation directory
-    if [ -x "/opt/android-sdk-mac_86/tools/emulator" ] ; then
-        ANDROID_SDK_ROOT="/opt/android-sdk-mac_86"
-    elif [ -x "/opt/android-sdk-linux_86/tools/emulator" ] ; then
-        ANDROID_SDK_ROOT="/opt/android-sdk-linux_86"
+    if [ -x "/opt/android-sdk-mac_x86/tools/emulator" ] ; then
+        ANDROID_SDK_ROOT="/opt/android-sdk-mac_x86"
+    elif [ -x "/opt/android-sdk-linux_x86/tools/emulator" ] ; then
+        ANDROID_SDK_ROOT="/opt/android-sdk-linux_x86"
     fi
     if [ ! -d "$ANDROID_SDK_ROOT" ] ; then
         echo "Error: environment variable ANDROID_SDK_ROOT is undefined. It should point to your installation directory."
@@ -71,7 +71,7 @@ else
         fi
     done
 fi
-SCALA_VERSION=`$SCALA_HOME/bin/scala -version | sed "s/\(.*\)version \(.*\) --.*/\2/"`
+SCALA_VERSION=`$SCALA_HOME/bin/scala -version | sed "s#\(.*\)version \(.*\) --.*#\2#"`
 echo "Using Scala $SCALA_VERSION in $SCALA_HOME"
 
 # find the root folder for this distribution
@@ -88,22 +88,25 @@ done;
 ROOT=`dirname "$SOURCE"`/..
 ROOT=`cd "$ROOT" > /dev/null && pwd`
 
-CONFIGS_DIR=$ROOT/configs
+FRAMEWORK_DIR=$ROOT/framework
 
-TMP_DIR=$CONFIGS_DIR/.`basename "$0"`_tmp
+SCALA_VERSION2=`echo "$SCALA_VERSION" | sed "s#\(.*\)-b.*#\1#"`
+TMP_DIR=$FRAMEWORK_DIR/.`basename "$0"`_tmp
 JVM_LIBS_DIR=$TMP_DIR/jvm-libs
-DEX_LIBS_DIR=$CONFIGS_DIR/framework
-DEX_LIBS_DIR2=configs/framework
+DEX_LIBS_DIR=$FRAMEWORK_DIR/scala-$SCALA_VERSION2
+DEX_LIBS_DIR2=framework/scala-$SCALA_VERSION2
 
 ##############################################################################
-## Split the Scala library into five smaller pieces (original library is too
+## Split the Scala library into six smaller pieces (original library is too
 ## large for the dx tool) and convert them into dex files.
 
 mkdir -p $JVM_LIBS_DIR/scala-library/scala \
          $JVM_LIBS_DIR/scala-collection/scala \
          $JVM_LIBS_DIR/scala-immutable/scala/collection \
          $JVM_LIBS_DIR/scala-mutable/scala/collection \
-         $JVM_LIBS_DIR/scala-actors/scala
+         $JVM_LIBS_DIR/scala-parallel/scala/collection \
+         $JVM_LIBS_DIR/scala-actors/scala \
+         $DEX_LIBS_DIR
 ( \
   cd $JVM_LIBS_DIR/scala-library/ && \
   echo "Generating scala-library.jar..." && \
@@ -120,15 +123,20 @@ mkdir -p $JVM_LIBS_DIR/scala-library/scala \
   cp library.properties $JVM_LIBS_DIR/scala-mutable/ && \
   cp -r META-INF $JVM_LIBS_DIR/scala-mutable/ && \
   cp -r scala/collection/mutable $JVM_LIBS_DIR/scala-mutable/scala/collection/ && \
+  echo "Generating scala-parallel.jar..." && \
+  cp library.properties $JVM_LIBS_DIR/scala-parallel/ && \
+  cp -r META-INF $JVM_LIBS_DIR/scala-parallel/ && \
+  cp -r scala/collection/parallel $JVM_LIBS_DIR/scala-parallel/scala/collection/ && \
   echo "Generating scala-actors.jar..." && \
   cp library.properties $JVM_LIBS_DIR/scala-actors/ && \
   cp -r scala/actors $JVM_LIBS_DIR/scala-actors/scala/ && \
   rm -rf $JVM_LIBS_DIR/scala-collection/scala/collection/immutable && \
   rm -rf $JVM_LIBS_DIR/scala-collection/scala/collection/mutable && \
+  rm -rf $JVM_LIBS_DIR/scala-collection/scala/collection/parallel && \
   rm -rf scala/collection scala/actors \
 )
 
-for dir in "scala-library" "scala-collection" "scala-immutable" "scala-mutable" "scala-actors" ; do
+for dir in "scala-library" "scala-collection" "scala-immutable" "scala-mutable" "scala-parallel" "scala-actors" ; do
   echo "Converting $dir.jar into a dex file..."
   ${JAR:=jar} cf $JVM_LIBS_DIR/${dir}.jar -C $JVM_LIBS_DIR/$dir .
   $DX --dex --output=$DEX_LIBS_DIR/$dir.jar $JVM_LIBS_DIR/$dir.jar
