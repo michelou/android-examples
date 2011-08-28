@@ -54,8 +54,8 @@
         </scalac>
     </target>
 
-	<target name="-post-compile-scala" depends="compile-scala" unless="do.not.compile"
-	        description="Shrink project class files and Scala library into one .jar file">
+        <target name="-post-compile-scala" depends="compile-scala" unless="do.not.compile"
+                description="Shrink project class files and Scala library into one .jar file">
         <condition property="debug.mode" value="" else="#DEBUG#">
             <isset property="build.mode.debug" />
         </condition>
@@ -93,19 +93,33 @@
                 </uptodate>
             </not></condition>
             <!-- input for dex will be proguard's output -->
-            <property name="out.dex.input.absolute.dir" value="${shrinked.jar}" />        
+            <property name="out.dex.input.absolute.dir" value="${shrinked.jar}" />                
             <!-- set the compiled project files and Scala library into a single property. -->
-            <pathconvert property="project.injars">
-                <path location="${out.classes.absolute.dir}" />
-                <path location="${scala-library.jar}(!META-INF/MANIFEST.MF,!library.properties)" />
-            </pathconvert>
+            <if condition="${uses.ramdisk}"><then>
+                <pathconvert property="project.injars">
+                    <path location="${out.classes.absolute.dir}" />
+                </pathconvert>
+            </then><else>
+               <pathconvert property="project.injars">
+                    <path location="${out.classes.absolute.dir}" />
+                    <path location="${scala-library.jar}(!META-INF/MANIFEST.MF,!library.properties)" />
+                </pathconvert>
+            </else></if>
             <split-path property="injars" prefix="-injars" path="${project.injars}" />
             <split-path property="outjars" prefix="-outjars" path="${shrinked.jar}" />
             <!-- set the android classpath object into a single property. -->
-            <pathconvert property="project.libraryjars">
-                <fileset dir="${jar.libs.dir}" includes="*.jar" />
-                <path refid="android.target.classpath" />
-            </pathconvert>
+            <if condition="${uses.ramdisk}"><then>
+                <pathconvert property="project.libraryjars">
+                    <fileset dir="${jar.libs.dir}" includes="*.jar" />
+                    <path refid="android.target.classpath" />
+                    <path location="${scala-library.jar}(!META-INF/MANIFEST.MF,!library.properties)" />
+                </pathconvert>
+            </then><else>
+                <pathconvert property="project.libraryjars">
+                    <fileset dir="${jar.libs.dir}" includes="*.jar" />
+                    <path refid="android.target.classpath" />
+                </pathconvert>
+            </else></if>
             <split-path property="libraryjars" prefix="-libraryjars" path="${project.libraryjars}" />
         </else></if>
         <copy file="${template.cfg}" tofile="${proguard.cfg}">

@@ -11,9 +11,11 @@ package scala
 
 import _root_.android.app.{Activity, Dialog}
 import _root_.android.content.Context
+import _root_.android.hardware.SensorManager
 import _root_.android.location.LocationManager
+import _root_.android.os.PowerManager
 import _root_.android.telephony.TelephonyManager
-import _root_.android.view.{LayoutInflater, View, ViewGroup}
+import _root_.android.view.{LayoutInflater, View, ViewGroup, WindowManager}
 import _root_.android.widget.{Button, EditText, ImageButton, ImageSwitcher,
                               ImageView, ListView, Spinner, TabHost,
                               TableLayout, TextSwitcher, TextView}
@@ -79,8 +81,17 @@ package object android {
     @inline def getLocationManager: LocationManager =
       activity.getSystemService(Context.LOCATION_SERVICE).asInstanceOf[LocationManager]
 
+    @inline def getPowerManager: PowerManager =
+      activity.getSystemService(POWER_SERVICE).asInstanceOf[PowerManager]
+
+    @inline def getSensorManager: SensorManager =
+      activity.getSystemService(SENSOR_SERVICE).asInstanceOf[SensorManager]
+
     @inline def getTelephonyManager: TelephonyManager =
       activity.getSystemService(Context.TELEPHONY_SERVICE).asInstanceOf[TelephonyManager]
+
+    @inline def getWindowManager: WindowManager =
+      activity.getSystemService(WINDOW_SERVICE).asInstanceOf[WindowManager]
   }
 
   implicit def findViewInDialog[D <: Dialog](dialog: D) = new FindView {

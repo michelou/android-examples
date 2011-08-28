@@ -11,6 +11,7 @@ package org.example.audio
 import android.app.Activity
 import android.media.{AudioManager, MediaPlayer}
 import android.os.Bundle
+import android.util.Log
 import android.view.KeyEvent
 
 class Audio extends Activity {
@@ -37,7 +38,8 @@ class Audio extends Activity {
       case _ =>
         return super.onKeyDown(keyCode, event)
     }
-println("**** resId="+resId)
+    Log.v(getClass.getSimpleName, "resId=0x"+resId.toHexString)
+
     // Release any resources from previous MediaPlayer
     if (mp != null) mp.release()
 

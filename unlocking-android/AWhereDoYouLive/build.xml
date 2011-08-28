@@ -80,4 +80,12 @@
 
     <target name="-post-compile" depends="-post-compile-scala" />
 
+    <!-- Redefines target "-dex" for Android frameworks older than version 2.3 -->
+    <!-- Converts this project's .class files into .dex files -->
+    <!--
+    <target name="-dex" depends="compile, -post-compile, -obfuscate"
+            unless="do.not.compile">
+        <pre2.3-dex-helper />
+    </target>
+    -->
 </project>

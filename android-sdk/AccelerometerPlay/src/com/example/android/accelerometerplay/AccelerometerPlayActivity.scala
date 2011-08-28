@@ -358,11 +358,11 @@ class AccelerometerPlayActivity extends Activity {
           mSensorX = -event.values(1)
           mSensorY = event.values(0)
         case Surface.ROTATION_180 =>
-           mSensorX = -event.values(0)
-           mSensorY = -event.values(1)
+          mSensorX = -event.values(0)
+          mSensorY = -event.values(1)
         case Surface.ROTATION_270 =>
-           mSensorX = event.values(1)
-           mSensorY = -event.values(0)
+          mSensorX = event.values(1)
+          mSensorY = -event.values(0)
         case _ =>
       }
 

@@ -16,21 +16,29 @@ if "%ANDROID_SDK_HOME%"=="" (
 
 if not "%ANDROID_SDK_ROOT%"=="" goto emulator
 
-rem guess1
-if not exist "%SystemDrive%\android-sdk-windows\tools\emulator.exe" goto guess2
-set ANDROID_SDK_ROOT=c:\android-sdk-windows
+rem :guess1
+call :set_8dot3 _GUESS "%SystemDrive%\android-sdk-windows\"
+if not exist %_GUESS%tools\emulator.exe goto guess2
+set ANDROID_SDK_ROOT=%_GUESS%
 goto emulator
 
 :guess2
-if not exist "%ProgramFiles%\android-sdk-windows\tools\emulator.exe" goto error1
-set ANDROID_SDK_ROOT=c:\Progra~1\android-sdk-windows
+call :set_8dot3 _GUESS "%ProgramFiles%\android-sdk-windows\"
+if not exist %_GUESS%tools\emulator.exe goto guess3
+set ANDROID_SDK_ROOT=%_GUESS%
+goto emulator
+
+:guess3
+call :set_8dot3 _GUESS "%ProgramFiles(x86)%\Android\android-sdk\"
+if not exist %_GUESS%tools\emulator.exe goto error1
+set ANDROID_SDK_ROOT=%_GUESS%
 
 :emulator
 set _EMULATOR=%ANDROID_SDK_ROOT%\tools\emulator.exe
 if not exist "%_EMULATOR%" goto error2
 
 if "%ANDROID_AVD%"=="" (
-  set _AVD=API_8_Google
+  set _AVD=API_9_Google
 ) else (
   set _AVD=%ANDROID_AVD%
 )
@@ -51,6 +59,10 @@ if not "%_RAMDISK%"=="" (
 rem echo "%_EMULATOR%" %_EMULATOR_OPTS% -avd %_AVD%
 "%_EMULATOR%" %_EMULATOR_OPTS% -avd %_AVD%
 goto end
+
+:set_8dot3
+  set %~1=%~dps2
+goto :eof
 
 rem ##########################################################################
 rem # errors

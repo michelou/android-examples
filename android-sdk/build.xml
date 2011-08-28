@@ -25,6 +25,10 @@ Builds the Scala applications targeted to the Android platform.
         </path>
     </pathconvert>
 
+    <target name="compile" description="compile applications">
+        <ant.dirs target="compile" />
+    </target>
+
     <target name="compile-scala" description="compile applications">
         <ant.dirs target="compile-scala" />
     </target>
@@ -231,23 +235,15 @@ Builds the Scala applications targeted to the Android platform.
         </condition>
         <property name="adb" location="${platform.tools.dir}/adb${exe}" />
         <property name="adb.device.arg" value="" />
-        <adb.mkdir dir="/data/framework/" />
-        <push-jar-helper jar="scala-library.jar"/>
-        <push-jar-helper jar="scala-collection.jar"/>
-        <push-jar-helper jar="scala-immutable.jar"/>
-        <push-jar-helper jar="scala-mutable.jar"/>
-        <push-jar-helper jar="scala-actors.jar"/>
+	<adb.mkdir dir="/data/framework/" />
+	<fileset id="jar.files.ref" dir="${configs.framework.dir}" includes="*.jar" />
+	<pathconvert property="jar.files" refid="jar.files.ref" pathsep="," />
+	<for list="${jar.files}" param="jar"><sequential>
+	    <basename property="@{jar}.base" file="@{jar}" />
+            <echo>Installing ${@{jar}.base} onto default emulator or device...</echo>
+            <adb.push local="@{jar}" remote="/data/framework/" />
+	</sequential></for>
     </target>
-
-    <macrodef name="push-jar-helper">
-        <attribute name="jar"/>
-        <sequential>
-            <echo>Installing @{jar} onto default emulator or device...</echo>
-            <adb.push
-                local="${configs.framework.dir}/@{jar}"
-                remote="/data/framework/" />
-        </sequential>
-    </macrodef>
 
     <macrodef name="adb.push">
         <attribute name="local" />
