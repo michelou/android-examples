@@ -88,13 +88,12 @@ done;
 ROOT=`dirname "$SOURCE"`/..
 ROOT=`cd "$ROOT" > /dev/null && pwd`
 
-FRAMEWORK_DIR=$ROOT/framework
+CONFIGS_DIR=$ROOT/configs
 
-SCALA_VERSION2=`echo "$SCALA_VERSION" | sed "s#\(.*\)-b.*#\1#"`
-TMP_DIR=$FRAMEWORK_DIR/.`basename "$0"`_tmp
+TMP_DIR=$CONFIGS_DIR/.`basename "$0"`_tmp
 JVM_LIBS_DIR=$TMP_DIR/jvm-libs
-DEX_LIBS_DIR=$FRAMEWORK_DIR/scala-$SCALA_VERSION2
-DEX_LIBS_DIR2=framework/scala-$SCALA_VERSION2
+DEX_LIBS_DIR=$CONFIGS_DIR/framework
+DEX_LIBS_DIR2=configs/framework
 
 ##############################################################################
 ## Split the Scala library into eight smaller pieces (original library is too
