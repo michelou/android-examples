@@ -41,6 +41,7 @@ Builds the Scala libraries targeted to the Android platform.
     <target name="build">
         <build.api level="7" />
         <build.api level="8" />
+        <build.api level="11" />
     </target>
 
     <macrodef name="build.api">

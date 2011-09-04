@@ -1,4 +1,4 @@
-﻿/*                     __                                               *\
+/*                     __                                               *\
 **     ________ ___   / /  ___     Scala Android                        **
 **    / __/ __// _ | / /  / _ |    (c) 2009-2011, LAMP/EPFL             **
 **  __\ \/ /__/ __ |/ /__/ __ |    http://scala-lang.org/               **
@@ -82,16 +82,16 @@ package object android {
       activity.getSystemService(Context.LOCATION_SERVICE).asInstanceOf[LocationManager]
 
     @inline def getPowerManager: PowerManager =
-      activity.getSystemService(POWER_SERVICE).asInstanceOf[PowerManager]
+      activity.getSystemService(Context.POWER_SERVICE).asInstanceOf[PowerManager]
 
     @inline def getSensorManager: SensorManager =
-      activity.getSystemService(SENSOR_SERVICE).asInstanceOf[SensorManager]
+      activity.getSystemService(Context.SENSOR_SERVICE).asInstanceOf[SensorManager]
 
     @inline def getTelephonyManager: TelephonyManager =
       activity.getSystemService(Context.TELEPHONY_SERVICE).asInstanceOf[TelephonyManager]
 
     @inline def getWindowManager: WindowManager =
-      activity.getSystemService(WINDOW_SERVICE).asInstanceOf[WindowManager]
+      activity.getSystemService(Context.WINDOW_SERVICE).asInstanceOf[WindowManager]
   }
 
   implicit def findViewInDialog[D <: Dialog](dialog: D) = new FindView {

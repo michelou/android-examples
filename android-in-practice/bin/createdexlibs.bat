@@ -17,14 +17,22 @@ if "%OS%"=="Windows_NT" (
 
 if not "%ANDROID_SDK_ROOT%"=="" goto emulator
 
-rem guess1
-if not exist "%SystemDrive%\android-sdk-windows\tools\emulator.exe" goto guess2
-set ANDROID_SDK_ROOT=c:\android-sdk-windows
+rem :guess1
+call :set_8dot3 _GUESS "%SystemDrive%\android-sdk-windows\"
+if not exist %_GUESS%tools\emulator.exe goto guess2
+set ANDROID_SDK_ROOT=%_GUESS%
 goto emulator
 
 :guess2
-if not exist "%ProgramFiles%\android-sdk-windows\tools\emulator.exe" goto error1
-set ANDROID_SDK_ROOT=c:\Progra~1\android-sdk-windows
+call :set_8dot3 _GUESS "%ProgramFiles%\android-sdk-windows\"
+if not exist %_GUESS%tools\emulator.exe goto guess3
+set ANDROID_SDK_ROOT=%_GUESS%
+goto emulator
+
+:guess3
+call :set_8dot3 _GUESS "%ProgramFiles(x86)%\Android\android-sdk\"
+if not exist %_GUESS%tools\emulator.exe goto error1
+set ANDROID_SDK_ROOT=%_GUESS%
 
 :emulator
 set _EMULATOR=%ANDROID_SDK_ROOT%\tools\emulator.exe
@@ -59,14 +67,17 @@ set _COPYCMD=copy /b /d /y
 set _XCOPYCMD=xcopy /e /q /r /y
 
 rem ##########################################################################
-rem ## Split the Scala library into five smaller pieces (original library
+rem ## Split the Scala library into eight smaller pieces (original library
 rem ## is too large for the dx tool) and convert them into dex files.
 
-mkdir %JVM_LIBS_DIR%\scala-library\scala 2>nul
+mkdir %JVM_LIBS_DIR%\scala-actors\scala 2>nul
 mkdir %JVM_LIBS_DIR%\scala-collection\scala 2>nul
 mkdir %JVM_LIBS_DIR%\scala-immutable\scala\collection 2>nul
+mkdir %JVM_LIBS_DIR%\scala-library\scala 2>nul
 mkdir %JVM_LIBS_DIR%\scala-mutable\scala\collection 2>nul
-mkdir %JVM_LIBS_DIR%\scala-actors\scala 2>nul
+mkdir %JVM_LIBS_DIR%\scala-parallel\scala\collection 2>nul
+mkdir %JVM_LIBS_DIR%\scala-util\scala 2>nul
+mkdir %JVM_LIBS_DIR%\scala-xml\scala 2>nul
 
 set _WORKING_DIR=%cd%
 cd %JVM_LIBS_DIR%\scala-library\
@@ -84,29 +95,45 @@ echo Generating scala-mutable.jar...
 %_COPYCMD% library.properties %JVM_LIBS_DIR%\scala-mutable\ 1>nul
 %_XCOPYCMD% META-INF %JVM_LIBS_DIR%\scala-mutable\META-INF\ 1>nul
 %_XCOPYCMD% scala\collection\mutable %JVM_LIBS_DIR%\scala-mutable\scala\collection\mutable\ 1>nul
+echo Generating scala-parallel.jar...
+%_COPYCMD% library.properties %JVM_LIBS_DIR%\scala-parallel\ 1>nul
+%_XCOPYCMD% META-INF %JVM_LIBS_DIR%\scala-parallel\META-INF\ 1>nul
+%_XCOPYCMD% scala\collection\parallel %JVM_LIBS_DIR%\scala-parallel\scala\collection\parallel\ 1>nul
 echo Generating scala-actors.jar...
 %_COPYCMD% library.properties %JVM_LIBS_DIR%\scala-actors\ 1>nul
 %_XCOPYCMD% scala\actors %JVM_LIBS_DIR%\scala-actors\scala\actors\ 1>nul
+echo Generating scala-util.jar...
+%_COPYCMD% library.properties %JVM_LIBS_DIR%\scala-util\ 1>nul
+%_XCOPYCMD% scala\util %JVM_LIBS_DIR%\scala-util\scala\util\ 1>nul
+echo Generating scala-xml.jar...
+%_COPYCMD% library.properties %JVM_LIBS_DIR%\scala-xml\ 1>nul
+%_XCOPYCMD% scala\xml %JVM_LIBS_DIR%\scala-xml\scala\xml\ 1>nul
 
 rmdir /s /q %JVM_LIBS_DIR%\scala-collection\scala\collection\immutable 1>nul
 rmdir /s /q %JVM_LIBS_DIR%\scala-collection\scala\collection\mutable 1>nul
+rmdir /s /q %JVM_LIBS_DIR%\scala-collection\scala\collection\parallel 1>nul
 rmdir /s /q scala\collection 1>nul
 rmdir /s /q scala\actors 1>nul
+rmdir /s /q scala\util 1>nul
+rmdir /s /q scala\xml 1>nul
 
-for %%d in (scala-library scala-collection scala-immutable scala-mutable scala-actors) do (
+for %%d in (scala-library scala-collection scala-immutable scala-mutable scala-parallel scala-actors scala-util scala-xml) do (
   @echo Converting %%d.jar into a dex file...
   cmd /c %_JARCMD% cf %JVM_LIBS_DIR%\%%d.jar -C %JVM_LIBS_DIR%\%%d .
   cmd /c %_DX% --dex --output=%DEX_LIBS_DIR%\%%d.jar %JVM_LIBS_DIR%\%%d.jar
 )
 %_COPYCMD% %JVM_LIBS_DIR%\scala-library\library.properties %DEX_LIBS_DIR%\ 1>nul
+cd %_WORKING_DIR%
 rmdir /s /q %TMP_DIR% 1>nul
 echo Dex files were successfully generated (%DEX_LIBS_DIR2%)
-
-cd %_WORKING_DIR%
 goto end
 
 rem ##########################################################################
 rem # subroutines
+
+:set_8dot3
+  set %~1=%~dps2
+goto :eof
 
 rem Variable "%~dps0" works on WinXP SP2 or newer
 rem (see http://support.microsoft.com/?kbid=833431)
