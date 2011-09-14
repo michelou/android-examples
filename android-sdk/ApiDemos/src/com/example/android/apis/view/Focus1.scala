@@ -34,7 +34,9 @@ class Focus1 extends Activity {
     setContentView(R.layout.focus_1)
 
     val webView = findViewById(R.id.rssWebView).asInstanceOf[WebView]
-    webView.loadData(<html><body>Can I focus?<br /><a href="#">No I cannot!</a>.</body></html>.toString, "text/html", "utf-8")
+    webView.loadData(
+      "<html><body>Can I focus?<br /><a href=\"#\">No I cannot!</a>.</body></html>",
+     "text/html", "utf-8")
 
     val listView = findViewById(R.id.rssListView).asInstanceOf[ListView]
     listView setAdapter new ArrayAdapter[String](this,

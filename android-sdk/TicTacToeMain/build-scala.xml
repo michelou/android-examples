@@ -54,8 +54,8 @@
         </scalac>
     </target>
 
-        <target name="-post-compile-scala" depends="compile-scala" unless="do.not.compile"
-                description="Shrink project class files and Scala library into one .jar file">
+    <target name="-post-compile-scala" depends="compile-scala" unless="do.not.compile"
+            description="Shrink project class files and Scala library into one .jar file">
         <condition property="debug.mode" value="" else="#DEBUG#">
             <isset property="build.mode.debug" />
         </condition>
@@ -102,6 +102,7 @@
             </then><else>
                <pathconvert property="project.injars">
                     <path location="${out.classes.absolute.dir}" />
+                    <path refid="android.target.classpath"/>
                     <path location="${scala-library.jar}(!META-INF/MANIFEST.MF,!library.properties)" />
                 </pathconvert>
             </else></if>

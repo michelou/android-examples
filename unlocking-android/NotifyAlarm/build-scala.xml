@@ -54,8 +54,8 @@
         </scalac>
     </target>
 
-	<target name="-post-compile-scala" depends="compile-scala" unless="do.not.compile"
-	        description="Shrink project class files and Scala library into one .jar file">
+    <target name="-post-compile-scala" depends="compile-scala" unless="do.not.compile"
+            description="Shrink project class files and Scala library into one .jar file">
         <condition property="debug.mode" value="" else="#DEBUG#">
             <isset property="build.mode.debug" />
         </condition>
@@ -135,6 +135,30 @@
 
     <!-- Macros -->
 
+    <!-- Target only needed for Android frameworks older than version 2.3 -->
+    <macrodef name="pre2.3-dex-helper">
+        <element name="external-libs" optional="yes" />
+        <element name="extra-parameters" optional="yes" />
+        <sequential>
+            <condition property="included-jars" value="*.jar" else="_"><and>
+                 <isset property="uses.ramdisk" />
+            </and></condition>
+            <echo>Converting compiled files and external libraries into ${intermediate.dex.file}...</echo>
+	    <property name="jar.libs.dir" value="libs" />
+	    <property name="jar.libs.absolute.dir" location="${jar.libs.dir}" />
+            <apply executable="${dx}" failonerror="true" parallel="true">
+                <arg value="--dex" />
+                <arg value="--output=${intermediate.dex.file}" />
+                <extra-parameters />
+                <arg line="${verbose.option}" />
+                <arg path="${out.classes.absolute.dir}" />
+                <fileset dir="${jar.libs.absolute.dir}" includes="${included-jars}" />
+                <!--<path refid="android.libraries.jars" />-->
+                <external-libs />
+            </apply>
+        </sequential>
+    </macrodef>
+ 
     <macrodef name="install-release-helper">
         <sequential>
             <echo>Installing ${out.release.file} onto default emulator or device...</echo>

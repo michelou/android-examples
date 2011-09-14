@@ -46,7 +46,7 @@ object DrawPoints {
 
       var value = 0f
       val delta = SIZE / SEGS
-      for (i <- 0 to SEGS; val x = i*4 + X; val y = i*4 + Y) {
+      for (i <- 0 to SEGS; x = i*4 + X; y = i*4 + Y) {
         mPts(x) = SIZE - value
         mPts(y) = 0
         mPts(x + 2) = 0
