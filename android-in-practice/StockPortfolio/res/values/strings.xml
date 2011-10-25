@@ -6,6 +6,6 @@
     <string name="hintPrice">Price Paid</string>
     <string name="hintQuant">Quantity</string>    
     <string name="btnLbl">Add to Portfolio</string>
-    <string name="app_name">StockManager</string>
+    <string name="app_name">StockManager\n(Scala)</string>
     <string name="service_name">Stock Portfolio Service</string>
 </resources>

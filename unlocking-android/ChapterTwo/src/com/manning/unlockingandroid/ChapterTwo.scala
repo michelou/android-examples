@@ -76,7 +76,7 @@ class ChapterTwo extends Activity {
           Log.i(ChapterTwo.tag, "onClick complete.")
         } catch {
           case pe: java.text.ParseException =>
-            Log.i(ChapterTwo.tag, "Parse exception caught")
+            Log.i(ChapterTwo.tag, "Parse exception caught "+pe.getMessage)
             answerfield setText "Failed to parse amount?"
           case e: Exception =>
             Log.e(ChapterTwo.tag, "Failed to Calculate Tip:" + e.getMessage)

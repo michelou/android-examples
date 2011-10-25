@@ -16,7 +16,7 @@
         name="scalac.banner"
         value="Scala compiler version ${scala.version.number} - http://scala-lang.org" />
 
-    <target name="-compile-aidl" depends="-aidl"
+    <target name="-compile-aidl" depends="-code-gen"
         description="Compiles project's .scala files into .class files">
         <condition property="logging" value="verbose" else="none">
             <istrue value="${verbose}" />
@@ -29,11 +29,13 @@
             logging="${logging}" addparams="${scalac.addparams}"
             classpathref="jar.libs.ref">
             <src path="${source.absolute.dir}" />
-            <src refid="project.libraries.src" />
             <classpath>
                 <pathelement location="${scala-library.jar}" />
             </classpath>
         </scalac>
+        <!-- Name of the application package extracted from manifest file -->
+        <xpath input="AndroidManifest.xml" expression="/manifest/@package"
+               output="manifest.package" />
         <pathconvert property="stock.service.file">
             <path location="${gen.absolute.dir}.${manifest.package}.service.IStockService"/>
             <unpackagemapper from="*IStockService" to="*IStockService.java" />

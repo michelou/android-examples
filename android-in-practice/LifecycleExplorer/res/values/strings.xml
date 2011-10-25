@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="hello">Hello LifecycleExplorer</string>
-    <string name="app_name">LifecycleExplorer</string>
+    <string name="app_name">LifecycleExplorer\n(Scala)</string>
 </resources>
