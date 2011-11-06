@@ -38,7 +38,7 @@ class SimpleVideo extends Activity {
       }
     }
     myVideo = findViewById(R.id.video).asInstanceOf[VideoView]
-    myVideo setVideoPath "/tmp/test.mp4"
+    myVideo setVideoPath "/sdcard/Videos/test.mp4"
     mc = new MediaController(this)
     mc setMediaPlayer myVideo
     myVideo setMediaController mc
