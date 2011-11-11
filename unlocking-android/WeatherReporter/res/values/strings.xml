@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="app_name">Weather\n(Scala)</string>
+	<string name="app_name_specify_location">Weather - Specify Location</string>
+	<string name="app_name_view_detail">Weather</string>
+	<string name="app_name_view_saved_locations">Weather - Saved Locations</string>
+
+	<string name="message_no_location">Location must be specified \n(ZIP code).</string>
+	<string name="message_invalid_location">Location does not appear to represent a numeric ZIP code, please try again.</string>
+	<string name="message_report_unavailable">Weather report unavailable, please check location and try again.</string>
+	
+	<string name="alert_label">Alert!</string>
+	
+	<string name="menu_goto_saved">Saved locations</string>
+	<string name="menu_view_report">Get report</string>
+	<string name="menu_specify_location">Specify location</string>
+	<string name="menu_device_location">Device location</string>
+	<string name="menu_remove_location">Remove location</string>
+	<string name="menu_save_location">Save location</string>
+	
+	<!-- specify_location -->
+	<string name="specify_location_intro">Specify report location:</string>
+	<string name="specify_location_label">Enter postal code for desired location:</string>
+	<string name="specify_location_button_label">Get report</string>
+	
+	<!--  view_detail -->
+	<string name="view_location_label">Location:</string>
+	<string name="view_date_label">Date:</string>
+	<string name="view_condition_label">Conditions:</string>
+	<string name="view_forecast_label">Forecast:</string>
+	<string name="view_checkbox_current">Enable severe weather alerts based on current device location?</string>	
+	<string name="view_checkbox_specific">Enable severe weather alerts for this location?</string>
+	
+	<string name="view_working">Working...</string>
+	<string name="view_get_report">Retrieving weather report</string>		
+	
+	<!--  view_saved_locations -->
+	<string name="view_saved_locations_intro">View saved locations:</string>		
+	
+
+</resources>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent" android:layout_height="wrap_content">
+	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+		android:orientation="vertical" android:layout_width="fill_parent"
+		android:layout_height="fill_parent">
+
+		<TextView android:id="@+id/socket_label"
+			android:layout_width="fill_parent" android:layout_height="wrap_content"
+			android:layout_marginBottom="10px"
+			android:text="Enter some data and press SOCKET to submit to socket (server must be listening for this to work)" />
+
+		<TextView android:id="@+id/socket_ip_label"
+			android:layout_width="fill_parent" android:layout_height="wrap_content"
+			android:layout_marginBottom="10px" android:text="Server IP Address:" />
+		<EditText android:id="@+id/socket_ip" android:layout_width="fill_parent"
+			android:layout_height="wrap_content" android:layout_marginBottom="10px"
+			android:text="192.168.0.12" />
+
+		<TextView android:id="@+id/socket_port_label"
+			android:layout_width="fill_parent" android:layout_height="wrap_content"
+			android:layout_marginBottom="10px" android:text="Server Port:" />
+		<EditText android:id="@+id/socket_port" android:layout_width="fill_parent"
+			android:layout_height="wrap_content" android:layout_marginBottom="10px"
+			android:text="8889" />
+
+		<TextView android:id="@+id/socket_input_label"
+			android:layout_width="fill_parent" android:layout_height="wrap_content"
+			android:layout_marginBottom="10px" android:text="Input Data:" />
+		<EditText android:id="@+id/socket_input"
+			android:layout_width="fill_parent" android:layout_height="wrap_content"
+			android:layout_marginBottom="10px" />
+
+		<Button android:id="@+id/socket_button" android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:text="SOCKET" />
+
+		<TextView android:id="@+id/socket_output_label"
+			android:layout_width="fill_parent" android:layout_height="wrap_content"
+			android:layout_marginBottom="10px" android:text="Output:" />
+		<TextView android:id="@+id/socket_output"
+			android:layout_width="fill_parent" android:layout_height="wrap_content"
+			android:layout_marginBottom="10px" android:textSize="10sp" />
+
+	</LinearLayout>
+</ScrollView>

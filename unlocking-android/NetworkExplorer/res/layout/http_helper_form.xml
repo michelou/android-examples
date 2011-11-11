@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent" android:layout_height="wrap_content">
+
+	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+		android:orientation="vertical" android:layout_width="fill_parent"
+		android:layout_height="fill_parent">
+
+		<TextView android:id="@+id/htth_label" android:layout_width="fill_parent"
+			android:layout_height="wrap_content" android:layout_marginBottom="10px"
+			android:text="Fill in url, method, optional params, optional user/pass, and click GO" />
+
+		<TextView android:id="@+id/htth_url_label"
+			android:layout_width="fill_parent" android:layout_height="wrap_content"
+			android:layout_marginBottom="10px" android:text="Url:" />
+		<EditText android:id="@+id/htth_url" android:layout_width="fill_parent"
+			android:layout_height="wrap_content" android:layout_marginBottom="10px" />
+
+		<TextView android:id="@+id/htth_method_label"
+			android:layout_width="fill_parent" android:layout_height="wrap_content"
+			android:layout_marginBottom="10px" android:text="Method:" />
+		<Spinner android:id="@+id/htth_method" android:layout_width="fill_parent"
+			android:layout_height="wrap_content" android:layout_marginBottom="10px" />
+
+		<TextView android:id="@+id/htth_param1_name_label"
+			android:layout_width="fill_parent" android:layout_height="wrap_content"
+			android:layout_marginBottom="10px" android:text="Param1Name:" />
+		<EditText android:id="@+id/htth_param1_name"
+			android:layout_width="fill_parent" android:layout_height="wrap_content"
+			android:layout_marginBottom="10px" />
+		<TextView android:id="@+id/htth_param1_value_label"
+			android:layout_width="fill_parent" android:layout_height="wrap_content"
+			android:layout_marginBottom="10px" android:text="Param1Value:" />
+		<EditText android:id="@+id/htth_param1_value"
+			android:layout_width="fill_parent" android:layout_height="wrap_content"
+			android:layout_marginBottom="10px" />
+
+		<TextView android:id="@+id/htth_param2_name_label"
+			android:layout_width="fill_parent" android:layout_height="wrap_content"
+			android:layout_marginBottom="10px" android:text="Param2Name:" />
+		<EditText android:id="@+id/htth_param2_name"
+			android:layout_width="fill_parent" android:layout_height="wrap_content"
+			android:layout_marginBottom="10px" />
+		<TextView android:id="@+id/htth_param2_value_label"
+			android:layout_width="fill_parent" android:layout_height="wrap_content"
+			android:layout_marginBottom="10px" android:text="Param2Value:" />
+		<EditText android:id="@+id/htth_param2_value"
+			android:layout_width="fill_parent" android:layout_height="wrap_content"
+			android:layout_marginBottom="10px" />
+
+		<TextView android:id="@+id/htth_param3_name_label"
+			android:layout_width="fill_parent" android:layout_height="wrap_content"
+			android:layout_marginBottom="10px" android:text="Param3Name:" />
+		<EditText android:id="@+id/htth_param3_name"
+			android:layout_width="fill_parent" android:layout_height="wrap_content"
+			android:layout_marginBottom="10px" />
+		<TextView android:id="@+id/htth_param3_value_label"
+			android:layout_width="fill_parent" android:layout_height="wrap_content"
+			android:layout_marginBottom="10px" android:text="Param3Value:" />
+		<EditText android:id="@+id/htth_param3_value"
+			android:layout_width="fill_parent" android:layout_height="wrap_content"
+			android:layout_marginBottom="10px" />
+
+		<TextView android:id="@+id/htth_user_label"
+			android:layout_width="fill_parent" android:layout_height="wrap_content"
+			android:layout_marginBottom="10px" android:text="User:" />
+		<EditText android:id="@+id/htth_user" android:layout_width="fill_parent"
+			android:layout_height="wrap_content" android:layout_marginBottom="10px" />
+
+		<TextView android:id="@+id/htth_pass_label"
+			android:layout_width="fill_parent" android:layout_height="wrap_content"
+			android:layout_marginBottom="10px" android:text="Password:" />
+		<EditText android:id="@+id/htth_pass" android:layout_width="fill_parent"
+			android:layout_height="wrap_content" android:layout_marginBottom="15px"
+			android:password="true" />
+
+		<Button android:id="@+id/htth_go_button" android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:layout_marginBottom="20px"
+			android:text="GO" />
+
+		<TextView android:id="@+id/htth_output_label"
+			android:layout_width="fill_parent" android:layout_height="wrap_content"
+			android:layout_marginBottom="10px" android:text="Output:" />
+		<TextView android:id="@+id/htth_output" android:layout_width="fill_parent"
+			android:layout_height="wrap_content" android:layout_marginBottom="10px"
+			android:textSize="10sp" />
+
+	</LinearLayout>
+</ScrollView>

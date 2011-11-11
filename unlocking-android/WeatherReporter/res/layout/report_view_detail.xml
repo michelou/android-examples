@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent" android:layout_height="wrap_content">
+
+	<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+		android:layout_width="fill_parent" android:layout_height="fill_parent"
+		android:gravity="center_horizontal" android:padding="10px"
+		android.setVerticalScrollBarEnabled="true">
+
+		<TextView android:id="@+id/view_location_label" 
+			android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5px"
+			android:layout_marginLeft="10px" android:layout_marginBottom="5px"
+			style="@style/label" android:text="@string/view_location_label" />
+		<ImageView android:id="@+id/condition_image"
+			android:layout_width="80px" android:layout_height="80px"
+			android:layout_toRightOf="@id/view_location_label"
+			android:layout_marginLeft="150px" android:background="#ffffff" />
+		<TextView android:id="@+id/view_location"
+			android:layout_width="fill_parent" android:layout_height="wrap_content"
+			android:layout_below="@id/view_location_label"
+			android:layout_marginLeft="10px" android:layout_marginBottom="5px"
+			style="@style/view_text" />
+
+		<TextView android:id="@+id/view_date_label"
+			android:layout_width="wrap_content" android:layout_height="wrap_content"
+			android:layout_below="@id/view_location" android:layout_marginLeft="10px"
+			android:layout_marginBottom="5px" style="@style/label" android:text="@string/view_date_label" />
+		<TextView android:id="@+id/view_date" android:layout_width="fill_parent"
+			android:layout_height="wrap_content" android:layout_below="@id/view_date_label"
+			android:layout_marginLeft="10px" android:layout_marginBottom="5px"
+			style="@style/view_text" />
+
+		<TextView android:id="@+id/view_condition_label"
+			android:layout_width="wrap_content" android:layout_height="wrap_content"
+			android:layout_below="@id/view_date" android:layout_marginLeft="10px"
+			android:layout_marginBottom="5px" style="@style/label"
+			android:text="@string/view_condition_label" />
+		<TextView android:id="@+id/view_condition"
+			android:layout_width="fill_parent" android:layout_height="wrap_content"
+			android:layout_below="@id/view_condition_label"
+			android:layout_marginLeft="10px" android:layout_marginBottom="5px"
+			style="@style/view_text" />
+
+		<TextView android:id="@+id/view_forecast_label"
+			android:layout_width="wrap_content" android:layout_height="wrap_content"
+			android:layout_below="@id/view_condition" android:layout_marginLeft="10px"
+			android:layout_marginBottom="5px" style="@style/label" android:text="@string/view_forecast_label" />
+		<TextView android:id="@+id/view_forecast"
+			android:layout_width="fill_parent" android:layout_height="wrap_content"
+			android:layout_below="@id/view_forecast_label"
+			android:layout_marginLeft="10px" android:layout_marginBottom="10px"
+			style="@style/view_text" />
+
+		<CheckBox android:id="@+id/view_configure_alerts"
+			android:layout_width="wrap_content" android:layout_height="wrap_content"
+			android:layout_marginLeft="10px" android:layout_marginBottom="15px"
+			style="@style/view_text" android:layout_below="@id/view_forecast" />
+
+	</RelativeLayout>
+</ScrollView>

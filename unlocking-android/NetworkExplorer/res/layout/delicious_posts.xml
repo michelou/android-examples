@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent" android:layout_height="wrap_content">
+
+	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+		android:orientation="vertical" android:layout_width="fill_parent"
+		android:layout_height="fill_parent">
+
+		<TextView android:id="@+id/del_label"
+			android:layout_width="fill_parent" android:layout_height="wrap_content"
+			android:layout_marginBottom="10px"
+			android:text="Fill in credentials and select GO to make del.icio.us request for recent posts" />
+
+		<TextView android:id="@+id/del_user_label"
+			android:layout_width="fill_parent" android:layout_height="wrap_content"
+			android:layout_marginBottom="10px" android:text="User:" />
+
+		<EditText android:id="@+id/del_user" android:layout_width="fill_parent"
+			android:layout_height="wrap_content" android:layout_marginBottom="10px" />
+
+		<TextView android:id="@+id/del_pass_label"
+			android:layout_width="fill_parent" android:layout_height="wrap_content"
+			android:layout_marginBottom="10px" android:text="Password:" />
+
+		<EditText android:id="@+id/del_pass" android:layout_width="fill_parent"
+			android:layout_height="wrap_content" android:layout_marginBottom="10px"
+			android:password="true" />
+
+		<Button android:id="@+id/delgo_button" android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:text="GO" />
+
+		<TextView android:id="@+id/del_output_label"
+			android:layout_width="fill_parent" android:layout_height="wrap_content"
+			android:layout_marginBottom="10px" android:text="Output:" />
+
+		<TextView android:id="@+id/del_output"
+			android:layout_width="fill_parent" android:layout_height="wrap_content"
+			android:layout_marginBottom="10px" android:textSize="10sp" />
+
+	</LinearLayout>
+</ScrollView>

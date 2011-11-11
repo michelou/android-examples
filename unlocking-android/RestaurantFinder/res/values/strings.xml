@@ -3,7 +3,7 @@
 	<string name="app_name_criteria">RestaurantFinder - Criteria</string>
 	<string name="app_name_reviews">RestaurantFinder - Reviews</string>
 	<string name="app_name_review">RestaurantFinder - Review</string>
-	<string name="app_short_name">Restaurants</string>
+	<string name="app_short_name">Restaurants\n(Scala)</string>
 
 	<string name="menu_get_reviews">Get reviews</string>
 	<string name="menu_web_review">Get full review</string>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent" android:layout_height="wrap_content">
+
+	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+		android:orientation="vertical" android:layout_width="fill_parent"
+		android:layout_height="fill_parent">
+
+		<TextView android:id="@+id/get_label" android:layout_width="fill_parent"
+			android:layout_height="wrap_content" android:layout_marginBottom="10px"
+			android:text="Enter a valid HTTP URL and then press GET to retrieve data" />
+
+		<EditText android:id="@+id/get_input" android:layout_width="fill_parent"
+			android:layout_height="wrap_content" android:layout_marginBottom="10px" />
+
+		<Button android:id="@+id/get_button" android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:text="GET" />
+
+		<TextView android:id="@+id/get_output_label"
+			android:layout_width="fill_parent" android:layout_height="wrap_content"
+			android:layout_marginBottom="10px" android:text="Output:" />
+
+		<TextView android:id="@+id/get_output" android:layout_width="fill_parent"
+			android:layout_height="wrap_content" android:layout_marginBottom="10px"
+			android:textSize="10sp" />
+
+	</LinearLayout>
+</ScrollView>

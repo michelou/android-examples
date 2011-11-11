@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent" android:layout_height="fill_parent"
+	android:gravity="center_horizontal" android:padding="10px">
+		
+	<ListView android:id="@android:id/list"
+		android:layout_width="fill_parent" android:layout_height="fill_parent"
+		android:layout_weight="1" android:drawSelectorOnTop="false" />
+		
+	<TextView android:id="@+id/view_saved_locations_empty" android:layout_width="fill_parent"
+		android:layout_height="fill_parent" style="@style/intro_blurb"
+		android:text="" />
+	
+
+</RelativeLayout>

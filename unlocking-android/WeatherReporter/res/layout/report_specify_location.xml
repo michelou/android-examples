@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent" android:layout_height="fill_parent"
+	android:gravity="center_horizontal" android:padding="10px">	
+
+	<TextView android:id="@+id/specify_location_label"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginLeft="10px" android:layout_marginBottom="5px"
+		android:layout_marginTop="25px"
+		style="@style/label" android:text="@string/specify_location_label" />		
+	<EditText android:id="@+id/location"
+		android:layout_width="70dip"
+		android:layout_height="wrap_content"
+		android:layout_below="@id/specify_location_label"
+		android:layout_marginLeft="10px" android:layout_marginBottom="5px"
+		android:numeric="integer"		
+		style="@style/edit_text" />
+		
+	<Button android:id="@+id/specify_location_button"  
+        android:layout_width="wrap_content" 
+        android:layout_height="wrap_content"      
+        android:layout_marginTop="50px" 
+        android:layout_marginLeft="7px" android:layout_marginBottom="5px"
+        android:layout_below="@id/location"
+        android:text="@string/specify_location_button_label" />
+
+</RelativeLayout>

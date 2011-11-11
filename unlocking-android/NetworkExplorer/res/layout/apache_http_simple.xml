@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent" android:layout_height="wrap_content">
+
+	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+		android:orientation="vertical" android:layout_width="fill_parent"
+		android:layout_height="fill_parent">
+
+		<TextView android:id="@+id/apache_label"
+			android:layout_width="fill_parent" android:layout_height="wrap_content"
+			android:layout_marginBottom="10px"
+			android:text="Select URL and click GO to make HTTP request" />
+			
+        <Spinner android:id="@+id/apache_url" android:layout_width="fill_parent"
+            android:layout_height="wrap_content" android:layout_marginBottom="10px" />
+
+		<Button android:id="@+id/apachego_button" android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:text="GO" />
+
+		<TextView android:id="@+id/apache_output_label"
+			android:layout_width="fill_parent" android:layout_height="wrap_content"
+			android:layout_marginBottom="10px" android:text="Output:" />
+
+		<TextView android:id="@+id/apache_output"
+			android:layout_width="fill_parent" android:layout_height="wrap_content"
+			android:layout_marginBottom="10px" android:textSize="10sp" />
+
+	</LinearLayout>
+</ScrollView>
