@@ -62,8 +62,8 @@ object YWeatherFetcher {
   private final val QBASE = "http://weather.yahooapis.com/forecastrss?p="
 
   private def isNumeric(s: String): Boolean =
-     try { s.toInt; true }
-     catch { case _ => false }
+    try { s.toInt; true }
+    catch { case _ => false }
 
   def getMockRecord: WeatherRecord = {
     val r = new WeatherRecord()

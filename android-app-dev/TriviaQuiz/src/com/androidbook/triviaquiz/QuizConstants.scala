@@ -19,7 +19,7 @@ object QuizConstants {
 
   final val GAME_PREFERENCES_PLAYER_ID = "ServerId" // Integer
 
-    // XML Tag Names
+  // XML Tag Names
   final val XML_TAG_QUESTION_BLOCK = "questions"
   final val XML_TAG_QUESTION = "question"
   final val XML_TAG_QUESTION_ATTRIBUTE_NUMBER = "number"
@@ -27,7 +27,7 @@ object QuizConstants {
   final val XML_TAG_QUESTION_ATTRIBUTE_IMAGEURL = "imageUrl"
   final val QUESTION_BATCH_SIZE = 5 // 15
 
-    // Server URLs
+  // Server URLs
   final val TRIVIA_SERVER_BASE = "http://tqs.mamlambo.com/"
   final val TRIVIA_SERVER_SCORES = TRIVIA_SERVER_BASE + "scores.jsp"
   final val TRIVIA_SERVER_QUESTIONS = TRIVIA_SERVER_BASE + "questions.jsp"

@@ -53,7 +53,7 @@ class WeatherAlertService extends Service {
       }
 
       // poll device location
-      val deviceAlertEnabledLoc = dbHelper.get(DBHelper.DEVICE_ALERT_ENABLED_ZIP)
+      val deviceAlertEnabledLoc = dbHelper get DBHelper.DEVICE_ALERT_ENABLED_ZIP
       if (deviceAlertEnabledLoc != null) {
         val record = loadRecord(deviceLocationZIP)
         if (record.isSevere) {

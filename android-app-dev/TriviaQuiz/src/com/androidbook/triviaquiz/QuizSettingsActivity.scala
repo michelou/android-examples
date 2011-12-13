@@ -78,9 +78,7 @@ class QuizSettingsActivity extends Activity {
 
     // if we don't have a serverId yet, we need to get one
     val serverId = mGameSettings.getInt(GAME_PREFERENCES_PLAYER_ID, -1)
-    if (serverId == -1) {
-      updateServerData()
-    }
+    if (serverId == -1) updateServerData()
   }
 
   override protected def onPause() {
@@ -109,7 +107,7 @@ class QuizSettingsActivity extends Activity {
 
   /**
    * update the server with the latest settings data - everything but the image
-   * 
+   *
    */
   private def updateServerData() {
     // make sure we don't collide with another pending update
@@ -123,7 +121,7 @@ class QuizSettingsActivity extends Activity {
 
   /**
    * update the server with the latest settings data - everything but the image
-   * 
+   *
    */
   private def doFriendRequest(friendEmail: String) {
     // make sure we don't collide with another pending update
@@ -144,9 +142,9 @@ class QuizSettingsActivity extends Activity {
           // Took a picture, use the downsized camera image provided by default
           val cameraPic = data.getExtras.get("data").asInstanceOf[Bitmap]
           if (cameraPic != null) {
-            try {
+            try
               saveAvatar(cameraPic)
-            } catch {
+            catch {
               case e: Exception =>
                 Log.e(DEBUG_TAG, "saveAvatar() with camera image failed.", e)
             }
@@ -179,7 +177,7 @@ class QuizSettingsActivity extends Activity {
 
   /**
    * Scale a Bitmap, keeping its aspect ratio
-   * 
+   *
    * @param bitmap
    *            Bitmap to scale
    * @param maxSide
@@ -205,16 +203,16 @@ class QuizSettingsActivity extends Activity {
 
   /**
    * Save a Bitmap as avatar.jpg
-   * 
+   *
    * @param avatar
    *            Bitmap to save to file system
    */
   private def saveAvatar(avatar: Bitmap) {
     val strAvatarFilename = "avatar.jpg"
-    try {
+    try
       avatar.compress(CompressFormat.JPEG, 100,
         openFileOutput(strAvatarFilename, Context.MODE_PRIVATE))
-    } catch {
+    catch {
       case e: Exception =>
         Log.e(DEBUG_TAG, "Avatar compression and save failed.", e)
     }
@@ -233,7 +231,7 @@ class QuizSettingsActivity extends Activity {
     val avatarButton = findImageButton(R.id.ImageButton_Avatar)
     val strAvatarUri = mGameSettings.getString(GAME_PREFERENCES_AVATAR, "android.resource://com.androidbook.triviaquiz/drawable/avatar")
     val imageUri = Uri.parse(strAvatarUri)
-    avatarButton.setImageURI(null); // Workaround for refreshing an ImageButton, which tries to cache the previous image Uri. Passing null effectively resets it.
+    avatarButton setImageURI null  // Workaround for refreshing an ImageButton, which tries to cache the previous image Uri. Passing null effectively resets it.
     avatarButton setImageURI imageUri
   }
 
@@ -321,9 +319,8 @@ class QuizSettingsActivity extends Activity {
     // Save Email
     val emailText = findEditText(R.id.EditText_Email)
 
-    if (mGameSettings contains GAME_PREFERENCES_EMAIL) {
+    if (mGameSettings contains GAME_PREFERENCES_EMAIL)
       emailText setText mGameSettings.getString(GAME_PREFERENCES_EMAIL, "")
-    }
 
     emailText.setOnKeyListener(new View.OnKeyListener() {
       def onKey(v: View, keyCode: Int, event: KeyEvent): Boolean = {
@@ -356,11 +353,11 @@ class QuizSettingsActivity extends Activity {
 
     // Handle password setting dialog
     val setPassword = findButton(R.id.Button_Password)
-    setPassword.setOnClickListener(new View.OnClickListener() {
+    setPassword setOnClickListener new View.OnClickListener() {
       def onClick(v: View) {
         showDialog(PASSWORD_DIALOG_ID)
       }
-    })
+    }
   }
 
   /**
@@ -369,11 +366,11 @@ class QuizSettingsActivity extends Activity {
   private def initFriendEmailEntry() {
     // Set button handler to Load friend email entry dialog
     val addFriend = findButton(R.id.Button_Friend_Email)
-    addFriend.setOnClickListener(new View.OnClickListener() {
+    addFriend setOnClickListener new View.OnClickListener() {
       def onClick(v: View) {
         showDialog(FRIEND_EMAIL_DIALOG_ID)
       }
-    })
+    }
   }
 
   /**
@@ -409,9 +406,8 @@ class QuizSettingsActivity extends Activity {
     adapter setDropDownViewResource android.R.layout.simple_spinner_dropdown_item
     spinner setAdapter adapter
 
-    if (mGameSettings contains GAME_PREFERENCES_GENDER) {
+    if (mGameSettings contains GAME_PREFERENCES_GENDER)
       spinner.setSelection(mGameSettings.getInt(GAME_PREFERENCES_GENDER, 0))
-    }
 
     // Handle spinner selections
     spinner setOnItemSelectedListener new AdapterView.OnItemSelectedListener() {
@@ -680,7 +676,7 @@ class QuizSettingsActivity extends Activity {
           mFavPlaceCoords = new GPSCoords(mGameSettings.getFloat(GAME_PREFERENCES_FAV_PLACE_LAT, 0), mGameSettings.getFloat(GAME_PREFERENCES_FAV_PLACE_LONG, 0))
         } else {
           // No favorite place set, set coords to current location
-          strFavPlaceName = getResources.getString(R.string.settings_favplace_currentlocation)
+          strFavPlaceName = getResources getString R.string.settings_favplace_currentlocation
           // We do not name this place ("here"), but use it as a map point.
           // User can supply the name if they like
           calculateCurrentCoordinates()
@@ -734,7 +730,7 @@ class QuizSettingsActivity extends Activity {
 
   /**
    * Helper to format coordinates for screen display
-   * 
+   *
    * @param lat
    * @param lon
    * @return A string formatted accordingly
@@ -748,7 +744,7 @@ class QuizSettingsActivity extends Activity {
   /**
    * If location name can't be determined, try to determine location
    * based on current coords
-   * 
+   *
    * @param strLocation
    *            Location or place name to try
    */
@@ -784,9 +780,8 @@ class QuizSettingsActivity extends Activity {
   }
 
   /**
-   * 
    * Take a description of a location, store the coordinates in mFavPlaceCoords
-   * 
+   *
    * @param strLocation
    *            The location or placename to look up
    * @return true if the address or place was recognized, otherwise false

@@ -66,7 +66,7 @@ object QuizWidgetProvider {
           remoteView.setTextViewText(R.id.widget_nickname, widgetData.nickname)
           remoteView.setTextViewText(R.id.widget_score, "Score: " + widgetData.score)
           if (widgetData.avatarUrl.length > 0) {
-            // remoteView.setImageViewUri(R.id.widget_image, Uri.parse(avatarUrl));
+            // remoteView.setImageViewUri(R.id.widget_image, Uri.parse(avatarUrl))
             var image: URL = null
             try {
               image = new URL(widgetData.avatarUrl)
@@ -152,13 +152,12 @@ object QuizWidgetProvider {
               if (eventType == XmlPullParser.START_TAG) {
                 val strName = parser.getName
 
-                if (strName equals "nickname") {
+                if (strName equals "nickname")
                   widgetData.nickname = parser.nextText
-                } else if (strName equals "score") {
+                else if (strName equals "score")
                   widgetData.score = parser.nextText
-                } else if (strName equals "avatarUrl") {
+                else if (strName equals "avatarUrl")
                   widgetData.avatarUrl = parser.nextText
-                }
               }
               eventType = parser.next()
             } // while
@@ -194,7 +193,7 @@ object QuizWidgetProvider {
     /**
      * Copy the content of the input stream into the output stream, using
      * a temporary byte array buffer whose size is defined by {@link #IO_BUFFER_SIZE}.
-     * 
+     *
      * @param in
      *            The input stream to copy from.
      * @param out

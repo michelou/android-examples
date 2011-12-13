@@ -30,7 +30,7 @@ class QuizHelpActivity extends Activity {
 
   /**
    * Converts an input stream to a string
-   * 
+   *
    * @param is
    *            The {@code InputStream} object to read from
    * @return A {@code String} object representing the string for of the input

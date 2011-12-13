@@ -125,7 +125,7 @@ class ReportViewDetail extends Activity {
   }
 
   override def onRestart() {
-    super.onRestart();
+    super.onRestart()
     Log.v(Constants.LOGTAG, " " + CLASSTAG + " onRestart")
   }
 
@@ -160,8 +160,8 @@ class ReportViewDetail extends Activity {
     }
 
     // get saved state from db records
-    savedLocation = dbHelper.get(reportZip)
-    deviceAlertEnabledLocation = dbHelper.get(DBHelper.DEVICE_ALERT_ENABLED_ZIP)
+    savedLocation = dbHelper get reportZip
+    deviceAlertEnabledLocation = dbHelper get DBHelper.DEVICE_ALERT_ENABLED_ZIP
 
     if (useDeviceLocation) {
       currentCheck setText R.string.view_checkbox_current
@@ -238,7 +238,7 @@ class ReportViewDetail extends Activity {
         startActivity(intent)
         true
       case MENU_REMOVE_SAVED_LOCATION =>
-        if (this.savedLocation != null) {
+        if (savedLocation != null) {
           dbHelper delete reportZip
         }
         val uri = Uri.parse("weather://com.msi.manning/loc?zip=" + reportZip)

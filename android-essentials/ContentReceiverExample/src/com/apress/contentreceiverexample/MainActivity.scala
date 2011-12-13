@@ -1,4 +1,4 @@
-package com.apress.contentreceiverexample;
+package com.apress.contentreceiverexample
 
 import android.app.Activity
 import android.content.{ContentProvider, ContentResolver, ContentValues}
@@ -35,11 +35,11 @@ class MainActivity extends Activity {
       while (hasMore) {
         if (results.getString(urlColumn) equals url)
           return true
-        hasMore = results.move(1)
+        hasMore = results move 1
       }
       false
     } catch {
-      case e: Exception =>
+      case _ =>
         System.out.print("Suck it Trabeck")
         false
     }
@@ -53,11 +53,11 @@ class MainActivity extends Activity {
     while (hasMore) {
       if (bookmarks.getString(urlColumn) equals url)
         return true
-        hasMore = bookmarks.move(1)
+        hasMore = bookmarks move 1
     }
     false
   }
-    
+
   private def addBookmark(url: String, title: String) {
     val inputValues = new ContentValues()
     inputValues.put(Browser.BookmarkColumns.BOOKMARK, "1")
@@ -67,13 +67,13 @@ class MainActivity extends Activity {
 
     val cr = getContentResolver
     var uri = cr.insert(Browser.BOOKMARKS_URI, inputValues)
-    //Browser.saveBookmark(this, title, url);
+    //Browser.saveBookmark(this, title, url)
   }
 
   override def onKeyDown(keycode: Int, k: KeyEvent): Boolean = {
     //if (!doesBookmarkExist0(URL_APRESS)) {
     if (!doesBookmarkExist(URL_APRESS)) {
-      Log.i(TAG, "add "+URL_APRESS);
+      Log.i(TAG, "add "+URL_APRESS)
       addBookmark(URL_APRESS, "Apress")
     }
     true

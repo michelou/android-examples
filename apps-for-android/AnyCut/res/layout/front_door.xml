@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2008 Google Inc.
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:orientation="vertical"
+    android:gravity="center_horizontal">
+
+	<TextView
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:text="@string/welcomeString"
+		android:gravity="center_horizontal" android:textAppearance="?android:attr/textAppearanceLarge" android:layout_marginBottom="15dip" android:padding="15dip"/>
+
+	<Button android:id="@+id/newShortcut"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="@string/newShortcut"
+		android:layout_marginBottom="5dip"/>
+
+<!--
+<Button android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/editShortcut" android:id="@+id/editShortcut" android:layout_marginBottom="10dip"></Button>
+-->
+
+<View android:layout_width="fill_parent" android:layout_height="0dip" android:layout_weight="1" />
+
+<TextView android:layout_marginBottom="5dip" android:layout_height="wrap_content" android:text="@string/welcomeString2" android:textAppearance="?android:attr/textAppearanceMedium" android:gravity="center_horizontal" android:layout_width="fill_parent" android:textColor="?android:attr/textColorSecondary" android:padding="3dip"></TextView>
+
+</LinearLayout>

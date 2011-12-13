@@ -96,7 +96,7 @@ class QuizGameActivity extends Activity {
 
   /**
    * Called when question loading is complete
-   * 
+   *
    * @param startingQuestionNumber
    *            The first question number that should be available
    */
@@ -133,7 +133,7 @@ class QuizGameActivity extends Activity {
   /**
    * A switcher factory for use with the question image.
    * Creates the next {@code ImageView} object to animate to
-   * 
+   *
    */
   private class MyImageSwitcherFactory extends ViewSwitcher.ViewFactory {
     def makeView(): View = {
@@ -148,7 +148,7 @@ class QuizGameActivity extends Activity {
   /**
    * A switcher factory for use with the question text.
    * Creates the next {@code TextView} object to animate to
-   * 
+   *
    */
   private class MyTextSwitcherFactory extends ViewSwitcher.ViewFactory {
     def makeView(): View = {
@@ -186,7 +186,6 @@ class QuizGameActivity extends Activity {
     editor.commit()
 
     if (!mQuestions.contains(nextQuestionNumber)) {
-
       downloader = new QuizTask()
       downloader.execute(TRIVIA_SERVER_QUESTIONS, nextQuestionNumber.asInstanceOf[AnyRef])
 
@@ -217,7 +216,7 @@ class QuizGameActivity extends Activity {
 
   /**
    * Returns a {@code String} representing the text for a particular question number
-   * 
+   *
    * @param questionNumber
    *            The question number to get the text for
    * @return The text of the question, or null if {@code questionNumber} not found
@@ -229,7 +228,7 @@ class QuizGameActivity extends Activity {
 
   /**
    * Returns a {@code String} representing the URL to an image for a particular question
-   * 
+   *
    * @param questionNumber
    *            The question to get the URL for
    * @return A {@code String} for the URL or null if none found
@@ -342,7 +341,7 @@ class QuizGameActivity extends Activity {
     /**
      * Parses the XML questions to {@see mQuestions}. They're preloaded
      * into an XmlPullParser (questionBatch)
-     * 
+     *
      * @param questionBatch
      *            The incoming XmlPullParser
      * @throws XmlPullParserException
@@ -377,7 +376,7 @@ class QuizGameActivity extends Activity {
 
     /**
      * Loads the XML into the {@see mQuestions} class member variable
-     * 
+     *
      * @param startQuestionNumber
      *            first question to load
      */

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_height="wrap_content"
+    android:layout_width="fill_parent"
+    android:gravity="bottom">
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="0dip"
+        android:layout_weight="100"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:padding="5dip"
+        android:text="@string/instructions"/>
+
+    <Button android:id="@+id/newGame"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="50"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="@string/new_game"/>
+    
+</LinearLayout>

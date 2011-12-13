@@ -118,10 +118,7 @@ class WeatherRecord(private var overrideSevere: Boolean) {
     sb append " city-" append city
     sb append " region-" append region
     sb append " country-" append country
-    if (date != null) 
-      sb append " date-" append date
-    else
-      sb append " date-null"
+    sb append " date-" append (if (date != null) date else "null")
     sb append " temp-" append temp
     sb append " windDirection-" append windDirection
     sb append " windSpeed-" append windSpeed
@@ -133,10 +130,7 @@ class WeatherRecord(private var overrideSevere: Boolean) {
     sb append " sunrise-" append sunrise
     sb append " sunset-" append sunset
     sb append " link-" append link
-    if (this.condition != null)
-      sb append " condition-" append condition.display
-    else
-      sb append " condition-null"
+    sb append " condition-" append (if (condition != null) condition.display else "null")
     if (forecasts != null)
       for (forecast <- forecasts) {
         if (forecast != null)

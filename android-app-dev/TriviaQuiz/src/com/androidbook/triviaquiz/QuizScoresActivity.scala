@@ -34,13 +34,13 @@ class QuizScoresActivity extends Activity {
 
     // All Scores tab
     val allScoresTab = host newTabSpec "allTab"
-    allScoresTab.setIndicator(getResources.getString(R.string.all_scores), getResources.getDrawable(android.R.drawable.star_on))
+    allScoresTab.setIndicator(getResources getString R.string.all_scores, getResources getDrawable android.R.drawable.star_on)
     allScoresTab setContent R.id.ScrollViewAllScores
     host addTab allScoresTab
 
     // Friends Scores tab
     val friendScoresTab = host newTabSpec "friendsTab"
-    friendScoresTab.setIndicator(getResources.getString(R.string.friends_scores), getResources.getDrawable(android.R.drawable.star_on))
+    friendScoresTab.setIndicator(getResources getString R.string.friends_scores, getResources getDrawable android.R.drawable.star_on)
     friendScoresTab setContent R.id.ScrollViewFriendScores
     host addTab friendScoresTab
 
@@ -81,9 +81,8 @@ class QuizScoresActivity extends Activity {
   }
 
   /**
-   * 
    * Add a header {@code TableRow} to the {@code TableLayout} (styled)
-   * 
+   *
    * @param scoreTable
    *            the {@code TableLayout} that the header row will be added to
    */
@@ -104,7 +103,7 @@ class QuizScoresActivity extends Activity {
   /**
    * {@code insertScoreRow()} helper method -- Populate a {@code TableRow}
    * with three columns of {@code TextView} data (styled)
-   * 
+   *
    * @param tableRow
    *            The {@code TableRow} the text is being added to
    * @param text
@@ -168,7 +167,6 @@ class QuizScoresActivity extends Activity {
         newRow addView noResults
         table addView newRow
       }
-
     }
 
     override protected def doInBackground(params: AnyRef*): Boolean = {
@@ -189,9 +187,9 @@ class QuizScoresActivity extends Activity {
       }
 
       if (scores != null) {
-        try {
+        try
           processScores(scores)
-        } catch {
+        catch {
           case e: XmlPullParserException =>
             Log.e(DEBUG_TAG, "Pull Parser failure", e)
           case e: IOException =>
@@ -203,10 +201,9 @@ class QuizScoresActivity extends Activity {
     }
 
     /**
-     * 
      * {@code processScores()} helper method -- Inserts a new score
      * {@code TableRow} in the {@code TableLayout}
-     * 
+     *
      * @param scoreTable
      *            The {@code TableLayout} to add the score to
      * @param scoreValue
@@ -231,7 +228,7 @@ class QuizScoresActivity extends Activity {
 
     /**
      * Churn through an XML score information and populate a {@code TableLayout}
-     * 
+     *
      * @param scores
      *            A standard {@code XmlPullParser} containing the scores
      * @throws XmlPullParserException

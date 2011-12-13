@@ -24,58 +24,56 @@ class YWeatherHandler extends DefaultHandler {
   @throws(classOf[SAXException])
   override def startElement(namespaceURI: String, localName: String,
                             qName: String, atts: Attributes) {
-    if (localName equals YWeatherHandler.YLOC) {
-      weatherRecord setCity getAttributeValue("city", atts)
-      weatherRecord setRegion getAttributeValue("region", atts)
-      weatherRecord setCountry getAttributeValue("country", atts)
-    }
+    localName match {
+      case YWeatherHandler.YLOC =>
+        weatherRecord setCity getAttributeValue("city", atts)
+        weatherRecord setRegion getAttributeValue("region", atts)
+        weatherRecord setCountry getAttributeValue("country", atts)
 
-    if (localName equals YWeatherHandler.YWIND) {
-      weatherRecord setWindChill getAttributeValue("chill", atts)
-      val windDirectionDegrees = getAttributeValue("direction", atts).toInt
-      weatherRecord setWindDirection convertDirection(windDirectionDegrees)
-      weatherRecord setWindSpeed getAttributeValue("speed", atts).toInt
-    }
+      case YWeatherHandler.YWIND =>
+        weatherRecord setWindChill getAttributeValue("chill", atts)
+        val windDirectionDegrees = getAttributeValue("direction", atts).toInt
+        weatherRecord setWindDirection convertDirection(windDirectionDegrees)
+        weatherRecord setWindSpeed getAttributeValue("speed", atts).toInt
 
-    if (localName.equals(YWeatherHandler.YATMO)) {
-      weatherRecord setHumidity getAttributeValue("humidity", atts).toInt
-      weatherRecord setVisibility getAttributeValue("visibility", atts).toInt
-      weatherRecord setPressure getAttributeValue("pressure", atts).toDouble
-      val pressureState = getAttributeValue("rising", atts)
-      pressureState match {
-        case "0" => weatherRecord setPressureState WeatherRecord.PRESSURE_STEADY
-        case "1" => weatherRecord setPressureState WeatherRecord.PRESSURE_FALLING
-        case "2" => weatherRecord setPressureState WeatherRecord.PRESSURE_RISING
-        case _ =>
-      }
-    }
+      case YWeatherHandler.YATMO =>
+        weatherRecord setHumidity getAttributeValue("humidity", atts).toInt
+        weatherRecord setVisibility getAttributeValue("visibility", atts).toInt
+        weatherRecord setPressure getAttributeValue("pressure", atts).toDouble
+        val pressureState = getAttributeValue("rising", atts)
+        pressureState match {
+          case "0" => weatherRecord setPressureState WeatherRecord.PRESSURE_STEADY
+          case "1" => weatherRecord setPressureState WeatherRecord.PRESSURE_FALLING
+          case "2" => weatherRecord setPressureState WeatherRecord.PRESSURE_RISING
+          case _ =>
+        }
 
-    if (localName equals YWeatherHandler.YASTRO) {
-      weatherRecord setSunrise getAttributeValue("sunrise", atts)
-      weatherRecord setSunset getAttributeValue("sunset", atts)
-    }
+      case YWeatherHandler.YASTRO =>
+        weatherRecord setSunrise getAttributeValue("sunrise", atts)
+        weatherRecord setSunset getAttributeValue("sunset", atts)
 
-    if (localName equals YWeatherHandler.YCOND) {
-      weatherRecord setTemp getAttributeValue("temp", atts).toInt
-      val code = getAttributeValue("code", atts).toInt
-      val cond = WeatherCondition.getWeatherCondition(code)
-      weatherRecord setCondition cond
-      weatherRecord setDate getAttributeValue("date", atts)
-    }
-
-    if (localName equals YWeatherHandler.YFCAST) {
-      if (this.forecastCount < 2) {
-        val forecast = new WeatherForecast();
-        forecast setDate getAttributeValue("date", atts)
-        forecast setDay getAttributeValue("day", atts)
-        forecast setHigh getAttributeValue("high", atts).toInt
-        forecast setLow getAttributeValue("low", atts).toInt
+      case YWeatherHandler.YCOND =>
+        weatherRecord setTemp getAttributeValue("temp", atts).toInt
         val code = getAttributeValue("code", atts).toInt
         val cond = WeatherCondition.getWeatherCondition(code)
-        forecast setCondition cond
-        weatherRecord.getForecasts(forecastCount) = forecast
-      }
-      forecastCount += 1
+        weatherRecord setCondition cond
+        weatherRecord setDate getAttributeValue("date", atts)
+
+      case YWeatherHandler.YFCAST =>
+        if (forecastCount < 2) {
+          val forecast = new WeatherForecast()
+          forecast setDate getAttributeValue("date", atts)
+          forecast setDay getAttributeValue("day", atts)
+          forecast setHigh getAttributeValue("high", atts).toInt
+          forecast setLow getAttributeValue("low", atts).toInt
+          val code = getAttributeValue("code", atts).toInt
+          val cond = WeatherCondition.getWeatherCondition(code)
+          forecast setCondition cond
+          weatherRecord.getForecasts(forecastCount) = forecast
+        }
+        forecastCount += 1
+
+      case _ =>
     }
   }
 
@@ -124,12 +122,12 @@ class YWeatherHandler extends DefaultHandler {
 }
 
 object YWeatherHandler {
-  // private static final String CLASSTAG = YWeatherHandler.class.getSimpleName();
+  // private final val CLASSTAG = classOf[YWeatherHandler].getSimpleName
 
-  private final val YLOC = "location"
-  private final val YWIND = "wind"
-  private final val YATMO = "atmosphere"
+  private final val YLOC   = "location"
+  private final val YWIND  = "wind"
+  private final val YATMO  = "atmosphere"
   private final val YASTRO = "astronomy"
-  private final val YCOND = "condition"
+  private final val YCOND  = "condition"
   private final val YFCAST = "forecast"
 }

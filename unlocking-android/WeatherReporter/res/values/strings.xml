@@ -2,7 +2,7 @@
 <resources>
 	<string name="app_name">Weather\n(Scala)</string>
 	<string name="app_name_specify_location">Weather - Specify Location</string>
-	<string name="app_name_view_detail">Weather</string>
+	<string name="app_name_view_detail">Weather\n(Scala)</string>
 	<string name="app_name_view_saved_locations">Weather - Saved Locations</string>
 
 	<string name="message_no_location">Location must be specified \n(ZIP code).</string>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name">Divide and Conquer!</string>
+    <string name="new_game">New game</string>
+    <string name="game_over">Game over</string>
+    <string name="instructions">Draw vertical and horizontal lines to partition
+        the balls into smaller spaces.  Once the balls are contained, you get
+        to move on to the next level.
+    </string>
+    <string name="quit">Exit</string>
+
+    <string name="percent_contained"><xliff:g id="number">%d%%</xliff:g></string>
+    <string name="level">Level <xliff:g id="number">%d</xliff:g></string>
+
+    <string name="one_life_left">1 life left</string>
+    <string name="lives_left"><xliff:g id="number">%d</xliff:g> lives left</string>
+
+    <string name="unpause_instructions">Touch to unpause</string>
+
+    <string name="settings_vibrate">Vibration</string>
+    <string name="settings_vibrate_summary">vibrate when bad stuff happens</string>
+
+    <string name="settings_difficulty">Difficulty</string>
+    <string name="settings_difficulty_summary">Choose how many lives to start with</string>
+
+    <string name="settings_five_lives">5 lives</string>
+    <string name="settings_three_lives">3 lives</string>
+    <string name="settings_one_life">1 life</string>
+
+</resources>
