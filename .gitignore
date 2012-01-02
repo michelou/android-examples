@@ -1,0 +1,5 @@
+gen
+*.class
+local.properties
+.settings
+.cache
