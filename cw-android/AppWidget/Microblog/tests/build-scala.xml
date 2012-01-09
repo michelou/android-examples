@@ -19,6 +19,7 @@
     <property
         name="scalac.banner"
         value="Scala compiler version ${scala.version.number} - http://scala-lang.org" />
+    <property name="scala.compilerargs" value="" />
 
     <!-- Rules -->
 
@@ -39,7 +40,7 @@
         <scalac
             destdir="${out.classes.absolute.dir}"
             bootclasspathref="android.target.classpath"
-            logging="${logging}" addparams="${scalac.addparams}"
+            logging="${logging}" addparams="${scala.compilerargs}"
             classpath="${extensible.classpath}"
             classpathref="jar.libs.ref">
             <src path="${source.absolute.dir}" />
@@ -109,7 +110,7 @@
         </else></if>
         <!-- Name of the application package extracted from manifest file -->
         <xpath input="AndroidManifest.xml" expression="/manifest/@package"
-               output="manifest.package" />
+                output="manifest.package" />
         <copy file="${template.cfg}" tofile="${proguard.cfg}">
             <filterchain>
                 <replacetokens>

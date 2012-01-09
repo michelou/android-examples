@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical" android:layout_width="fill_parent"
+	android:layout_height="fill_parent" android:layout_gravity="center_horizontal"
+	android:background="@drawable/film_bg">
+
+	<TextView android:layout_width="fill_parent"
+		android:layout_height="wrap_content" style="@style/mainFontLarge"
+		android:text="MyMovies" android:background="@drawable/title"
+		android:padding="0dp" android:gravity="center_horizontal|center_vertical" />
+
+	<ListView android:id="@android:id/list" android:layout_width="fill_parent"
+		android:layout_height="fill_parent" />
+
+	<TextView android:id="@+id/main_list_empty"
+		android:layout_width="wrap_content" android:layout_height="wrap_content"
+		android:text="No movies (use menu->search to add)" android:visibility="gone"
+		style="@style/mainFontSmall" />
+</LinearLayout>

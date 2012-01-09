@@ -1,0 +1,579 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OpenSearchDescription xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/">
+	<opensearch:Query searchTerms="Transformers" />
+	<opensearch:totalResults>13</opensearch:totalResults>
+	<movies>
+		<movie>
+			<score>9.520137</score>
+			<popularity>3</popularity>
+			<translated>true</translated>
+			<adult>false</adult>
+			<language>en</language>
+			<original_name>Transformers</original_name>
+			<name>Transformers</name>
+			<alternative_name>The Transformers</alternative_name>
+			<type>movie</type>
+			<id>1858</id>
+			<imdb_id>tt0418279</imdb_id>
+			<url>http://www.themoviedb.org/movie/1858</url>
+			<votes>58</votes>
+			<rating>7.2</rating>
+			<certification>PG-13</certification>
+			<overview>Transformers is a 2007 American live-action film, based on
+				the Transformers toy line. The film is directed by Michael Bay and
+				stars Shia LaBeouf as Sam Witwicky, a teenager involved in a war
+				between the heroic Autobots and the evil Decepticons, two factions
+				of alien robots who can disguise themselves by transforming into
+				everyday machinery. The Decepticons desire control of the All Spark,
+				the object that created their robotic race, with the intention of
+				using it to build an army by giving life to the machines of Earth.
+				Megan Fox, Josh Duhamel, Tyrese Gibson, Jon Voight, Anthony Anderson
+				and John Turturro also star, while voice-actors Peter Cullen and
+				Hugo Weaving voice Optimus Prime and Megatron
+				respectively.Transformers was a huge box office success. The film
+				won four awards from the Visual Effects Society and was nominated
+				for three Academy Awards for Best Sound, Best Visual Effects, and
+				Best Sound Editing.</overview>
+			<released>2007-07-04</released>
+			<images>
+				<image type="poster"
+					url="http://hwcdn.themoviedb.org/posters/233/4c9ea5cf5e73d67049000233/transformers-original.jpg"
+					size="original" width="1000" height="1500" id="4c9ea5cf5e73d67049000233" />
+				<image type="poster"
+					url="http://hwcdn.themoviedb.org/posters/233/4c9ea5cf5e73d67049000233/transformers-mid.jpg"
+					size="mid" width="500" height="750" id="4c9ea5cf5e73d67049000233" />
+				<image type="poster"
+					url="http://hwcdn.themoviedb.org/posters/233/4c9ea5cf5e73d67049000233/transformers-cover.jpg"
+					size="cover" width="185" height="278" id="4c9ea5cf5e73d67049000233" />
+				<image type="poster"
+					url="http://hwcdn.themoviedb.org/posters/233/4c9ea5cf5e73d67049000233/transformers-thumb.jpg"
+					size="thumb" width="92" height="138" id="4c9ea5cf5e73d67049000233" />
+				<image type="backdrop"
+					url="http://hwcdn.themoviedb.org/backdrops/056/4c1330f15e73d646e0000056/transformers-original.jpg"
+					size="original" width="1920" height="1080" id="4c1330f15e73d646e0000056" />
+				<image type="backdrop"
+					url="http://hwcdn.themoviedb.org/backdrops/056/4c1330f15e73d646e0000056/transformers-poster.jpg"
+					size="poster" width="780" height="439" id="4c1330f15e73d646e0000056" />
+				<image type="backdrop"
+					url="http://hwcdn.themoviedb.org/backdrops/056/4c1330f15e73d646e0000056/transformers-thumb.jpg"
+					size="thumb" width="300" height="169" id="4c1330f15e73d646e0000056" />
+			</images>
+			<version>119</version>
+			<last_modified_at>2010-11-21 00:00:02</last_modified_at>
+		</movie>
+		<movie>
+			<score>9.520137</score>
+			<popularity>3</popularity>
+			<translated>true</translated>
+			<adult>false</adult>
+			<language>en</language>
+			<original_name>Transformations</original_name>
+			<name>Transformations</name>
+			<alternative_name></alternative_name>
+			<type>movie</type>
+			<id>28800</id>
+			<imdb_id>tt0094632</imdb_id>
+			<url>http://www.themoviedb.org/movie/28800</url>
+			<votes>1</votes>
+			<rating>5.5</rating>
+			<certification></certification>
+			<overview>No overview found.</overview>
+			<released>1988-09-02</released>
+			<images>
+				<image type="poster"
+					url="http://hwcdn.themoviedb.org/posters/b32/4bc97113017a3c57fe033b32/transformations-original.jpg"
+					size="original" width="326" height="529" id="4bc97113017a3c57fe033b32" />
+				<image type="poster"
+					url="http://hwcdn.themoviedb.org/posters/b32/4bc97113017a3c57fe033b32/transformations-mid.jpg"
+					size="mid" width="500" height="811" id="4bc97113017a3c57fe033b32" />
+				<image type="poster"
+					url="http://hwcdn.themoviedb.org/posters/b32/4bc97113017a3c57fe033b32/transformations-cover.jpg"
+					size="cover" width="185" height="300" id="4bc97113017a3c57fe033b32" />
+				<image type="poster"
+					url="http://hwcdn.themoviedb.org/posters/b32/4bc97113017a3c57fe033b32/transformations-thumb.jpg"
+					size="thumb" width="92" height="149" id="4bc97113017a3c57fe033b32" />
+			</images>
+			<version>25</version>
+			<last_modified_at>2010-08-22 19:23:57</last_modified_at>
+		</movie>
+		<movie>
+			<score>5.9500856</score>
+			<popularity>3</popularity>
+			<translated>true</translated>
+			<adult>false</adult>
+			<language>ru</language>
+			<original_name>Transformers 3</original_name>
+			<name>Transformers 3</name>
+			<alternative_name></alternative_name>
+			<type>movie</type>
+			<id>38356</id>
+			<imdb_id>tt1399103</imdb_id>
+			<url>http://www.themoviedb.org/movie/38356</url>
+			<votes>0</votes>
+			<rating>0.0</rating>
+			<certification></certification>
+			<overview>Transformers 3 is the working title for the third and final
+				film in the live action Transformers series, directed by Michael Bay
+				and produced by Steven Spielberg. It is the sequel to Transformers
+				and Transformers: Revenge of the Fallen and is scheduled for release
+				on July 1, 2011 in Real D 3D And IMAX 3D. Shia LaBeouf, Josh
+				Duhamel, Tyrese Gibson, John Turturro and Ram&#243;n Rodr&#237;guez
+				are set to reprise their starring roles, with Peter Cullen returning
+				as the voice of Optimus Prime, and Hugo Weaving also returning the
+				voice of Megatron. Despite having initially been confirmed for the
+				film, with the film already into principal photography, Megan Fox
+				will not reprise her role. With Fox's character Mikaela being
+				dropped, Sam is now set to be assigned a new love interest, who will
+				be played by English model Rosie Huntington-Whiteley.</overview>
+			<released>2011-07-01</released>
+			<images>
+			</images>
+			<version>13</version>
+			<last_modified_at>2010-10-01 07:39:41</last_modified_at>
+		</movie>
+		<movie>
+			<score>4.7600684</score>
+			<popularity>3</popularity>
+			<translated>true</translated>
+			<adult>false</adult>
+			<language>en</language>
+			<original_name>Transformers: Resparked</original_name>
+			<name>Transformers: Resparked</name>
+			<alternative_name></alternative_name>
+			<type>movie</type>
+			<id>18907</id>
+			<imdb_id></imdb_id>
+			<url>http://www.themoviedb.org/movie/18907</url>
+			<votes>0</votes>
+			<rating>0.0</rating>
+			<certification></certification>
+			<overview>No overview found.</overview>
+			<released>2008-03-09</released>
+			<images>
+				<image type="poster"
+					url="http://hwcdn.themoviedb.org/posters/d0e/4bc954f9017a3c57fe025d0e/transformers-resparked-original.jpg"
+					size="original" width="1000" height="1446" id="4bc954f9017a3c57fe025d0e" />
+				<image type="poster"
+					url="http://hwcdn.themoviedb.org/posters/d0e/4bc954f9017a3c57fe025d0e/transformers-resparked-mid.jpg"
+					size="mid" width="500" height="723" id="4bc954f9017a3c57fe025d0e" />
+				<image type="poster"
+					url="http://hwcdn.themoviedb.org/posters/d0e/4bc954f9017a3c57fe025d0e/transformers-resparked-cover.jpg"
+					size="cover" width="185" height="268" id="4bc954f9017a3c57fe025d0e" />
+				<image type="poster"
+					url="http://hwcdn.themoviedb.org/posters/d0e/4bc954f9017a3c57fe025d0e/transformers-resparked-thumb.jpg"
+					size="thumb" width="92" height="133" id="4bc954f9017a3c57fe025d0e" />
+			</images>
+			<version>3</version>
+			<last_modified_at>2010-10-31 10:34:01</last_modified_at>
+		</movie>
+		<movie>
+			<score>4.7600684</score>
+			<popularity>3</popularity>
+			<translated>true</translated>
+			<adult>false</adult>
+			<language>en</language>
+			<original_name>Transformers: Scramble City</original_name>
+			<name>Transformers: Scramble City</name>
+			<alternative_name></alternative_name>
+			<type>movie</type>
+			<id>20368</id>
+			<imdb_id>tt0147625</imdb_id>
+			<url>http://www.themoviedb.org/movie/20368</url>
+			<votes>0</votes>
+			<rating>0.0</rating>
+			<certification></certification>
+			<overview>Taking place after the 2nd Season of Transformers
+				(Generation 1) Scramble City gets its original story underway, as
+				the Autobots are shown to be in the midst of constructing the
+				powerful &quot;Scramble City,&quot; overseen by their newest
+				arrival, Ultra Magnus. When the Decepticons learn of this, their
+				combiner robots are deployed to attack, and a battle between them
+				and their Autobot counterparts ensues.</overview>
+			<released>1900-01-01</released>
+			<images>
+				<image type="poster"
+					url="http://hwcdn.themoviedb.org/posters/3aa/4bc9596a017a3c57fe0283aa/transformers-scramble-city-original.jpg"
+					size="original" width="230" height="153" id="4bc9596a017a3c57fe0283aa" />
+				<image type="poster"
+					url="http://hwcdn.themoviedb.org/posters/3aa/4bc9596a017a3c57fe0283aa/transformers-scramble-city-mid.jpg"
+					size="mid" width="500" height="333" id="4bc9596a017a3c57fe0283aa" />
+				<image type="poster"
+					url="http://hwcdn.themoviedb.org/posters/3aa/4bc9596a017a3c57fe0283aa/transformers-scramble-city-cover.jpg"
+					size="cover" width="185" height="123" id="4bc9596a017a3c57fe0283aa" />
+				<image type="poster"
+					url="http://hwcdn.themoviedb.org/posters/3aa/4bc9596a017a3c57fe0283aa/transformers-scramble-city-thumb.jpg"
+					size="thumb" width="92" height="61" id="4bc9596a017a3c57fe0283aa" />
+			</images>
+			<version>2</version>
+			<last_modified_at>2010-08-18 22:49:54</last_modified_at>
+		</movie>
+		<movie>
+			<score>4.7600684</score>
+			<popularity>3</popularity>
+			<translated>true</translated>
+			<adult>false</adult>
+			<language>en</language>
+			<original_name>Transformers: Beginnings</original_name>
+			<name>Transformers: Beginnings</name>
+			<alternative_name></alternative_name>
+			<type>movie</type>
+			<id>25565</id>
+			<imdb_id>tt1236486</imdb_id>
+			<url>http://www.themoviedb.org/movie/25565</url>
+			<votes>1</votes>
+			<rating>7.0</rating>
+			<certification></certification>
+			<overview>On their home planet of Cybertron, the Autobots and
+				Decepticons are involved in an explosive battle over the coveted
+				AllSpark. With the fate of the universe at stake, the Autobots send
+				it far from the reach of the ruthless Megatron, leader of the
+				Decepticons. But there are even more surprises in store when it
+				crash-lands on Earth.</overview>
+			<released>1900-01-01</released>
+			<images>
+				<image type="poster"
+					url="http://hwcdn.themoviedb.org/posters/4b0/4bc964ff017a3c57fe02e4b0/transformers-beginnings-original.jpg"
+					size="original" width="1000" height="1500" id="4bc964ff017a3c57fe02e4b0" />
+				<image type="poster"
+					url="http://hwcdn.themoviedb.org/posters/4b0/4bc964ff017a3c57fe02e4b0/transformers-beginnings-mid.jpg"
+					size="mid" width="500" height="750" id="4bc964ff017a3c57fe02e4b0" />
+				<image type="poster"
+					url="http://hwcdn.themoviedb.org/posters/4b0/4bc964ff017a3c57fe02e4b0/transformers-beginnings-cover.jpg"
+					size="cover" width="185" height="278" id="4bc964ff017a3c57fe02e4b0" />
+				<image type="poster"
+					url="http://hwcdn.themoviedb.org/posters/4b0/4bc964ff017a3c57fe02e4b0/transformers-beginnings-thumb.jpg"
+					size="thumb" width="92" height="138" id="4bc964ff017a3c57fe02e4b0" />
+				<image type="backdrop"
+					url="http://hwcdn.themoviedb.org/backdrops/4ac/4bc964ff017a3c57fe02e4ac/transformers-beginnings-original.jpg"
+					size="original" width="1280" height="720" id="4bc964ff017a3c57fe02e4ac" />
+				<image type="backdrop"
+					url="http://hwcdn.themoviedb.org/backdrops/4ac/4bc964ff017a3c57fe02e4ac/transformers-beginnings-poster.jpg"
+					size="poster" width="780" height="439" id="4bc964ff017a3c57fe02e4ac" />
+				<image type="backdrop"
+					url="http://hwcdn.themoviedb.org/backdrops/4ac/4bc964ff017a3c57fe02e4ac/transformers-beginnings-thumb.jpg"
+					size="thumb" width="300" height="169" id="4bc964ff017a3c57fe02e4ac" />
+			</images>
+			<version>2</version>
+			<last_modified_at>2010-08-18 22:50:28</last_modified_at>
+		</movie>
+		<movie>
+			<score>4.7600684</score>
+			<popularity>3</popularity>
+			<translated>true</translated>
+			<adult>false</adult>
+			<language>en</language>
+			<original_name>Beast Wars: Transformers</original_name>
+			<name>Beast Wars: Transformers</name>
+			<alternative_name></alternative_name>
+			<type>movie</type>
+			<id>42311</id>
+			<imdb_id>tt0115108</imdb_id>
+			<url>http://www.themoviedb.org/movie/42311</url>
+			<votes>0</votes>
+			<rating>0.0</rating>
+			<certification></certification>
+			<overview>The Predacons and Maximals are fighting through space and
+				crash on an unknown planet. The planet is rich in energon and
+				powerful enough to fuel galactic conquest, and so the battle for the
+				planet begins!</overview>
+			<released></released>
+			<images>
+			</images>
+			<version>34</version>
+			<last_modified_at>2010-10-18 12:32:43</last_modified_at>
+		</movie>
+		<movie>
+			<score>4.7600684</score>
+			<popularity>3</popularity>
+			<translated>true</translated>
+			<adult>false</adult>
+			<language>en</language>
+			<original_name>Rifftrax: Transformers</original_name>
+			<name>Rifftrax: Transformers</name>
+			<alternative_name></alternative_name>
+			<type>movie</type>
+			<id>48065</id>
+			<imdb_id></imdb_id>
+			<url>http://www.themoviedb.org/movie/48065</url>
+			<votes>0</votes>
+			<rating>0.0</rating>
+			<certification>PG-13</certification>
+			<overview>The toys you got free in your happy meal explode across the
+				screen as the loosening of FCC regulations on marketing directly to
+				children is now a major motion picture! And the now grown-up targets
+				of that marketing once again obeyed their overlords, turning
+				Transformers into the loudest hit of the year!
+				&lt;br/&gt;&lt;br/&gt;
+				Shia LaBeouf (from the German meaning &quot;diffident steak&quot;) stars
+				alongside Megan Fox, who certainly lives up to her name (she looks
+				like a Megan)! Optimus Prime (which the Feds just raised by a
+				quarter point) battles the evil Decepticons led by the eviler
+				Megatron for control of the Allspark, which is possibly the silliest
+				thing ever conceived by man.
+				&lt;br/&gt;&lt;br/&gt;
+				It's the most fun you'll have watching toys, at least until Mr. Potato
+				Head: The Motion Picture hits the theaters (Jack Black is in talks
+				to star). Mike, Kevin and Bill endure the lashings of Michael Bay in
+				a must-have RiffTrax!</overview>
+			<released>2007-07-03</released>
+			<images>
+				<image type="poster"
+					url="http://hwcdn.themoviedb.org/posters/21d/4cc4a58b7b9aa138d600221d/rifftrax-transformers-original.jpg"
+					size="original" width="666" height="861" id="4cc4a58b7b9aa138d600221d" />
+				<image type="poster"
+					url="http://hwcdn.themoviedb.org/posters/21d/4cc4a58b7b9aa138d600221d/rifftrax-transformers-mid.jpg"
+					size="mid" width="500" height="646" id="4cc4a58b7b9aa138d600221d" />
+				<image type="poster"
+					url="http://hwcdn.themoviedb.org/posters/21d/4cc4a58b7b9aa138d600221d/rifftrax-transformers-cover.jpg"
+					size="cover" width="185" height="239" id="4cc4a58b7b9aa138d600221d" />
+				<image type="poster"
+					url="http://hwcdn.themoviedb.org/posters/21d/4cc4a58b7b9aa138d600221d/rifftrax-transformers-thumb.jpg"
+					size="thumb" width="92" height="119" id="4cc4a58b7b9aa138d600221d" />
+			</images>
+			<version>8</version>
+			<last_modified_at>2010-10-24 22:27:47</last_modified_at>
+		</movie>
+		<movie>
+			<score>4.7600684</score>
+			<popularity>3</popularity>
+			<translated>true</translated>
+			<adult>false</adult>
+			<language>en</language>
+			<original_name>The Transformers: The Movie</original_name>
+			<name>The Transformers: The Movie</name>
+			<alternative_name>The Transformers - The Movie</alternative_name>
+			<type>movie</type>
+			<id>1857</id>
+			<imdb_id>tt0092106</imdb_id>
+			<url>http://www.themoviedb.org/movie/1857</url>
+			<votes>3</votes>
+			<rating>7.0</rating>
+			<certification>PG</certification>
+			<overview>The Transformers: The Movie is the animated film from 1986
+				based on the popular television series of the same name. The
+				television series and the film were both directed by Nelson Shin.</overview>
+			<released>1986-08-08</released>
+			<images>
+				<image type="poster"
+					url="http://hwcdn.themoviedb.org/posters/3bd/4ce860b25e73d6258f0003bd/the-transformers-the-movie-original.jpg"
+					size="original" width="699" height="1000" id="4ce860b25e73d6258f0003bd" />
+				<image type="poster"
+					url="http://hwcdn.themoviedb.org/posters/3bd/4ce860b25e73d6258f0003bd/the-transformers-the-movie-mid.jpg"
+					size="mid" width="500" height="715" id="4ce860b25e73d6258f0003bd" />
+				<image type="poster"
+					url="http://hwcdn.themoviedb.org/posters/3bd/4ce860b25e73d6258f0003bd/the-transformers-the-movie-cover.jpg"
+					size="cover" width="185" height="265" id="4ce860b25e73d6258f0003bd" />
+				<image type="poster"
+					url="http://hwcdn.themoviedb.org/posters/3bd/4ce860b25e73d6258f0003bd/the-transformers-the-movie-thumb.jpg"
+					size="thumb" width="92" height="132" id="4ce860b25e73d6258f0003bd" />
+				<image type="backdrop"
+					url="http://hwcdn.themoviedb.org/backdrops/2b8/4bc91334017a3c57fe0072b8/the-transformers-the-movie-original.png"
+					size="original" width="1920" height="1080" id="4bc91334017a3c57fe0072b8" />
+				<image type="backdrop"
+					url="http://hwcdn.themoviedb.org/backdrops/2b8/4bc91334017a3c57fe0072b8/the-transformers-the-movie-poster.png"
+					size="poster" width="780" height="439" id="4bc91334017a3c57fe0072b8" />
+				<image type="backdrop"
+					url="http://hwcdn.themoviedb.org/backdrops/2b8/4bc91334017a3c57fe0072b8/the-transformers-the-movie-thumb.png"
+					size="thumb" width="300" height="169" id="4bc91334017a3c57fe0072b8" />
+			</images>
+			<version>31</version>
+			<last_modified_at>2010-11-20 23:58:57</last_modified_at>
+		</movie>
+		<movie>
+			<score>4.16506</score>
+			<popularity>3</popularity>
+			<translated>true</translated>
+			<adult>false</adult>
+			<language>en</language>
+			<original_name>Transformers: Revenge of the Fallen</original_name>
+			<name>Transformers: Revenge of the Fallen</name>
+			<alternative_name>Transformers 2</alternative_name>
+			<type>movie</type>
+			<id>8373</id>
+			<imdb_id>tt1055369</imdb_id>
+			<url>http://www.themoviedb.org/movie/8373</url>
+			<votes>38</votes>
+			<rating>6.6</rating>
+			<certification>PG-13</certification>
+			<overview>Transformers: Revenge of the Fallen,sequel to
+				Transformers(2007), is a 2009 American science fiction action film
+				directed by Michael Bay and produced by Steven Spielberg. The plot
+				revolves around Sam Witwicky (Shia LaBeouf), the human caught in the
+				war between Autobots and Decepticons, having visions of Cybertronian
+				symbols, and being hunted by the Decepticons under the orders of
+				their long-trapped leader, The Fallen, who seeks to get revenge on
+				Earth by finding and activating a machine that would provide the
+				Decepticons with an energon source, destroying all life on the
+				planet in the process.Despite mostly negative reviews from film
+				critics, it was a box office success, surpassing the all-time
+				earnings of its predecessor in a month; its opening day, with $62
+				million in North America and close to $100 million worldwide, is the
+				second highest Wednesday opening gross in history, and the
+				fourth-highest single day gross of all time.</overview>
+			<released>2009-06-24</released>
+			<images>
+				<image type="poster"
+					url="http://hwcdn.themoviedb.org/posters/352/4c9fa2525e73d67b5f000352/transformers-revenge-of-the-fallen-original.jpg"
+					size="original" width="1000" height="1500" id="4c9fa2525e73d67b5f000352" />
+				<image type="poster"
+					url="http://hwcdn.themoviedb.org/posters/352/4c9fa2525e73d67b5f000352/transformers-revenge-of-the-fallen-mid.jpg"
+					size="mid" width="500" height="750" id="4c9fa2525e73d67b5f000352" />
+				<image type="poster"
+					url="http://hwcdn.themoviedb.org/posters/352/4c9fa2525e73d67b5f000352/transformers-revenge-of-the-fallen-cover.jpg"
+					size="cover" width="185" height="278" id="4c9fa2525e73d67b5f000352" />
+				<image type="poster"
+					url="http://hwcdn.themoviedb.org/posters/352/4c9fa2525e73d67b5f000352/transformers-revenge-of-the-fallen-thumb.jpg"
+					size="thumb" width="92" height="138" id="4c9fa2525e73d67b5f000352" />
+				<image type="backdrop"
+					url="http://hwcdn.themoviedb.org/backdrops/368/4bc9214b017a3c57fe00d368/transformers-revenge-of-the-fallen-original.jpg"
+					size="original" width="1920" height="1080" id="4bc9214b017a3c57fe00d368" />
+				<image type="backdrop"
+					url="http://hwcdn.themoviedb.org/backdrops/368/4bc9214b017a3c57fe00d368/transformers-revenge-of-the-fallen-poster.jpg"
+					size="poster" width="780" height="439" id="4bc9214b017a3c57fe00d368" />
+				<image type="backdrop"
+					url="http://hwcdn.themoviedb.org/backdrops/368/4bc9214b017a3c57fe00d368/transformers-revenge-of-the-fallen-thumb.jpg"
+					size="thumb" width="300" height="169" id="4bc9214b017a3c57fe00d368" />
+			</images>
+			<version>146</version>
+			<last_modified_at>2010-11-21 00:00:56</last_modified_at>
+		</movie>
+		<movie>
+			<score>3.9266393</score>
+			<popularity>3</popularity>
+			<translated>true</translated>
+			<adult>false</adult>
+			<language>en</language>
+			<original_name>Resiklo</original_name>
+			<name>Resiklo</name>
+			<alternative_name>Recyclo Transformers</alternative_name>
+			<type>movie</type>
+			<id>50136</id>
+			<imdb_id>tt1047877</imdb_id>
+			<url>http://www.themoviedb.org/movie/50136</url>
+			<votes>0</votes>
+			<rating>0.0</rating>
+			<certification></certification>
+			<overview>Set in December 2021, Resiklo is the story of Crisval
+				Sarmiento, an ex-military Colonel who leads a rag-tag group of
+				survivors in the Philippines against the insect-like alien invaders
+				known as the Balangs. Because of the enormous expenditures in
+				resources during the invasion (hinted in the movie's opening
+				credits), the humans are forced to scavenge the destroyed landscape
+				for anything that could be recycled and put to use at their secret
+				sanctuary, called Paraiso (Paradise in English).
+				However, they are in a race against time, as in addition to the resource
+				gathering, the survivors are fighting to eliminate the Balangs and
+				their human collaborators, the Mutanos (mutated humans), while
+				keeping Paraiso's location secret and along the way, uncovering the
+				truth behind the invasion as well.</overview>
+			<released>2009-06-12</released>
+			<images>
+				<image type="poster"
+					url="http://hwcdn.themoviedb.org/posters/47b/4ce92a267b9aa17c8e00047b/resiklo-original.jpg"
+					size="original" width="690" height="898" id="4ce92a267b9aa17c8e00047b" />
+				<image type="poster"
+					url="http://hwcdn.themoviedb.org/posters/47b/4ce92a267b9aa17c8e00047b/resiklo-mid.jpg"
+					size="mid" width="500" height="651" id="4ce92a267b9aa17c8e00047b" />
+				<image type="poster"
+					url="http://hwcdn.themoviedb.org/posters/47b/4ce92a267b9aa17c8e00047b/resiklo-cover.jpg"
+					size="cover" width="185" height="241" id="4ce92a267b9aa17c8e00047b" />
+				<image type="poster"
+					url="http://hwcdn.themoviedb.org/posters/47b/4ce92a267b9aa17c8e00047b/resiklo-thumb.jpg"
+					size="thumb" width="92" height="120" id="4ce92a267b9aa17c8e00047b" />
+			</images>
+			<version>18</version>
+			<last_modified_at>2010-11-21 15:50:23</last_modified_at>
+		</movie>
+		<movie>
+			<score>3.5700512</score>
+			<popularity>3</popularity>
+			<translated>true</translated>
+			<adult>false</adult>
+			<language>en</language>
+			<original_name>Riffrax: Transformers: Revenge of the Fallen</original_name>
+			<name>Riffrax: Transformers: Revenge of the Fallen</name>
+			<alternative_name></alternative_name>
+			<type>movie</type>
+			<id>48027</id>
+			<imdb_id></imdb_id>
+			<url>http://www.themoviedb.org/movie/48027</url>
+			<votes>0</votes>
+			<rating>0.0</rating>
+			<certification></certification>
+			<overview>At its heart, Transformers: Revenge of the Fallen is a love
+				story. A love story between two dogs, Mojo and Frankie, who are
+				shown humping several times in the first fifteen minutes of the
+				movie*. Stunningly, this remains a highlight over the next two hours
+				of movie. We don't see much of the dogs after their owner, Shia
+				LaBeouf, leaves for college, but we found our thoughts frequently
+				drifting back to them as the human characters dropped their pants,
+				ran into things, and stammered incoherently. Who was feeding the
+				dogs? Were they getting along with the other dogs at the dog park?
+				How was Frankie adapting to the new diet the vet had put him on back
+				in June?</overview>
+			<released></released>
+			<images>
+				<image type="poster"
+					url="http://hwcdn.themoviedb.org/posters/318/4cc464ed7b9aa138d5002318/riffrax-transformers-revenge-of-the-fallen-original.jpg"
+					size="original" width="666" height="888" id="4cc464ed7b9aa138d5002318" />
+				<image type="poster"
+					url="http://hwcdn.themoviedb.org/posters/318/4cc464ed7b9aa138d5002318/riffrax-transformers-revenge-of-the-fallen-mid.jpg"
+					size="mid" width="500" height="667" id="4cc464ed7b9aa138d5002318" />
+				<image type="poster"
+					url="http://hwcdn.themoviedb.org/posters/318/4cc464ed7b9aa138d5002318/riffrax-transformers-revenge-of-the-fallen-cover.jpg"
+					size="cover" width="185" height="247" id="4cc464ed7b9aa138d5002318" />
+				<image type="poster"
+					url="http://hwcdn.themoviedb.org/posters/318/4cc464ed7b9aa138d5002318/riffrax-transformers-revenge-of-the-fallen-thumb.jpg"
+					size="thumb" width="92" height="123" id="4cc464ed7b9aa138d5002318" />
+			</images>
+			<version>4</version>
+			<last_modified_at>2010-10-24 16:55:10</last_modified_at>
+		</movie>
+		<movie>
+			<score>2.7486475</score>
+			<popularity>3</popularity>
+			<translated>true</translated>
+			<adult>false</adult>
+			<language>en</language>
+			<original_name>Powaqqatsi</original_name>
+			<name>Powaqqatsi</name>
+			<alternative_name>Powwaqatsi: Life in Transformation</alternative_name>
+			<type>movie</type>
+			<id>24348</id>
+			<imdb_id>tt0095895</imdb_id>
+			<url>http://www.themoviedb.org/movie/24348</url>
+			<votes>1</votes>
+			<rating>7.0</rating>
+			<certification></certification>
+			<overview>An exploration of technologically developing nations and
+				the effect the transition to Western-style modernization has had on
+				them.</overview>
+			<released>1988-04-29</released>
+			<images>
+				<image type="poster"
+					url="http://hwcdn.themoviedb.org/posters/2d1/4bc96143017a3c57fe02c2d1/powaqqatsi-original.jpg"
+					size="original" width="1524" height="2173" id="4bc96143017a3c57fe02c2d1" />
+				<image type="poster"
+					url="http://hwcdn.themoviedb.org/posters/2d1/4bc96143017a3c57fe02c2d1/powaqqatsi-mid.jpg"
+					size="mid" width="500" height="713" id="4bc96143017a3c57fe02c2d1" />
+				<image type="poster"
+					url="http://hwcdn.themoviedb.org/posters/2d1/4bc96143017a3c57fe02c2d1/powaqqatsi-cover.jpg"
+					size="cover" width="185" height="264" id="4bc96143017a3c57fe02c2d1" />
+				<image type="poster"
+					url="http://hwcdn.themoviedb.org/posters/2d1/4bc96143017a3c57fe02c2d1/powaqqatsi-thumb.jpg"
+					size="thumb" width="92" height="131" id="4bc96143017a3c57fe02c2d1" />
+				<image type="backdrop"
+					url="http://hwcdn.themoviedb.org/backdrops/2cd/4bc96142017a3c57fe02c2cd/powaqqatsi-original.jpg"
+					size="original" width="3096" height="2091" id="4bc96142017a3c57fe02c2cd" />
+				<image type="backdrop"
+					url="http://hwcdn.themoviedb.org/backdrops/2cd/4bc96142017a3c57fe02c2cd/powaqqatsi-poster.jpg"
+					size="poster" width="780" height="527" id="4bc96142017a3c57fe02c2cd" />
+				<image type="backdrop"
+					url="http://hwcdn.themoviedb.org/backdrops/2cd/4bc96142017a3c57fe02c2cd/powaqqatsi-thumb.jpg"
+					size="thumb" width="300" height="203" id="4bc96142017a3c57fe02c2cd" />
+			</images>
+			<version>15</version>
+			<last_modified_at>2010-11-19 21:34:23</last_modified_at>
+		</movie>
+	</movies>
+</OpenSearchDescription> 

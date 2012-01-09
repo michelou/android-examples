@@ -1,0 +1,374 @@
+<OpenSearchDescription xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/">
+	<opensearch:Query searchTerms="187" />
+	<opensearch:totalResults>1</opensearch:totalResults>
+	<movies>
+		<movie>
+			<popularity>3</popularity>
+			<translated>true</translated>
+			<adult>false</adult>
+			<language>en</language>
+			<original_name>Sin City</original_name>
+			<name>Sin City</name>
+			<alternative_name></alternative_name>
+			<type>movie</type>
+			<id>187</id>
+			<imdb_id>tt0401792</imdb_id>
+			<url>http://www.themoviedb.org/movie/187</url>
+			<overview>The first of three films based on the beautiful comic world
+				of Frank Miller. Sin City depicts the comic book almost page for
+				page with its heavy contrast black and white extremely violent and
+				graphic imagery. Sin City is set in a dangerous and dark Basin City
+				where corruption, sex and violence is everyday life.</overview>
+			<votes>23</votes>
+			<rating>6.8</rating>
+			<tagline>There is no justice without sin.</tagline>
+			<certification>R</certification>
+			<released>2005-04-01</released>
+			<runtime>124</runtime>
+			<budget>40000000</budget>
+			<revenue>158733820</revenue>
+			<homepage>http://www.sincitythemovie.com/</homepage>
+			<trailer>http://www.youtube.com/watch?v=80</trailer>
+			<categories>
+				<category type="genre" name="Crime"
+					url="http://themoviedb.org/genre/crime" id="80" />
+				<category type="genre" name="Drama"
+					url="http://themoviedb.org/genre/drama" id="18" />
+				<category type="genre" name="Thriller"
+					url="http://themoviedb.org/genre/thriller" id="53" />
+			</categories>
+			<studios>
+				<studio name="Miramax Films" url="http://www.themoviedb.org/company/20"
+					id="20" />
+				<studio name="Dimension" url="http://www.themoviedb.org/company/334"
+					id="334" />
+			</studios>
+			<countries>
+				<country name="United States of America" code="US"
+					url="http://www.themoviedb.org/country/us" />
+			</countries>
+			<images>
+				<image type="poster"
+					url="http://hwcdn.themoviedb.org/posters/68c/4bc904e9017a3c57fe00168c/sin-city-original.jpg"
+					size="original" id="4bc904e9017a3c57fe00168c" />
+				<image type="poster"
+					url="http://hwcdn.themoviedb.org/posters/68c/4bc904e9017a3c57fe00168c/sin-city-mid.jpg"
+					size="mid" id="4bc904e9017a3c57fe00168c" />
+				<image type="poster"
+					url="http://hwcdn.themoviedb.org/posters/68c/4bc904e9017a3c57fe00168c/sin-city-cover.jpg"
+					size="cover" id="4bc904e9017a3c57fe00168c" />
+				<image type="poster"
+					url="http://hwcdn.themoviedb.org/posters/68c/4bc904e9017a3c57fe00168c/sin-city-thumb.jpg"
+					size="thumb" id="4bc904e9017a3c57fe00168c" />
+				<image type="poster"
+					url="http://hwcdn.themoviedb.org/posters/69b/4bc904ee017a3c57fe00169b/sin-city-original.jpg"
+					size="original" id="4bc904ee017a3c57fe00169b" />
+				<image type="poster"
+					url="http://hwcdn.themoviedb.org/posters/69b/4bc904ee017a3c57fe00169b/sin-city-mid.jpg"
+					size="mid" id="4bc904ee017a3c57fe00169b" />
+				<image type="poster"
+					url="http://hwcdn.themoviedb.org/posters/69b/4bc904ee017a3c57fe00169b/sin-city-cover.jpg"
+					size="cover" id="4bc904ee017a3c57fe00169b" />
+				<image type="poster"
+					url="http://hwcdn.themoviedb.org/posters/69b/4bc904ee017a3c57fe00169b/sin-city-thumb.jpg"
+					size="thumb" id="4bc904ee017a3c57fe00169b" />
+				<image type="poster"
+					url="http://hwcdn.themoviedb.org/posters/6a0/4bc904ef017a3c57fe0016a0/sin-city-original.jpg"
+					size="original" id="4bc904ef017a3c57fe0016a0" />
+				<image type="poster"
+					url="http://hwcdn.themoviedb.org/posters/6a0/4bc904ef017a3c57fe0016a0/sin-city-mid.jpg"
+					size="mid" id="4bc904ef017a3c57fe0016a0" />
+				<image type="poster"
+					url="http://hwcdn.themoviedb.org/posters/6a0/4bc904ef017a3c57fe0016a0/sin-city-cover.jpg"
+					size="cover" id="4bc904ef017a3c57fe0016a0" />
+				<image type="poster"
+					url="http://hwcdn.themoviedb.org/posters/6a0/4bc904ef017a3c57fe0016a0/sin-city-thumb.jpg"
+					size="thumb" id="4bc904ef017a3c57fe0016a0" />
+				<image type="poster"
+					url="http://hwcdn.themoviedb.org/posters/6a5/4bc904f1017a3c57fe0016a5/sin-city-original.jpg"
+					size="original" id="4bc904f1017a3c57fe0016a5" />
+				<image type="poster"
+					url="http://hwcdn.themoviedb.org/posters/6a5/4bc904f1017a3c57fe0016a5/sin-city-mid.jpg"
+					size="mid" id="4bc904f1017a3c57fe0016a5" />
+				<image type="poster"
+					url="http://hwcdn.themoviedb.org/posters/6a5/4bc904f1017a3c57fe0016a5/sin-city-cover.jpg"
+					size="cover" id="4bc904f1017a3c57fe0016a5" />
+				<image type="poster"
+					url="http://hwcdn.themoviedb.org/posters/6a5/4bc904f1017a3c57fe0016a5/sin-city-thumb.jpg"
+					size="thumb" id="4bc904f1017a3c57fe0016a5" />
+				<image type="poster"
+					url="http://hwcdn.themoviedb.org/posters/696/4bc904eb017a3c57fe001696/sin-city-original.jpg"
+					size="original" id="4bc904eb017a3c57fe001696" />
+				<image type="poster"
+					url="http://hwcdn.themoviedb.org/posters/696/4bc904eb017a3c57fe001696/sin-city-mid.jpg"
+					size="mid" id="4bc904eb017a3c57fe001696" />
+				<image type="poster"
+					url="http://hwcdn.themoviedb.org/posters/696/4bc904eb017a3c57fe001696/sin-city-cover.jpg"
+					size="cover" id="4bc904eb017a3c57fe001696" />
+				<image type="poster"
+					url="http://hwcdn.themoviedb.org/posters/696/4bc904eb017a3c57fe001696/sin-city-thumb.jpg"
+					size="thumb" id="4bc904eb017a3c57fe001696" />
+				<image type="poster"
+					url="http://hwcdn.themoviedb.org/posters/691/4bc904ea017a3c57fe001691/sin-city-original.jpg"
+					size="original" id="4bc904ea017a3c57fe001691" />
+				<image type="poster"
+					url="http://hwcdn.themoviedb.org/posters/691/4bc904ea017a3c57fe001691/sin-city-mid.jpg"
+					size="mid" id="4bc904ea017a3c57fe001691" />
+				<image type="poster"
+					url="http://hwcdn.themoviedb.org/posters/691/4bc904ea017a3c57fe001691/sin-city-cover.jpg"
+					size="cover" id="4bc904ea017a3c57fe001691" />
+				<image type="poster"
+					url="http://hwcdn.themoviedb.org/posters/691/4bc904ea017a3c57fe001691/sin-city-thumb.jpg"
+					size="thumb" id="4bc904ea017a3c57fe001691" />
+				<image type="poster"
+					url="http://hwcdn.themoviedb.org/posters/6aa/4bc904f4017a3c57fe0016aa/sin-city-original.png"
+					size="original" id="4bc904f4017a3c57fe0016aa" />
+				<image type="poster"
+					url="http://hwcdn.themoviedb.org/posters/6aa/4bc904f4017a3c57fe0016aa/sin-city-mid.png"
+					size="mid" id="4bc904f4017a3c57fe0016aa" />
+				<image type="poster"
+					url="http://hwcdn.themoviedb.org/posters/6aa/4bc904f4017a3c57fe0016aa/sin-city-cover.png"
+					size="cover" id="4bc904f4017a3c57fe0016aa" />
+				<image type="poster"
+					url="http://hwcdn.themoviedb.org/posters/6aa/4bc904f4017a3c57fe0016aa/sin-city-thumb.png"
+					size="thumb" id="4bc904f4017a3c57fe0016aa" />
+				<image type="backdrop"
+					url="http://hwcdn.themoviedb.org/backdrops/614/4bc904d1017a3c57fe001614/sin-city-original.jpg"
+					size="original" id="4bc904d1017a3c57fe001614" />
+				<image type="backdrop"
+					url="http://hwcdn.themoviedb.org/backdrops/614/4bc904d1017a3c57fe001614/sin-city-poster.jpg"
+					size="poster" id="4bc904d1017a3c57fe001614" />
+				<image type="backdrop"
+					url="http://hwcdn.themoviedb.org/backdrops/614/4bc904d1017a3c57fe001614/sin-city-thumb.jpg"
+					size="thumb" id="4bc904d1017a3c57fe001614" />
+				<image type="backdrop"
+					url="http://hwcdn.themoviedb.org/backdrops/650/4bc904dd017a3c57fe001650/sin-city-original.jpg"
+					size="original" id="4bc904dd017a3c57fe001650" />
+				<image type="backdrop"
+					url="http://hwcdn.themoviedb.org/backdrops/650/4bc904dd017a3c57fe001650/sin-city-poster.jpg"
+					size="poster" id="4bc904dd017a3c57fe001650" />
+				<image type="backdrop"
+					url="http://hwcdn.themoviedb.org/backdrops/650/4bc904dd017a3c57fe001650/sin-city-thumb.jpg"
+					size="thumb" id="4bc904dd017a3c57fe001650" />
+				<image type="backdrop"
+					url="http://hwcdn.themoviedb.org/backdrops/684/4bc904e8017a3c57fe001684/sin-city-original.jpg"
+					size="original" id="4bc904e8017a3c57fe001684" />
+				<image type="backdrop"
+					url="http://hwcdn.themoviedb.org/backdrops/684/4bc904e8017a3c57fe001684/sin-city-poster.jpg"
+					size="poster" id="4bc904e8017a3c57fe001684" />
+				<image type="backdrop"
+					url="http://hwcdn.themoviedb.org/backdrops/684/4bc904e8017a3c57fe001684/sin-city-thumb.jpg"
+					size="thumb" id="4bc904e8017a3c57fe001684" />
+				<image type="backdrop"
+					url="http://hwcdn.themoviedb.org/backdrops/680/4bc904e5017a3c57fe001680/sin-city-original.jpg"
+					size="original" id="4bc904e5017a3c57fe001680" />
+				<image type="backdrop"
+					url="http://hwcdn.themoviedb.org/backdrops/680/4bc904e5017a3c57fe001680/sin-city-poster.jpg"
+					size="poster" id="4bc904e5017a3c57fe001680" />
+				<image type="backdrop"
+					url="http://hwcdn.themoviedb.org/backdrops/680/4bc904e5017a3c57fe001680/sin-city-thumb.jpg"
+					size="thumb" id="4bc904e5017a3c57fe001680" />
+				<image type="backdrop"
+					url="http://hwcdn.themoviedb.org/backdrops/67c/4bc904e5017a3c57fe00167c/sin-city-original.jpg"
+					size="original" id="4bc904e5017a3c57fe00167c" />
+				<image type="backdrop"
+					url="http://hwcdn.themoviedb.org/backdrops/67c/4bc904e5017a3c57fe00167c/sin-city-poster.jpg"
+					size="poster" id="4bc904e5017a3c57fe00167c" />
+				<image type="backdrop"
+					url="http://hwcdn.themoviedb.org/backdrops/67c/4bc904e5017a3c57fe00167c/sin-city-thumb.jpg"
+					size="thumb" id="4bc904e5017a3c57fe00167c" />
+				<image type="backdrop"
+					url="http://hwcdn.themoviedb.org/backdrops/678/4bc904e5017a3c57fe001678/sin-city-original.jpg"
+					size="original" id="4bc904e5017a3c57fe001678" />
+				<image type="backdrop"
+					url="http://hwcdn.themoviedb.org/backdrops/678/4bc904e5017a3c57fe001678/sin-city-poster.jpg"
+					size="poster" id="4bc904e5017a3c57fe001678" />
+				<image type="backdrop"
+					url="http://hwcdn.themoviedb.org/backdrops/678/4bc904e5017a3c57fe001678/sin-city-thumb.jpg"
+					size="thumb" id="4bc904e5017a3c57fe001678" />
+				<image type="backdrop"
+					url="http://hwcdn.themoviedb.org/backdrops/674/4bc904e4017a3c57fe001674/sin-city-original.jpg"
+					size="original" id="4bc904e4017a3c57fe001674" />
+				<image type="backdrop"
+					url="http://hwcdn.themoviedb.org/backdrops/674/4bc904e4017a3c57fe001674/sin-city-poster.jpg"
+					size="poster" id="4bc904e4017a3c57fe001674" />
+				<image type="backdrop"
+					url="http://hwcdn.themoviedb.org/backdrops/674/4bc904e4017a3c57fe001674/sin-city-thumb.jpg"
+					size="thumb" id="4bc904e4017a3c57fe001674" />
+				<image type="backdrop"
+					url="http://hwcdn.themoviedb.org/backdrops/670/4bc904e4017a3c57fe001670/sin-city-original.jpg"
+					size="original" id="4bc904e4017a3c57fe001670" />
+				<image type="backdrop"
+					url="http://hwcdn.themoviedb.org/backdrops/670/4bc904e4017a3c57fe001670/sin-city-poster.jpg"
+					size="poster" id="4bc904e4017a3c57fe001670" />
+				<image type="backdrop"
+					url="http://hwcdn.themoviedb.org/backdrops/670/4bc904e4017a3c57fe001670/sin-city-thumb.jpg"
+					size="thumb" id="4bc904e4017a3c57fe001670" />
+				<image type="backdrop"
+					url="http://hwcdn.themoviedb.org/backdrops/66c/4bc904e1017a3c57fe00166c/sin-city-original.jpg"
+					size="original" id="4bc904e1017a3c57fe00166c" />
+				<image type="backdrop"
+					url="http://hwcdn.themoviedb.org/backdrops/66c/4bc904e1017a3c57fe00166c/sin-city-poster.jpg"
+					size="poster" id="4bc904e1017a3c57fe00166c" />
+				<image type="backdrop"
+					url="http://hwcdn.themoviedb.org/backdrops/66c/4bc904e1017a3c57fe00166c/sin-city-thumb.jpg"
+					size="thumb" id="4bc904e1017a3c57fe00166c" />
+				<image type="backdrop"
+					url="http://hwcdn.themoviedb.org/backdrops/668/4bc904e1017a3c57fe001668/sin-city-original.jpg"
+					size="original" id="4bc904e1017a3c57fe001668" />
+				<image type="backdrop"
+					url="http://hwcdn.themoviedb.org/backdrops/668/4bc904e1017a3c57fe001668/sin-city-poster.jpg"
+					size="poster" id="4bc904e1017a3c57fe001668" />
+				<image type="backdrop"
+					url="http://hwcdn.themoviedb.org/backdrops/668/4bc904e1017a3c57fe001668/sin-city-thumb.jpg"
+					size="thumb" id="4bc904e1017a3c57fe001668" />
+				<image type="backdrop"
+					url="http://hwcdn.themoviedb.org/backdrops/664/4bc904e1017a3c57fe001664/sin-city-original.jpg"
+					size="original" id="4bc904e1017a3c57fe001664" />
+				<image type="backdrop"
+					url="http://hwcdn.themoviedb.org/backdrops/664/4bc904e1017a3c57fe001664/sin-city-poster.jpg"
+					size="poster" id="4bc904e1017a3c57fe001664" />
+				<image type="backdrop"
+					url="http://hwcdn.themoviedb.org/backdrops/664/4bc904e1017a3c57fe001664/sin-city-thumb.jpg"
+					size="thumb" id="4bc904e1017a3c57fe001664" />
+				<image type="backdrop"
+					url="http://hwcdn.themoviedb.org/backdrops/660/4bc904e0017a3c57fe001660/sin-city-original.jpg"
+					size="original" id="4bc904e0017a3c57fe001660" />
+				<image type="backdrop"
+					url="http://hwcdn.themoviedb.org/backdrops/660/4bc904e0017a3c57fe001660/sin-city-poster.jpg"
+					size="poster" id="4bc904e0017a3c57fe001660" />
+				<image type="backdrop"
+					url="http://hwcdn.themoviedb.org/backdrops/660/4bc904e0017a3c57fe001660/sin-city-thumb.jpg"
+					size="thumb" id="4bc904e0017a3c57fe001660" />
+				<image type="backdrop"
+					url="http://hwcdn.themoviedb.org/backdrops/65c/4bc904e0017a3c57fe00165c/sin-city-original.jpg"
+					size="original" id="4bc904e0017a3c57fe00165c" />
+				<image type="backdrop"
+					url="http://hwcdn.themoviedb.org/backdrops/65c/4bc904e0017a3c57fe00165c/sin-city-poster.jpg"
+					size="poster" id="4bc904e0017a3c57fe00165c" />
+				<image type="backdrop"
+					url="http://hwcdn.themoviedb.org/backdrops/65c/4bc904e0017a3c57fe00165c/sin-city-thumb.jpg"
+					size="thumb" id="4bc904e0017a3c57fe00165c" />
+				<image type="backdrop"
+					url="http://hwcdn.themoviedb.org/backdrops/658/4bc904de017a3c57fe001658/sin-city-original.jpg"
+					size="original" id="4bc904de017a3c57fe001658" />
+				<image type="backdrop"
+					url="http://hwcdn.themoviedb.org/backdrops/658/4bc904de017a3c57fe001658/sin-city-poster.jpg"
+					size="poster" id="4bc904de017a3c57fe001658" />
+				<image type="backdrop"
+					url="http://hwcdn.themoviedb.org/backdrops/658/4bc904de017a3c57fe001658/sin-city-thumb.jpg"
+					size="thumb" id="4bc904de017a3c57fe001658" />
+				<image type="backdrop"
+					url="http://hwcdn.themoviedb.org/backdrops/654/4bc904dd017a3c57fe001654/sin-city-original.jpg"
+					size="original" id="4bc904dd017a3c57fe001654" />
+				<image type="backdrop"
+					url="http://hwcdn.themoviedb.org/backdrops/654/4bc904dd017a3c57fe001654/sin-city-poster.jpg"
+					size="poster" id="4bc904dd017a3c57fe001654" />
+				<image type="backdrop"
+					url="http://hwcdn.themoviedb.org/backdrops/654/4bc904dd017a3c57fe001654/sin-city-thumb.jpg"
+					size="thumb" id="4bc904dd017a3c57fe001654" />
+			</images>
+			<cast>
+				<person name="Frank Miller" character="" job="Director" id="2293"
+					thumb="" department="Directing" url="http://www.themoviedb.org/person/2293"
+					order="0" cast_id="1" />
+				<person name="Frank Miller" character="" job="Author" id="2293"
+					thumb="" department="Writing" url="http://www.themoviedb.org/person/2293"
+					order="0" cast_id="4" />
+				<person name="Robert Rodriguez" character="" job="Director"
+					id="2294" thumb="" department="Directing"
+					url="http://www.themoviedb.org/person/2294" order="0" cast_id="2" />
+				<person name="Quentin Tarantino" character="Special Guest Director"
+					job="Director" id="138" thumb="" department="Directing"
+					url="http://www.themoviedb.org/person/138" order="0" cast_id="3" />
+				<person name="Graeme Revell" character=""
+					job="Original Music Composer" id="5912" thumb="" department="Sound"
+					url="http://www.themoviedb.org/person/5912" order="0" cast_id="13" />
+				<person name="John Debney" character=""
+					job="Original Music Composer" id="4500" thumb="" department="Sound"
+					url="http://www.themoviedb.org/person/4500" order="0" cast_id="12" />
+				<person name="Elizabeth Avellan" character="" job="Producer"
+					id="5911" thumb="" department="Production"
+					url="http://www.themoviedb.org/person/5911" order="0" cast_id="11" />
+				<person name="Robert Rodriguez" character=""
+					job="Original Music Composer" id="2294" thumb="" department="Sound"
+					url="http://www.themoviedb.org/person/2294" order="0" cast_id="14" />
+				<person name="Robert Rodriguez" character=""
+					job="Director of Photography" id="2294" thumb="" department="Camera"
+					url="http://www.themoviedb.org/person/2294" order="0" cast_id="15" />
+				<person name="Robert Rodriguez" character="" job="Editor" id="2294"
+					thumb="" department="Editing" url="http://www.themoviedb.org/person/2294"
+					order="0" cast_id="16" />
+				<person name="Beth Sepko" character="" job="Casting" id="5913"
+					thumb="" department="Production" url="http://www.themoviedb.org/person/5913"
+					order="0" cast_id="17" />
+				<person name="Mary Vernieu" character="" job="Casting" id="5914"
+					thumb="" department="Production" url="http://www.themoviedb.org/person/5914"
+					order="0" cast_id="18" />
+				<person name="Bruce Willis" character="Hartigan" job="Actor"
+					id="62" thumb="" department="Actors" url="http://www.themoviedb.org/person/62"
+					order="0" cast_id="5" />
+				<person name="Mickey Rourke" character="Marv" job="Actor" id="2295"
+					thumb="" department="Actors" url="http://www.themoviedb.org/person/2295"
+					order="1" cast_id="6" />
+				<person name="Clive Owen" character="Dwight" job="Actor" id="2296"
+					thumb="" department="Actors" url="http://www.themoviedb.org/person/2296"
+					order="2" cast_id="7" />
+				<person name="Jessica Alba" character="Nancy Callahan" job="Actor"
+					id="56731" thumb="" department="Actors"
+					url="http://www.themoviedb.org/person/56731" order="3" cast_id="8" />
+				<person name="Elijah Wood" character="Kevin" job="Actor" id="109"
+					thumb="" department="Actors" url="http://www.themoviedb.org/person/109"
+					order="4" cast_id="9" />
+				<person name="Josh Hartnett" character="The Salesman" job="Actor"
+					id="2299" thumb="" department="Actors"
+					url="http://www.themoviedb.org/person/2299" order="5" cast_id="10" />
+				<person name="Jaime King" character="Goldie/Wendy" job="Actor"
+					id="5915" thumb="" department="Actors"
+					url="http://www.themoviedb.org/person/5915" order="6" cast_id="19" />
+				<person name="Rutger Hauer" character="Cardinal Roark" job="Actor"
+					id="585" thumb="" department="Actors" url="http://www.themoviedb.org/person/585"
+					order="7" cast_id="20" />
+				<person name="Benicio Del Toro" character="Jackie Boy" job="Actor"
+					id="1121" thumb="" department="Actors"
+					url="http://www.themoviedb.org/person/1121" order="8" cast_id="21" />
+				<person name="Rosario Dawson" character="Gail" job="Actor"
+					id="5916" thumb="" department="Actors"
+					url="http://www.themoviedb.org/person/5916" order="9" cast_id="22" />
+				<person name="Michael Clarke Duncan" character="Manute" job="Actor"
+					id="61981" thumb="" department="Actors"
+					url="http://www.themoviedb.org/person/61981" order="10" cast_id="23" />
+				<person name="Devon Aoki" character="Miho" job="Actor" id="6278"
+					thumb="" department="Actors" url="http://www.themoviedb.org/person/6278"
+					order="11" cast_id="24" />
+				<person name="Alexis Bledel" character="Becky" job="Actor"
+					id="6279" thumb="" department="Actors"
+					url="http://www.themoviedb.org/person/6279" order="12" cast_id="25" />
+				<person name="Powers Boothe" character="Senator Roark" job="Actor"
+					id="6280" thumb="" department="Actors"
+					url="http://www.themoviedb.org/person/6280" order="13" cast_id="26" />
+				<person name="Marley Shelton" character="The Customer" job="Actor"
+					id="6407" thumb="" department="Actors"
+					url="http://www.themoviedb.org/person/6407" order="14" cast_id="27" />
+				<person name="Nick Stahl" character="Roark Jr./The Yellow Bastard"
+					job="Actor" id="6408" thumb="" department="Actors"
+					url="http://www.themoviedb.org/person/6408" order="15" cast_id="28" />
+				<person name="Michael Madsen" character="Bob" job="Actor" id="147"
+					thumb="" department="Actors" url="http://www.themoviedb.org/person/147"
+					order="16" cast_id="29" />
+				<person name="Makenzie Vega" character="Nancy (11 Years)"
+					job="Actor" id="2139" thumb="" department="Actors"
+					url="http://www.themoviedb.org/person/2139" order="17" cast_id="30" />
+				<person name="Brittany Murphy" character="Shellie" job="Actor"
+					id="328" thumb="" department="Actors" url="http://www.themoviedb.org/person/328"
+					order="18" cast_id="31" />
+				<person name="Carla Gugino" character="Lucille" job="Actor"
+					id="17832" thumb="" department="Actors"
+					url="http://www.themoviedb.org/person/17832" order="19" cast_id="32" />
+			</cast>
+			<version>33</version>
+			<last_modified_at>2010-07-19 10:24:08</last_modified_at>
+		</movie>
+	</movies>
+</OpenSearchDescription>
+

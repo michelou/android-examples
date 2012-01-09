@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<style name="MyMoviesTheme" parent="@android:style/Theme.Black">
+		<item name="android:listViewStyle">@style/MyMoviesListView</item>
+	</style>
+
+	<style name="SplashScreen" parent="@android:style/Theme.Black">
+		<item name="android:windowNoTitle">true</item>
+	</style>
+
+	<style name="MyMoviesListView" parent="@android:Widget.ListView">
+		<!--
+			TODO somehow this applies to custom Dialog/AlertDialogs too, and we
+			don't want dk bgrnd there.
+		-->
+		<item name="android:background">@color/list_background</item>
+		<item name="android:listSelector">@drawable/list_selector</item>
+		<item name="android:cacheColorHint">@android:color/transparent</item>
+		<item name="android:fastScrollEnabled">true</item>
+		<item name="android:footerDividersEnabled">false</item>
+	</style>
+
+	<style name="mainFontExtraLarge" parent="mainFontLarge">
+		<item name="android:textColor">#ffffff</item>
+        <item name="android:shadowColor">#000000</item>
+        <item name="android:shadowDx">2.2</item>
+        <item name="android:shadowDy">2.2</item>
+        <item name="android:shadowRadius">1.0</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">30sp</item>
+	</style>
+	<style name="mainFontLarge" parent="@android:style/TextAppearance.Large">
+		<item name="android:textColor">#ffffff</item>
+		<item name="android:shadowColor">#000000</item>
+		<item name="android:shadowDx">2.0</item>
+		<item name="android:shadowDy">2.0</item>
+		<item name="android:shadowRadius">1.0</item>
+		<item name="android:textStyle">bold</item>
+	</style>
+	<style name="mainFontMedium" parent="@android:style/TextAppearance.Medium">
+		<item name="android:textColor">#ffffff</item>
+		<item name="android:shadowColor">#000000</item>
+		<item name="android:shadowDx">1.5</item>
+		<item name="android:shadowDy">1.5</item>
+		<item name="android:shadowRadius">1.0</item>
+		<item name="android:textStyle">bold</item>
+	</style>
+	<style name="mainFontSmall" parent="@android:style/TextAppearance.Small">
+		<item name="android:textColor">#ffffff</item>
+		<item name="android:shadowColor">#000000</item>
+		<item name="android:shadowDx">1.0</item>
+		<item name="android:shadowDy">1.0</item>
+		<item name="android:shadowRadius">1.0</item>
+		<item name="android:textStyle">bold</item>
+	</style>
+
+</resources>

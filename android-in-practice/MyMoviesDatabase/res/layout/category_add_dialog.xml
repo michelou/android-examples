@@ -1,0 +1,13 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical" android:layout_width="fill_parent"
+	android:layout_height="fill_parent" android:padding="10dp"
+	android:gravity="center_horizontal" android:background="#ffffff">
+
+	<EditText android:id="@+id/category_add" android:layout_width="200dp"
+		android:layout_height="wrap_content" />
+
+	<Button android:id="@+id/category_add_submit"
+		android:layout_width="80dp" android:layout_height="wrap_content"
+		android:text="Submit" android:layout_marginBottom="20dp" 
+		android:background="@drawable/button_small" style="@style/mainFontSmall"/>
+</LinearLayout>

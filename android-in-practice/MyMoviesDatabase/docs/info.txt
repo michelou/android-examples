@@ -1,0 +1,8 @@
+TheMovieDb.org API key for MyMovies (created from my personal account -- Charlie):
+e83a393a2cd8bf5a978ee1909e32d531
+
+Authd user session key required for any writable API call, but for read, no auth needed.
+http://api.themoviedb.org/2.1/methods/Auth.getSession
+
+Movie search:
+http://api.themoviedb.org/2.1/Movie.search/en/xml/e83a393a2cd8bf5a978ee1909e32d531/Transformers

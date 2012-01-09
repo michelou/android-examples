@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent" android:layout_height="fill_parent">
+	<LinearLayout android:orientation="vertical"
+		android:layout_width="fill_parent" android:layout_height="fill_parent"
+		android:gravity="center_horizontal">
+
+		<TextView android:id="@+id/movie_detail_name"
+			android:layout_width="wrap_content" android:layout_height="wrap_content"
+			android:textStyle="bold" style="@style/mainFontLarge"
+			android:gravity="center_horizontal" />
+
+		<TextView android:id="@+id/movie_detail_year"
+			android:layout_width="wrap_content" android:layout_height="wrap_content"
+			style="@style/mainFontMedium" />
+
+		<ImageView android:id="@+id/movie_detail_image"
+			android:layout_width="wrap_content" android:layout_height="wrap_content"
+			android:layout_margin="5dp" />
+
+		<TextView android:id="@+id/movie_detail_tagline"
+			android:layout_width="wrap_content" android:layout_height="wrap_content"
+			android:textStyle="italic" android:gravity="center_horizontal" />
+
+		<TextView android:id="@+id/movie_detail_rating"
+			android:layout_width="wrap_content" android:layout_height="wrap_content"
+			android:layout_marginTop="5dp" android:layout_marginBottom="5dp" />
+
+		<TextView android:id="@+id/movie_detail_categories"
+			android:layout_width="wrap_content" android:layout_height="wrap_content"
+			android:layout_marginBottom="5dp" android:textStyle="bold" />
+	</LinearLayout>
+</ScrollView>

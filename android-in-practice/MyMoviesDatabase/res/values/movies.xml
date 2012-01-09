@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string-array name="movies">
+    <item>The Shawshank Redemption</item>
+    <item>The Godfather</item>
+    <item>The Godfather: Part II</item>
+    <item>The Good, the Bad and the Ugly</item>
+    <item>Pulp Fiction</item>
+    <item>Schindler\'s List</item>
+    <item>12 Angry Men</item>
+    <item>One Flew Over the Cuckoo\'s Nest</item>
+    <item>Star Wars: Episode V - The Empire Strikes Back</item>
+    <item>The Dark Knight</item>
+    <item>Toy Story 3</item>
+    <item>The Lord of the Rings: The Return of the King</item>
+    <item>Star Wars: Episode IV - A New Hope</item>
+    <item>Seven Samurai</item>
+    <item>Casablanca</item>
+    <item>Goodfellas</item>
+    <item>Fight Club</item>
+    <item>City of God</item>
+    <item>The Lord of the Rings: The Fellowship of the Ring</item>
+    <item>Raiders of the Lost Ark</item>
+    <item>Rear Window</item>
+    <item>Psycho</item>
+    <item>The Usual Suspects</item>
+    <item>Once Upon a Time in the West</item>
+    <item>The Silence of the Lambs</item>
+    <item>The Matrix</item>
+    <item>Se7en</item>
+    <item>Memento</item>
+    <item>It\'s a Wonderful Life</item>
+    <item>The Lord of the Rings: The Two Towers</item>
+    <item>Sunset Blvd.</item>
+    <item>Dr. Strangelove or: How I Learned to Stop Worrying and Love
+      the Bomb</item>
+    <item>North by Northwest</item>
+    <item>Citizen Kane</item>
+    <item>The Professional</item>
+    <item>Apocalypse Now</item>
+    <item>Forrest Gump</item>
+    <item>American Beauty</item>
+    <item>American History X</item>
+    <item>Taxi Driver</item>
+    <item>Vertigo</item>
+    <item>Terminator 2: Judgment Day</item>
+    <item>Lawrence of Arabia</item>
+    <item>Alien</item>
+    <item>Am&#233;lie</item>
+    <item>Saving Private Ryan</item>
+    <item>WALL&#183;E</item>
+    <item>The Shining</item>
+    <item>A Clockwork Orange</item>
+    <item>Paths of Glory</item>
+    <item>The Departed</item>
+    <item>The Pianist</item>
+    <item>To Kill a Mockingbird</item>
+    <item>Aliens</item>
+    <item>Spirited Away</item>
+    <item>M</item>
+    <item>The Lives of Others</item>
+    <item>Double Indemnity</item>
+    <item>Eternal Sunshine of the Spotless Mind</item>
+    <item>Chinatown</item>
+    <item>Requiem for a Dream</item>
+    <item>L.A. Confidential</item>
+    <item>Reservoir Dogs</item>
+    <item>The Third Man</item>
+    <item>Das Boot</item>
+    <item>The Treasure of the Sierra Madre</item>
+    <item>Monty Python and the Holy Grail</item>
+    <item>City Lights</item>
+    <item>Pan\'s Labyrinth</item>
+    <item>The Bridge on the River Kwai</item>
+    <item>Raging Bull</item>
+    <item>The Prestige</item>
+    <item>Inglourious Basterds</item>
+    <item>Back to the Future</item>
+    <item>2001: A Space Odyssey</item>
+    <item>Life Is Beautiful</item>
+    <item>Modern Times</item>
+    <item>Singin\' in the Rain</item>
+    <item>Some Like It Hot</item>
+    <item>Downfall</item>
+    <item>Amadeus</item>
+    <item>Full Metal Jacket</item>
+    <item>Up</item>
+    <item>Braveheart</item>
+    <item>Cinema Paradiso</item>
+    <item>The Maltese Falcon</item>
+    <item>Once Upon a Time in America</item>
+    <item>All About Eve</item>
+    <item>Rash&#244;mon</item>
+    <item>Metropolis</item>
+    <item>Gran Torino</item>
+    <item>The Green Mile</item>
+    <item>The Elephant Man</item>
+    <item>The Great Dictator</item>
+    <item>Sin City</item>
+    <item>Rebecca</item>
+    <item>The Apartment</item>
+    <item>Gladiator</item>
+    <item>The Sting</item>
+    <item>Slumdog Millionaire</item>
+  </string-array>
+</resources>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical" android:layout_width="fill_parent"
+	android:layout_height="fill_parent" android:gravity="center_horizontal">
+
+	<Button android:id="@+id/category_add_show_dialog_button"
+		android:layout_width="150dp" android:layout_height="wrap_content"
+		android:text="New Category" android:layout_marginTop="10dp" 
+		android:background="@drawable/button_small" style="@style/mainFontSmall" />
+
+	<LinearLayout android:layout_width="fill_parent"
+		android:layout_height="2dp" android:layout_marginTop="10dp"
+		android:layout_marginBottom="10dp" android:background="#095e82" />
+
+	<TextView android:id="@+id/category_manager_label"
+		android:layout_width="fill_parent" android:layout_height="wrap_content"
+		android:gravity="center_horizontal" android:text="Categories"
+		style="@style/mainFontLarge" />
+
+	<LinearLayout android:layout_width="fill_parent"
+		android:layout_height="2dp" android:layout_marginTop="10dp"
+		android:layout_marginBottom="10dp" android:background="#095e82" />
+
+	<ListView android:id="@+id/category_manager_list"
+		android:layout_width="fill_parent" android:layout_height="0dp"
+		android:layout_weight="1" android:cacheColorHint="#00000000"
+		android:choiceMode="none" />
+
+	<TextView android:id="@+id/category_manager_list_empty"
+		android:layout_width="wrap_content" android:layout_height="wrap_content"
+		android:text="No categories" android:visibility="gone" />
+</LinearLayout>
+

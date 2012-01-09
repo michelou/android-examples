@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Used in View/Spinner1.java -->
+    <string-array name="tmdb_categories">
+        <item>Action</item>
+        <item>Adventure</item>
+        <item>Animation</item>
+        <item>Comedy</item>
+        <item>Crime</item>
+        <item>Disaster</item>
+        <item>Documentary</item>
+        <item>Drama</item>
+        <item>Eastern</item>                
+        <item>Erotic</item>
+        <item>Family</item>
+        <item>Fan Film</item>        
+        <item>Fantasy</item>        
+        <item>Film Noir</item>
+        <item>History</item>                
+        <item>Holiday</item>
+        <item>Horror</item>
+        <item>Indie</item>        
+        <item>Music</item>        
+        <item>Musical</item>
+        <item>Mystery</item>
+        <item>Neo Noir</item>                
+        <item>Road Movie</item>
+        <item>Romance</item>
+        <item>Science Fiction</item>        
+        <item>Short</item>        
+        <item>Sport</item>
+        <item>Suspense</item>
+        <item>Thriller</item>
+        <item>War</item>        
+        <item>Western</item>                
+    </string-array>
+</resources>

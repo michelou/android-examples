@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical" android:layout_width="fill_parent"
+	android:layout_height="fill_parent" android:gravity="center_horizontal">
+
+	<TextView android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:textAppearance="?android:attr/textAppearanceLarge"
+		android:text="Search by name" android:layout_margin="10dp"
+		style="@style/mainFontMedium" />
+
+	<EditText android:id="@+id/search_input" android:layout_width="300dp"
+		android:layout_height="wrap_content" />
+
+	<Button android:id="@+id/search_submit" android:layout_width="100dp"
+		android:layout_height="wrap_content" android:layout_margin="10dp"
+		android:background="@drawable/button_small" style="@style/mainFontSmall"
+		android:text="Search" />
+
+	<ListView android:id="@+id/search_results_list"
+		android:layout_width="fill_parent" android:layout_height="0dp"
+		android:layout_weight="1" android:cacheColorHint="#00000000" />
+
+	<TextView android:id="@+id/search_results_list_empty"
+		android:layout_width="wrap_content" android:layout_height="wrap_content"
+		android:text="No results" android:visibility="gone" />
+</LinearLayout>
