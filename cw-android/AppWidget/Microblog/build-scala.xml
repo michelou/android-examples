@@ -30,31 +30,59 @@
         <not><equals arg1="${scala.files.count}" arg2="0" /></not>
     </condition>
 
-    <target name="-compile-scala" depends="-compile"
-        if="contains.scala.sources" unless="do.not.compile"
+    <target name="-compile-scala" depends="-compile" if="contains.scala.sources"
         description="Compiles project's .scala files into .class files">
-        <condition property="logging" value="verbose" else="none">
-            <istrue value="${verbose}" />
-        </condition>
-        <echo message="${scalac.banner}" level="info" taskname="scalac" />
-        <scalac
-            destdir="${out.classes.absolute.dir}"
-            bootclasspathref="android.target.classpath"
-            logging="${logging}" addparams="${scala.compilerargs}"
-            classpath="${extensible.classpath}"
-            classpathref="jar.libs.ref">
-            <src path="${source.absolute.dir}" />
-            <src path="${gen.absolute.dir}" />
-            <classpath>
-                <pathelement location="${scala-library.jar}" />
-                <!-- include compiled resources -->
-                <pathelement location="${out.classes.absolute.dir}" />
-                <fileset dir="${extensible.libs.classpath}" includes="*.jar" />
-            </classpath>
-        </scalac>
+        <do-only-if-manifest-hasCode elseText="hasCode = false. Skipping...">
+            <condition property="logging" value="verbose" else="none">
+                <istrue value="${verbose}" />
+            </condition>
+            <echo message="${scalac.banner}" level="info" taskname="scalac" />
+            <scalac
+                destdir="${out.classes.absolute.dir}"
+                bootclasspathref="android.target.classpath"
+                logging="${logging}" addparams="${scala.compilerargs}"
+                classpath="${extensible.classpath}"
+                classpathref="jar.libs.ref">
+                <src path="${source.absolute.dir}" />
+                <src path="${gen.absolute.dir}" />
+                <classpath>
+                    <pathelement location="${scala-library.jar}" />
+                    <!-- include compiled resources -->
+                    <pathelement location="${out.classes.absolute.dir}" />
+                    <fileset dir="${extensible.libs.classpath}" includes="*.jar" />
+                </classpath>
+            </scalac>
+            <!-- if the project is a library then we generate a jar file -->
+            <if condition="${project.is.library}">
+                <then>
+                    <echo>Updating library output jar file...</echo>
+                    <jar destfile="${out.library.jar.file}" update="true">
+                        <fileset dir="${out.classes.absolute.dir}" excludes="**/R.class **/R$*.class"/>
+                        <fileset dir="${source.absolute.dir}" excludes="**/*.scala" />
+                    </jar>
+                </then>
+            </if>
+
+            <!-- if the project is instrumented, intrument the classes -->
+            <if condition="${build.is.instrumented}">
+                <then>
+                    <echo>Instrumenting classes from ${out.absolute.dir}/classes...</echo>
+                    <!-- It only instruments class files, not any external libs -->
+                    <emma enabled="true">
+                        <instr verbosity="${verbosity}"
+                               mode="overwrite"
+                               instrpath="${out.absolute.dir}/classes"
+                               outdir="${out.absolute.dir}/classes">
+                        </instr>
+                        <!-- TODO: exclusion filters on R*.class and allowing custom exclusion from
+                             user defined file -->
+                    </emma>
+                </then>
+            </if>
+        </do-only-if-manifest-hasCode>
     </target>
 
-    <target name="-post-compile-scala" depends="-compile-scala" unless="do.not.compile"
+    <target name="-post-compile-scala" depends="-compile-scala"
             description="Shrink project class files and Scala library into one .jar file">
         <condition property="debug.mode" value="" else="#DEBUG#">
             <equals arg1="${build.target}" arg2="debug" />
@@ -86,7 +114,10 @@
             <property name="outjars" value="" />
             <property name="libraryjars" value="" />
         </then><else>
-            <property name="shrinked.jar" location="${out.absolute.dir}/shrinked.jar" />
+            <property name="shrinked.jar" location="${out.absolute.dir}/classes.jar" />
+            <!-- Secondary dx input (jar files) is empty since all the jar
+                 files will be in the shrinked jar (see tools/ant/build.xml) -->
+            <path id="out.dex.jar.input.ref" />
             <condition property="shrink.required"><not>
                 <uptodate targetfile="${shrinked.jar}">
                     <srcfiles dir="${source.absolute.dir}" includes="**/*.scala" />
@@ -95,22 +126,37 @@
             <!-- input for dex will be proguard's output -->
             <property name="out.dex.input.absolute.dir" value="${shrinked.jar}" />        
             <!-- set the compiled project files and Scala library into a single property. -->
-            <pathconvert property="project.injars">
-                <path location="${out.classes.absolute.dir}" />
-                <path location="${scala-library.jar}(!META-INF/MANIFEST.MF,!library.properties)" />
-            </pathconvert>
+            <if condition="${uses.ramdisk}"><then>
+                <pathconvert property="project.injars">
+                    <path location="${out.classes.absolute.dir}" />
+                    <path refid="project.libraries.jars" />
+                </pathconvert>
+            </then><else>
+                <pathconvert property="project.injars">
+                    <path location="${out.classes.absolute.dir}" />
+                    <fileset dir="${jar.libs.dir}" includes="*.jar" />
+                    <path refid="project.libraries.jars" />
+                    <path location="${scala-library.jar}(!META-INF/MANIFEST.MF,!library.properties)" />
+                </pathconvert>
+            </else></if>
             <split-path property="injars" prefix="-injars" path="${project.injars}" />
             <split-path property="outjars" prefix="-outjars" path="${shrinked.jar}" />
             <!-- set the android classpath object into a single property. -->
-            <pathconvert property="project.libraryjars">
-                <fileset dir="${jar.libs.dir}" includes="*.jar" />
-                <path refid="android.target.classpath" />
-            </pathconvert>
+            <if condition="${uses.ramdisk}"><then>
+                <pathconvert property="project.libraryjars">
+                    <path location="${scala-library.jar}(!META-INF/MANIFEST.MF,!library.properties)" />
+                    <path refid="android.target.classpath" />
+                </pathconvert>
+            </then><else>
+                <pathconvert property="project.libraryjars">
+                    <path refid="android.target.classpath" />
+                </pathconvert>
+            </else></if>
             <split-path property="libraryjars" prefix="-libraryjars" path="${project.libraryjars}" />
         </else></if>
         <!-- Name of the application package extracted from manifest file -->
         <xpath input="AndroidManifest.xml" expression="/manifest/@package"
-                output="manifest.package" />
+               output="manifest.package" />
         <copy file="${template.cfg}" tofile="${proguard.cfg}">
             <filterchain>
                 <replacetokens>
@@ -129,26 +175,7 @@
         </then></if>
     </target>
 
-    <target name="install-release" depends="release"
-            description="Installs/reinstalls the release package onto a running
-                         emulator or device. If the application was previously
-                         installed, the signatures must match." >
-        <install-release-helper />
-    </target>
-
     <!-- Macros -->
-
-    <macrodef name="install-release-helper">
-        <sequential>
-            <echo>Installing ${out.release.file} onto default emulator or device...</echo>
-            <exec executable="${adb}" failonerror="true">
-                <arg line="${adb.device.arg}" />
-                <arg value="install" />
-                <arg value="-r" />
-                <arg path="${out.release.file}" />
-            </exec>
-        </sequential>
-    </macrodef>
 
     <macrodef name="generate-header">
         <attribute name="property" />

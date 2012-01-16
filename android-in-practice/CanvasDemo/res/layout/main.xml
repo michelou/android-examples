@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:aip="http://schemas.android.com/apk/res/com.manning.aip.canvasdemo"
+	android:layout_width="fill_parent" android:layout_height="wrap_content">
+	<LinearLayout android:orientation="vertical"
+		android:layout_width="fill_parent" android:layout_height="fill_parent"
+		android:layout_margin="10dp">
+
+		<Button android:id="@+id/randcolor_button"
+			android:layout_marginTop="10dp" android:layout_width="wrap_content" android:layout_height="wrap_content"
+			android:text="1. Random Color" />
+
+		<Button android:id="@+id/randcolor_fullscreen_button"
+			android:layout_width="wrap_content" android:layout_height="wrap_content"
+			android:text="2. Random Color Full Screen" />
+
+		<Button android:id="@+id/randomshapes_button"
+			android:layout_width="wrap_content" android:layout_height="wrap_content"
+			android:text="3. Random Shapes" />
+
+		<Button android:id="@+id/randomshapes_alpha_button"
+			android:layout_width="wrap_content" android:layout_height="wrap_content"
+			android:text="4. Random Shapes with Alpha" />
+
+		<Button android:id="@+id/randomshapes_redraw_button"
+			android:layout_width="wrap_content" android:layout_height="wrap_content"
+			android:text="5. Random Shapes Redraw" />
+
+		<Button android:id="@+id/shapesandtext_lhx_button"
+			android:layout_width="wrap_content" android:layout_height="wrap_content"
+			android:text="6. Shapes And Text LHX Style" />
+
+		<Button android:id="@+id/shapesandtext_font_button"
+			android:layout_width="wrap_content" android:layout_height="wrap_content"
+			android:text="7. Shapes And Text with TrueType Font" />
+
+		<Button android:id="@+id/shapesandtext_bitmap_button"
+			android:layout_width="wrap_content" android:layout_height="wrap_content"
+			android:text="8. Shapes with Bitmap" />
+
+		<com.manning.aip.canvasdemo.CustomButton
+			android:id="@+id/custom_button" android:layout_width="wrap_content"
+			android:layout_height="60dp" android:layout_marginLeft="3dp"
+			aip:count="100" aip:text="Super Fancy Button" />
+	</LinearLayout>
+</ScrollView>

@@ -37,8 +37,8 @@ free software distributions (tested versions and download sites are given in
 parenthesis) :
 
 1) Sun Java SDK 1.6 or newer (1.6.0_26   , www.sun.com/java/jdk/)
-2) Scala SDK 2.7.5 or newer  (2.9.0.1    , www.scala-lang.org/downloads/)
-3) Android SDK 9 or newer    (12         , developer.android.com/sdk/)
+2) Scala SDK 2.7.5 or newer  (2.9.1      , www.scala-lang.org/downloads/)
+3) Android SDK 9 or newer    (16         , developer.android.com/sdk/)
 4) Apache Ant 1.7.0 or newer (1.8.2      , ant.apache.org/)
 5) ProGuard 4.4 or newer     (4.6        , www.proguard.com/)
 
@@ -60,14 +60,14 @@ In particular:
   system needs to run the application's code (for more details see the docu-
   mentation page $ANDROID_SDK_ROOT/docs/guide/topics/manifest/manifest-intro.html)
 
-* The "build.properties" file defines customizable Ant properties for the
+* The "ant.properties" file defines customizable Ant properties for the
   Android build system; in our case we need to define at least the following
   properties (please adapt the respective values to your own environment):
 
-  Unix:                                Windows:
-     sdk.dir=/opt/android-sdk-linux_x86   sdk.dir=c:/Progra~1/android-sdk-windows
-     scala.dir=/opt/scala                 scala.dir=c:/Progra~1/scala
-     proguard.dir=/opt/proguard           proguard.dir=c:/Progra~1/ProGuard
+  Unix:                                   Windows:
+    sdk.dir=/opt/android-sdk-linux_x86      sdk.dir=c:/Progra~1/android-sdk-windows
+    scala.dir=/opt/scala                    scala.dir=c:/Progra~1/scala
+    proguard.dir=${sdk.dir}/tools/proguard  proguard.dir=${sdk.dir}/tools/proguard
 
 * The "default.properties" file defines the default API level of an Android
   (for more details see the documentation page
@@ -108,7 +108,7 @@ one of the following Ant targets :
    BounceyBall> ant clean
    BounceyBall> ant scala-compile
    BounceyBall> ant debug
-   BounceyBall> ant install
+   BounceyBall> ant installd
    (now let us play with our application on the emulator !)
    BounceyBall> ant uninstall
 
@@ -129,5 +129,5 @@ See also http://developer.android.com/guide/publishing/app-signing.html
 
 
 Have fun!
-The Scala Team
+Stephane
 
