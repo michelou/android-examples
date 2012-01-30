@@ -18,7 +18,7 @@ Note that the build instructions below apply to both the Unix and Windows
 environments.
 
 All Android examples have been run successfully on the virtual Android device
-"API_8" configured as follows: 2.2 target, 256M SD card and HVGA skin
+"API_10" configured as follows: 2.3.3 target, 256M SD card and HVGA skin
 (for more details see the documentation page
 $ANDROID_SDK_ROOT/docs/guide/developing/tools/avd.html).
 
@@ -36,10 +36,10 @@ free software distributions (tested versions and download sites are given in
 parenthesis) :
 
 1) Sun Java SDK 1.6 or newer (1.6.0_26   , www.sun.com/java/jdk/)
-2) Scala SDK 2.7.5 or newer  (2.9.1      , www.scala-lang.org/downloads/)
+2) Scala SDK 2.7.5 or newer  (2.10.0     , www.scala-lang.org/downloads/)
 3) Android SDK 9 or newer    (16         , developer.android.com/sdk/)
 4) Apache Ant 1.7.0 or newer (1.8.2      , ant.apache.org/)
-5) ProGuard 4.4 or newer     (4.6        , www.proguard.com/)
+5) ProGuard 4.4 or newer     (4.7        , proguard.sourceforge.net/)
 
 NB. In this document we rely on Ant tasks featured by the Scala SDK, the
 Android SDK and the ProGuard shrinker and obfuscator tool (we will say more
@@ -95,10 +95,10 @@ Project Build
 -------------
 
 We assume here the Android emulator is up and running; if not we start it
-using the shell command (let us assume the existence of the "API_8"
+using the shell command (let us assume the existence of the "API_10"
 virtual device) :
 
-   android-sdk> emulator -no-boot-anim -no-jni -avd API_8 &
+   android-sdk> emulator -no-boot-anim -no-jni -avd API_10 &
 
 Then we move for instance to the "Snake" project directory and execute one of
 the following Ant targets :

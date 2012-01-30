@@ -54,7 +54,7 @@ class ViewStocks extends ListActivity {
 
     def onServiceDisconnected(className: ComponentName) {
       stockService = null
-      Log.d(LOGGING_TAG,"Disconnected from service")
+      Log.d(LOGGING_TAG, "Disconnected from service")
     }
 
   }
@@ -122,10 +122,6 @@ class ViewStocks extends ListActivity {
     val button = findViewById(R.id.btn).asInstanceOf[Button]
     button setOnClickListener new OnClickListener {
       def onClick(v: View) {
-        def getDouble(v: EditText): Double = {
-          val s = v.getText.toString
-          try s.toDouble catch { case _ => 0D }
-        }
         val symbol = symbolIn.getText.toString
         symbolIn setText ""
         val max = getDouble(maxIn)
@@ -134,7 +130,7 @@ class ViewStocks extends ListActivity {
         minIn setText ""
         val pricePaid = getDouble(priceIn)
         priceIn setText ""
-        val quantity = quantIn.getText.toString.toInt
+        val quantity = getInt(quantIn)
         quantIn setText ""
         val stock = new Stock(symbol, pricePaid, quantity)
         stock setMaxPrice max
@@ -155,9 +151,9 @@ class ViewStocks extends ListActivity {
             Log.d(LOGGING_TAG, "Stock returned from service: " + s)
             if (s == null) {
               Log.w(LOGGING_TAG, "Stock returned from Service " +
-                  "was null or invalid")
+                "was null or invalid")
               Toast.makeText(ViewStocks.this, "Stock not found", 
-                  Toast.LENGTH_SHORT)
+                Toast.LENGTH_SHORT)
             } else
               refreshStockData()
           }
@@ -211,5 +207,14 @@ class ViewStocks extends ListActivity {
 
 object ViewStocks {
   private final val LOGGING_TAG = "ViewStocks"
+
+  private def getDouble(v: EditText): Double = {
+    val s = v.getText.toString
+    try s.toDouble catch { case _ => 0D }
+  }
+  private def getInt(v: EditText): Int = {
+    val s = v.getText.toString
+    try s.toInt catch { case _ => 0 }
+  }
 }
 

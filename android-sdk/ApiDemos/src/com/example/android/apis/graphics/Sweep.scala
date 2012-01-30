@@ -58,9 +58,7 @@ class Sweep extends GraphicsActivity {
       mMatrix.setRotate(mRotate, x, y)
       mShader setLocalMatrix mMatrix
       mRotate += 3
-      if (mRotate >= 360) {
-        mRotate = 0
-      }
+      if (mRotate >= 360) mRotate = 0
       invalidate()
 
       if (mDoTiming) {
@@ -69,7 +67,7 @@ class Sweep extends GraphicsActivity {
           canvas.drawCircle(x, y, 80, paint)
         }
         now = System.currentTimeMillis - now
-        android.util.Log.d("skia", "sweep ms = " + (now/20.))
+        android.util.Log.d("skia", "sweep ms = " + (now/20.0))
       }
       else {
         canvas.drawCircle(x, y, 80, paint)

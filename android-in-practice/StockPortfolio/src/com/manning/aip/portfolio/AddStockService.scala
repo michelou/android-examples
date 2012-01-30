@@ -10,7 +10,7 @@ import android.widget.Button
 import AddStockService._
 
 class AddStockService extends IntentService(NAME) {
-	
+
   override protected def onHandleIntent(request: Intent) {
     val stock = request getParcelableExtra EXTRA_STOCK
     val db = new StocksDb(this)

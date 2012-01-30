@@ -64,7 +64,3 @@ class DirectionPoint(x: Float, y: Float) {
   }
 }
 
-object AmbiguousDirection extends Enumeration {
-  val Vertical, Horizonal, Unknown = Value
-}
-

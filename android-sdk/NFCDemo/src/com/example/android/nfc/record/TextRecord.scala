@@ -71,8 +71,8 @@ object TextRecord {
        *
        * Bits 5 to 0 are the length of the IANA language code.
        */
-      val textEncoding = if ((payload(0) & 0200) == 0) "UTF-8" else "UTF-16"
-      val languageCodeLength = payload(0) & 0077
+      val textEncoding = if ((payload(0) & 0x80/*0200*/) == 0) "UTF-8" else "UTF-16"
+      val languageCodeLength = payload(0) & 0x3f/*0077*/
       val languageCode = new String(payload, 1, languageCodeLength, Charsets.US_ASCII)
       val text = new String(payload, languageCodeLength + 1,
                             payload.length - languageCodeLength - 1, textEncoding)

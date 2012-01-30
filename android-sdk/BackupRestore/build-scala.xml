@@ -90,10 +90,6 @@
         <condition property="release.mode" value="" else="#RELEASE#">
             <equals arg1="${build.target}" arg2="release" />
         </condition>
-        <!-- priority is given to local ProGuard configuration if present -->
-        <condition property="template.cfg" value="${basedir}/local-proguard-template.cfg">
-            <available file="${basedir}/local-proguard-template.cfg" />
-        </condition>
         <condition property="template.cfg" value="${basedir}/proguard-template.cfg">
             <available file="${basedir}/proguard-template.cfg" />
         </condition>
@@ -109,7 +105,7 @@
             <path id="project.libraries.jars">
                 <pathelement location="${scala-library.jar}" />
             </path>
-            <!-- we use properties defined in main_rules.xml -->
+            <!-- we use properties defined in tools/ant/build.xml -->
             <property name="injars" value="" />
             <property name="outjars" value="" />
             <property name="libraryjars" value="" />
@@ -157,6 +153,20 @@
         <!-- Name of the application package extracted from manifest file -->
         <xpath input="AndroidManifest.xml" expression="/manifest/@package"
                output="manifest.package" />
+        <!-- we include local configuration if present -->
+        <if>
+            <condition>
+                <available file="${basedir}/proguard-local.cfg" />
+            </condition>
+            <then>
+                <loadfile
+                    property="includes" srcfile="${basedir}/proguard-local.cfg"
+                    failonerror="false" quiet="true" />
+            </then>
+            <else>
+                <property name="includes" value="" />
+            </else>
+        </if>
         <copy file="${template.cfg}" tofile="${proguard.cfg}">
             <filterchain>
                 <replacetokens>
@@ -167,6 +177,7 @@
                     <token key="PACKAGENAME" value="${manifest.package}" />
                     <token key="DEBUG" value="${debug.mode}" />
                     <token key="RELEASE" value="${release.mode}" />
+                    <token key="INCLUDES" value="${includes}" />
                 </replacetokens>
             </filterchain>
         </copy>

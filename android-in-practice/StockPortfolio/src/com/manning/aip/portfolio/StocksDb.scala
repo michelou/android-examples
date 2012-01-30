@@ -78,7 +78,7 @@ class StocksDb(private val context: Context) {
    * @return  List of all of the Stocks stored in the database.
    */
   def getStocks: List[Stock] = {
-    Log.d(TAG, "Getting stocks form DB")
+    Log.d(TAG, "Getting stocks from DB")
     val results = db.rawQuery(READ_SQL, null)
     val stocks = new collection.mutable.ListBuffer[Stock]
     if (results.moveToFirst()){

@@ -80,6 +80,8 @@
          in order to avoid having your file be overridden by tools such as "android update project"
     -->
     <!-- version-tag: 1 -->
+    <property name="version-tag" value="custom" />
+
     <import file="${sdk.dir}/tools/ant/build.xml" />
 
     <import file="build-scala.xml" />
