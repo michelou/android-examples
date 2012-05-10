@@ -41,11 +41,12 @@
                 destdir="${out.classes.absolute.dir}"
                 bootclasspathref="android.target.classpath"
                 logging="${logging}" addparams="${scala.compilerargs}"
-                classpath="${extensible.classpath}"
-                classpathref="jar.libs.ref">
+                classpath="${extensible.classpath}">
                 <src path="${source.absolute.dir}" />
                 <src path="${gen.absolute.dir}" />
                 <classpath>
+                    <fileset dir="${jar.libs.absolute.dir}" includes="*.jar" />
+                    <path refid="project.libraries.jars" />
                     <pathelement location="${scala-library.jar}" />
                     <!-- include compiled resources -->
                     <pathelement location="${out.classes.absolute.dir}" />
@@ -110,17 +111,17 @@
             <property name="outjars" value="" />
             <property name="libraryjars" value="" />
         </then><else>
-            <property name="out.library.jar.file" location="${out.absolute.dir}/classes.jar" />
+            <property name="shrinked.jar" location="${out.absolute.dir}/shrinked.jar" />
             <!-- Secondary dx input (jar files) is empty since all the jar
                  files will be in the shrinked jar (see tools/ant/build.xml) -->
             <path id="out.dex.jar.input.ref" />
             <condition property="shrink.required"><not>
-                <uptodate targetfile="${out.library.jar.file}">
+                <uptodate targetfile="${shrinked.jar}">
                     <srcfiles dir="${source.absolute.dir}" includes="**/*.scala" />
                 </uptodate>
             </not></condition>
             <!-- input for dex will be proguard's output -->
-            <property name="out.dex.input.absolute.dir" value="${out.library.jar.file}" />        
+            <property name="out.dex.input.absolute.dir" value="${shrinked.jar}" />        
             <!-- set the compiled project files and Scala library into a single property. -->
             <if condition="${uses.ramdisk}"><then>
                 <pathconvert property="project.injars">
@@ -136,7 +137,7 @@
                 </pathconvert>
             </else></if>
             <split-path property="injars" prefix="-injars" path="${project.injars}" />
-            <split-path property="outjars" prefix="-outjars" path="${out.library.jar.file}" />
+            <split-path property="outjars" prefix="-outjars" path="${shrinked.jar}" />
             <!-- set the android classpath object into a single property. -->
             <if condition="${uses.ramdisk}"><then>
                 <pathconvert property="project.libraryjars">

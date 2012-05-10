@@ -36,10 +36,10 @@ In order to build/run our Android examples we need to install the following
 free software distributions (last tested versions and download sites are given
 in parenthesis) :
 
-1) Java SDK 1.6 +     (1.6.0_26, www.oracle.com/technetwork/java/javase/downloads/)
+1) Java SDK 1.6 +     (1.7.0_03, www.oracle.com/technetwork/java/javase/downloads/)
 2) Scala SDK 2.7.5 +  (2.10.0  , www.scala-lang.org/downloads/)
-3) Android SDK 9 +    (16      , developer.android.com/sdk/)
-4) Apache Ant 1.7.0 + (1.8.2   , ant.apache.org/)
+3) Android SDK 9 +    (19      , developer.android.com/sdk/)
+4) Apache Ant 1.7.0 + (1.8.3   , ant.apache.org/)
 5) ProGuard 4.4 +     (4.7     , proguard.sourceforge.net/)
 
 NB. In this document we rely on Ant tasks featured by the Scala SDK, the

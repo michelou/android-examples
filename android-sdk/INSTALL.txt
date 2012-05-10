@@ -188,5 +188,5 @@ $ adb shell echo '$PATH'
 
 
 Have fun!
-The Scala Team
+Stephane
 

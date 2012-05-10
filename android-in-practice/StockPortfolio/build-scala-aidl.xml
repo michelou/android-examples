@@ -26,10 +26,11 @@
             includes="**/Stock.scala"
             destdir="${out.classes.absolute.dir}"
             bootclasspathref="android.target.classpath"
-            logging="${logging}" addparams="${scalac.addparams}"
-            classpathref="jar.libs.ref">
+            logging="${logging}" addparams="${scalac.addparams}">
             <src path="${source.absolute.dir}" />
             <classpath>
+                <fileset dir="${jar.libs.absolute.dir}" includes="*.jar" />
+                <path refid="project.libraries.jars" />
                 <pathelement location="${scala-library.jar}" />
             </classpath>
         </scalac>

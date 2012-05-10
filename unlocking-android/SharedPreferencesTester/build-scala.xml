@@ -41,11 +41,12 @@
                 destdir="${out.classes.absolute.dir}"
                 bootclasspathref="android.target.classpath"
                 logging="${logging}" addparams="${scala.compilerargs}"
-                classpath="${extensible.classpath}"
-                classpathref="jar.libs.ref">
+                classpath="${extensible.classpath}">
                 <src path="${source.absolute.dir}" />
                 <src path="${gen.absolute.dir}" />
                 <classpath>
+                    <fileset dir="${jar.libs.absolute.dir}" includes="*.jar" />
+                    <path refid="project.libraries.jars" />
                     <pathelement location="${scala-library.jar}" />
                     <!-- include compiled resources -->
                     <pathelement location="${out.classes.absolute.dir}" />

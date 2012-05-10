@@ -84,7 +84,7 @@
 
     <import file="${sdk.dir}/tools/ant/build.xml" />
 
-    <import file="build-scala-tests.xml" />
+    <import file="build-scala.xml" />
 
     <target name="-post-compile" depends="-post-compile-scala" />
 

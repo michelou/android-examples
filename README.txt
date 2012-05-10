@@ -73,5 +73,5 @@ http://www.scala-lang.org/
 
 
 Have fun!
-The Scala Team
+Stephane
 
