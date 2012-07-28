@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="mac-shim">
+	<!-- This file is intended to fix discrepancies between 
+			named variables on the linux and osx distributions
+			of the android-sdk/tools/ant/build.xml file -->
+
+	<echo message="Declaring variables for Mac compatibility..." level="info" taskname="mac_shim" />
+	<condition property="extensible.classpath"
+		value="${tested.project.absolute.dir}/bin/classes"
+		else="." >
+		<isset property="tested.project.absolute.dir" />
+	</condition>
+	<condition property="extensible.libs.classpath"
+		value="${tested.project.absolute.dir}/${jar.libs.dir}"
+		else="${jar.libs.dir}" >
+		<isset property="tested.project.absolute.dir" />
+	</condition>
+	<path id="android.target.classpath"> 
+		<path refid="project.target.class.path" />
+	</path>
+	<path id="project.libraries.jars" >
+		<path refid="project.all.jars.path" />
+	</path>
+</project>
