@@ -15,7 +15,7 @@ following sources:
      detailed instructions.
 
 
-   * Android in Practice book (http://code.google.com/p/android-in-practice/)
+   * Android in Practice book (https://code.google.com/archive/p/android-in-practice)
 
      Please read the file README.txt in the "android-in-practice" subdirectory
      for detailed instructions.
@@ -24,7 +24,7 @@ following sources:
      and is published by Manning Publications Co. (ISBN: 978-1-9355182-92-4).
 
 
-   * Unlocking Android book (http://code.google.com/p/unlocking-android/)
+   * Unlocking Android book (https://code.google.com/archive/p/unlocking-android)
 
      Please read the file README.txt in the "unlocking-android" subdirectory
      for detailed instructions.
@@ -33,13 +33,13 @@ following sources:
      and is published by Manning Publications Co. (ISBN: 978-1-933988-67-2).
 
 
-   * "apps-for-android" project (http://code.google.com/p/apps-for-android/)
+   * "apps-for-android" project (https://code.google.com/archive/p/apps-for-android)
 
      Please read the file README.txt in the "apps-for-android" subdirectory
      for detailed instructions.
 
 
-   * Hello, Android! book (http://www.pragprog.com/titles/eband/hello-android)
+   * Hello, Android! book (https://pragprog.com/titles/eband/hello-android)
 
      Please read the file README.txt in the "hello-android" subdirectory
      for detailed instructions.
@@ -49,7 +49,7 @@ following sources:
 
 
    * Teach Yourself Android Application Development in 24 Hours
-     (http://www.informit.com/title/9780321673350)
+     (http://www.informit.com/store/sams-teach-yourself-android-application-development-9780321673350)
 
      Please read the file README.txt in the "android-app-dev" subdirectory
      for detailed instructions.
