@@ -59,7 +59,6 @@ following sources:
 
 
    * The Busy Coder's Guide to Android Development
-     (http://www.commmonsware.com/Android/)
 
      Please read the file README.txt in the "cw-android" subdirectory
      for detailed instructions.
